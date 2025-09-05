@@ -1,0 +1,390 @@
+{
+  "id": "LAolCQCxhKbXBswndhSuP",
+  "name": "Create Employee Test",
+  "workflowName": "Create Employee Test",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jgpWAGmLiHlyPFStCxopC",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "QmWUMdvmhgBBVYKmMvujp",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "End",
+        "sourceSchemas": [
+          "ewHbhtJrVyOavdoSoyTiw",
+          "kFWYLZTxKvaywMfFJVkUw",
+          "raaCqnyTBsvzglqUZyCRn",
+          "CtrcezFVTDFRpZEenycEJ"
+        ]
+      },
+      "activityCluster": []
+    },
+    {
+      "id": "CtrcezFVTDFRpZEenycEJ",
+      "stepName": "CreateEmployee",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "output": "IHTFFLEXYIVWjCTKUnHCr",
+        "name": "CreateEmployee",
+        "description": "",
+        "path": "/createEmployeeTest",
+        "method": [
+          "POST"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "raaCqnyTBsvzglqUZyCRn",
+      "stepName": "UseProfile",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "UseProfile",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "UseProfile",
+        "sourceSchemas": [
+          "CtrcezFVTDFRpZEenycEJ"
+        ]
+      }
+    },
+    {
+      "id": "kFWYLZTxKvaywMfFJVkUw",
+      "stepName": "SetContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "SetContext",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "SetContext",
+        "description": "",
+        "contexts": [
+          "Rosnet"
+        ],
+        "overWriteIfExists": true,
+        "sourceSchemas": [
+          "raaCqnyTBsvzglqUZyCRn",
+          "CtrcezFVTDFRpZEenycEJ"
+        ]
+      }
+    },
+    {
+      "id": "ewHbhtJrVyOavdoSoyTiw",
+      "stepName": "ProcessCreateEmployee",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Subflow to process create employee",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "ProcessCreateEmployee",
+        "description": "Subflow to process create employee",
+        "subflowPath": "wf:{\"id\":\"lMeaDyulkyOJayrVgEHIa/wDasKjHzNamMBKTFjRRSq\",\"name\":\"/Workflows/Process/Create Employee\"}",
+        "waitForCompletion": true,
+        "contextMapping": [
+          {
+            "subflowContext": "Rosnet",
+            "workflowContext": "Rosnet"
+          }
+        ],
+        "sourceSchemas": [
+          "kFWYLZTxKvaywMfFJVkUw",
+          "raaCqnyTBsvzglqUZyCRn",
+          "CtrcezFVTDFRpZEenycEJ"
+        ]
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "GDPBDmZXUfGvVymOQGvYA",
+      "from": "ewHbhtJrVyOavdoSoyTiw",
+      "to": "QmWUMdvmhgBBVYKmMvujp",
+      "handleMap": {
+        "source": "ewHbhtJrVyOavdoSoyTiw_2",
+        "target": "QmWUMdvmhgBBVYKmMvujp_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "igvfebYvRoCdMBbJPDlhZ",
+      "from": "kFWYLZTxKvaywMfFJVkUw",
+      "to": "ewHbhtJrVyOavdoSoyTiw",
+      "handleMap": {
+        "source": "kFWYLZTxKvaywMfFJVkUw_2",
+        "target": "ewHbhtJrVyOavdoSoyTiw_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "FcaQQzCNlorzBwScGyYdb",
+      "from": "CtrcezFVTDFRpZEenycEJ",
+      "to": "raaCqnyTBsvzglqUZyCRn",
+      "handleMap": {
+        "source": "CtrcezFVTDFRpZEenycEJ_1",
+        "target": "raaCqnyTBsvzglqUZyCRn_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "xeoZazLSTNmVDUqGvQEAH",
+      "from": "raaCqnyTBsvzglqUZyCRn",
+      "to": "kFWYLZTxKvaywMfFJVkUw",
+      "handleMap": {
+        "source": "raaCqnyTBsvzglqUZyCRn_2",
+        "target": "kFWYLZTxKvaywMfFJVkUw_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "QmWUMdvmhgBBVYKmMvujp": {
+      "x": 1276,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "QmWUMdvmhgBBVYKmMvujp_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "CtrcezFVTDFRpZEenycEJ": {
+      "x": 624,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "CtrcezFVTDFRpZEenycEJ_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "raaCqnyTBsvzglqUZyCRn": {
+      "x": 788,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "raaCqnyTBsvzglqUZyCRn_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "raaCqnyTBsvzglqUZyCRn_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "kFWYLZTxKvaywMfFJVkUw": {
+      "x": 960,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "kFWYLZTxKvaywMfFJVkUw_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "kFWYLZTxKvaywMfFJVkUw_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "ewHbhtJrVyOavdoSoyTiw": {
+      "x": 1120,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "ewHbhtJrVyOavdoSoyTiw_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "ewHbhtJrVyOavdoSoyTiw_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "QmWUMdvmhgBBVYKmMvujp": {
+      "metaInfo": {
+        "id": "QmWUMdvmhgBBVYKmMvujp",
+        "versionInfo": {
+          "version": "0.0.1"
+        },
+        "name": "End",
+        "description": ""
+      },
+      "mappings": {}
+    },
+    "ewHbhtJrVyOavdoSoyTiw": {
+      "metaInfo": {
+        "id": "ewHbhtJrVyOavdoSoyTiw",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "Subflow",
+        "description": ""
+      },
+      "mappings": {
+        "Subflow": {
+          "tenantId": "$.CreateEmployee.body.tenantId",
+          "legalEntityId": "$.CreateEmployee.body.legalEntityId",
+          "eventEffectiveDate": "$.CreateEmployee.body.eventEffectiveDate",
+          "jobInfo": [
+            {
+              "jobCode": "$.CreateEmployee.body.jobInfo[1].jobCode",
+              "payRate": "$.CreateEmployee.body.jobInfo[1].payRate",
+              "eventEffectiveDate": "$.CreateEmployee.body.jobInfo[1].eventEffectiveDate",
+              "__arrayItemName__": "jobInfo"
+            }
+          ],
+          "clientCode": "$.CreateEmployee.body.clientCode",
+          "firstName": "$.CreateEmployee.body.firstName",
+          "lastName": "$.CreateEmployee.body.lastName",
+          "ssn": "$.CreateEmployee.body.ssn",
+          "dob": "$.CreateEmployee.body.dob",
+          "payrollProvider_EmployeeUID": "$.CreateEmployee.body.payrollProvider_EmployeeUID",
+          "posProvider_EmployeeUID": "$.CreateEmployee.body.posProvider_EmployeeUID",
+          "insertDate": "$.CreateEmployee.body.insertDate",
+          "updateDate": "$.CreateEmployee.body.updateDate",
+          "emailId": "$.CreateEmployee.body.emailId",
+          "alohaMagCardOnly": "$.CreateEmployee.body.alohaMagCardOnly",
+          "locationNumber": "$.CreateEmployee.body.locationNumber",
+          "jobTitle": "$.CreateEmployee.body.jobTitle",
+          "locationName": "$.CreateEmployee.body.locationName"
+        }
+      },
+      "attributes": {}
+    },
+    "kFWYLZTxKvaywMfFJVkUw": {
+      "metaInfo": {
+        "id": "kFWYLZTxKvaywMfFJVkUw",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "SetContext",
+        "description": ""
+      },
+      "mappings": {
+        "SetContext": {
+          "contexts": {
+            "Rosnet": {
+              "application": "$.gv.Context.app",
+              "env": "$.gv.Context.env",
+              "provider": "'Rosnet'",
+              "resourceType": "'OAuth'",
+              "tag": {
+                "name": "'legalEntityId'",
+                "value": "valueOf($.CreateEmployee.body.legalEntityId)"
+              }
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "raaCqnyTBsvzglqUZyCRn": {
+      "metaInfo": {
+        "id": "raaCqnyTBsvzglqUZyCRn",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "UseProfile",
+        "description": ""
+      },
+      "mappings": {
+        "UseProfile": {
+          "profileName": "valueOf($.CreateEmployee.body.legalEntityId)"
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [
+    {
+      "id": "fFHHbVCWtmNOMEqZBdZkV",
+      "position": {
+        "x": 528,
+        "y": -112
+      },
+      "description": "Workflow to send collected API data from parent flow to send Employee API.",
+      "width": 150,
+      "height": 118
+    }
+  ],
+  "config": {
+    "name": "Create Employee Test",
+    "description": "",
+    "workflowAttributes": [],
+    "context": "{\"Rosnet\":\"A4N8Q1L\"}",
+    "errorConfig": []
+  }
+}

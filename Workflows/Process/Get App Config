@@ -1,0 +1,602 @@
+{
+  "id": "bUPOjeGcHzphUOSlevENN",
+  "name": "Get App Config",
+  "workflowName": "Get App Config",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "eDZcvXJbAMvmGbdyjlASN",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "QStwlIPgneiwhPDpHxmMP",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "End",
+        "sourceSchemas": [
+          "UlthdZqmeeFhLhciXULpL",
+          "VgnjzVMcEAVmBtEvsErfb",
+          "lqOUaLOlDsyBePMAFwZzl",
+          "bcPGJWekZprbWvpSGQarc",
+          "KeCXbLVQORgxzjOYflgYJ"
+        ],
+        "targetSchema": "EMwnQiKaRHeIicdCXIGPZ",
+        "inputRootArrayName": "InstanceRecordEntityList"
+      },
+      "activityCluster": []
+    },
+    {
+      "id": "KeCXbLVQORgxzjOYflgYJ",
+      "stepName": "Start",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Start",
+        "activityGroup": "Common",
+        "activityType": "EVENT_SOURCE",
+        "output": "PdYfZrWBCKBRDChPnjNqH",
+        "name": "Start",
+        "sourceSchemas": []
+      }
+    },
+    {
+      "id": "lqOUaLOlDsyBePMAFwZzl",
+      "stepName": "GetIntegrationConfigMappingRecords",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "GetIntegrationConfigMappingRecords",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "name": "GetIntegrationConfigMappingRecords",
+        "description": "",
+        "output": "",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "sourceSchemas": [
+          "bcPGJWekZprbWvpSGQarc",
+          "KeCXbLVQORgxzjOYflgYJ"
+        ]
+      },
+      "activityCluster": []
+    },
+    {
+      "id": "UlthdZqmeeFhLhciXULpL",
+      "stepName": "UpsertJobCodes",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to upsert Jobcodes from config list.",
+      "deletable": true,
+      "config": {
+        "activityName": "DataTableUpsert",
+        "activityGroup": "DataTables",
+        "activityType": "SIMPLE",
+        "name": "UpsertJobCodes",
+        "description": "Activity to upsert Jobcodes from config list.",
+        "dataTable": "dt:{\"id\":\"ndUwhEkvxGnxGYIUZruts\",\"name\":\"RosnetInstanceJobcodeRecords\"}",
+        "ttl": 120,
+        "columns": [
+          {
+            "name": "legalEntityId",
+            "isKey": true
+          },
+          {
+            "name": "instanceRecordId",
+            "isKey": false
+          },
+          {
+            "name": "instanceId",
+            "isKey": false
+          },
+          {
+            "name": "configRecordId",
+            "isKey": false
+          },
+          {
+            "name": "instanceScopeId",
+            "isKey": false
+          },
+          {
+            "name": "toValue",
+            "isKey": false
+          },
+          {
+            "name": "isDefaultRecord",
+            "isKey": false
+          },
+          {
+            "name": "isDeleted",
+            "isKey": false
+          },
+          {
+            "name": "recordName",
+            "isKey": false
+          },
+          {
+            "name": "fromValue",
+            "isKey": false
+          }
+        ],
+        "isCustomType": true,
+        "sourceSchemas": [
+          "VgnjzVMcEAVmBtEvsErfb",
+          "lqOUaLOlDsyBePMAFwZzl",
+          "bcPGJWekZprbWvpSGQarc",
+          "KeCXbLVQORgxzjOYflgYJ"
+        ]
+      }
+    },
+    {
+      "id": "VgnjzVMcEAVmBtEvsErfb",
+      "stepName": "UpsertLocations",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to upsert Locations from config list.",
+      "deletable": true,
+      "config": {
+        "activityName": "DataTableUpsert",
+        "activityGroup": "DataTables",
+        "activityType": "SIMPLE",
+        "name": "UpsertLocations",
+        "description": "Activity to upsert Locations from config list.",
+        "dataTable": "dt:{\"id\":\"yIsRqagJNaFCwzcbEBePM\",\"name\":\"RosnetInstanceLocationRecords\"}",
+        "ttl": 120,
+        "columns": [
+          {
+            "name": "legalEntityId",
+            "isKey": false
+          },
+          {
+            "name": "instanceRecordId",
+            "isKey": true
+          },
+          {
+            "name": "instanceId",
+            "isKey": false
+          },
+          {
+            "name": "configRecordId",
+            "isKey": false
+          },
+          {
+            "name": "instanceScopeId",
+            "isKey": false
+          },
+          {
+            "name": "toValue",
+            "isKey": false
+          },
+          {
+            "name": "isDefaultRecord",
+            "isKey": false
+          },
+          {
+            "name": "isDeleted",
+            "isKey": false
+          },
+          {
+            "name": "recordName",
+            "isKey": false
+          },
+          {
+            "name": "fromValue",
+            "isKey": false
+          }
+        ],
+        "isCustomType": true,
+        "sourceSchemas": [
+          "lqOUaLOlDsyBePMAFwZzl",
+          "bcPGJWekZprbWvpSGQarc",
+          "KeCXbLVQORgxzjOYflgYJ"
+        ]
+      }
+    },
+    {
+      "id": "bcPGJWekZprbWvpSGQarc",
+      "stepName": "CheckAndEnrichContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "CheckAndEnrichContext",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "name": "CheckAndEnrichContext",
+        "description": "",
+        "output": "",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "sourceSchemas": [
+          "KeCXbLVQORgxzjOYflgYJ"
+        ]
+      },
+      "activityCluster": []
+    }
+  ],
+  "transitions": [
+    {
+      "id": "JREvZWxZIQMovQPtNvzMs",
+      "from": "KeCXbLVQORgxzjOYflgYJ",
+      "to": "bcPGJWekZprbWvpSGQarc",
+      "handleMap": {
+        "source": "KeCXbLVQORgxzjOYflgYJ_1",
+        "target": "bcPGJWekZprbWvpSGQarc_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "ZoVwrULXtCyFeRkIRQwwY",
+      "from": "VgnjzVMcEAVmBtEvsErfb",
+      "to": "UlthdZqmeeFhLhciXULpL",
+      "handleMap": {
+        "source": "VgnjzVMcEAVmBtEvsErfb_2",
+        "target": "UlthdZqmeeFhLhciXULpL_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "yvOkhxYlmsOkKrUztQHcK",
+      "from": "UlthdZqmeeFhLhciXULpL",
+      "to": "QStwlIPgneiwhPDpHxmMP",
+      "handleMap": {
+        "source": "UlthdZqmeeFhLhciXULpL_2",
+        "target": "QStwlIPgneiwhPDpHxmMP_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "TeULmeGjWIcXJAxMgItPi",
+      "from": "lqOUaLOlDsyBePMAFwZzl",
+      "to": "VgnjzVMcEAVmBtEvsErfb",
+      "handleMap": {
+        "source": "lqOUaLOlDsyBePMAFwZzl_2",
+        "target": "VgnjzVMcEAVmBtEvsErfb_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "DKVqfaSXobafUhDtXrFAR",
+      "from": "bcPGJWekZprbWvpSGQarc",
+      "to": "lqOUaLOlDsyBePMAFwZzl",
+      "handleMap": {
+        "source": "bcPGJWekZprbWvpSGQarc_2",
+        "target": "lqOUaLOlDsyBePMAFwZzl_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "QStwlIPgneiwhPDpHxmMP": {
+      "x": 896,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "QStwlIPgneiwhPDpHxmMP_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "KeCXbLVQORgxzjOYflgYJ": {
+      "x": 160,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "KeCXbLVQORgxzjOYflgYJ_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "lqOUaLOlDsyBePMAFwZzl": {
+      "x": 448,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "lqOUaLOlDsyBePMAFwZzl_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "lqOUaLOlDsyBePMAFwZzl_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "UlthdZqmeeFhLhciXULpL": {
+      "x": 736,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "UlthdZqmeeFhLhciXULpL_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "UlthdZqmeeFhLhciXULpL_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "VgnjzVMcEAVmBtEvsErfb": {
+      "x": 592,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "VgnjzVMcEAVmBtEvsErfb_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "VgnjzVMcEAVmBtEvsErfb_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "bcPGJWekZprbWvpSGQarc": {
+      "x": 304,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "bcPGJWekZprbWvpSGQarc_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "bcPGJWekZprbWvpSGQarc_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "QStwlIPgneiwhPDpHxmMP": {
+      "metaInfo": {
+        "id": "QStwlIPgneiwhPDpHxmMP",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "End",
+        "description": ""
+      },
+      "mappings": {
+        "End": {
+          "InstanceRecordEntityList": [
+            {
+              "#forEach ($.GetIntegrationConfigMappingRecords.InstanceRecordEntityList) as InstanceRecordEntityList": [
+                {
+                  "#if (.recordName='ClientId') as InstanceRecordEntityList": [
+                    {
+                      "instanceRecordId": ".instanceRecordId",
+                      "instanceId": ".instanceId",
+                      "configRecordId": ".configRecordId",
+                      "instanceScopeId": ".instanceScopeId",
+                      "toValue": ".toValue",
+                      "isDefaultRecord": ".isDefaultRecord",
+                      "isDeleted": ".isDeleted",
+                      "recordName": ".recordName",
+                      "fromValue": ".fromValue",
+                      "__arrayItemName__": "InstanceRecordEntityList"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "attributes": {}
+    },
+    "bcPGJWekZprbWvpSGQarc": {
+      "metaInfo": {
+        "id": "bcPGJWekZprbWvpSGQarc",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "CheckAndEnrichContext",
+        "description": "<p>This activity checks that the application context is correct. It then checks to ensure the client context (tenant/legal entity) is registered to use the application. Finally, it provides the Paycor API context information for the given application.  It also acts as a pass through for New Relic logging connection parameters.</p>"
+      },
+      "mappings": {
+        "CheckAndEnrichContext": {
+          "workflowContext": {
+            "pinsApplication": {
+              "applicationId": "$.gv.Context.app",
+              "host": "$.gv.Pins.host",
+              "apimKey": "$.gv.Pins.apimKey"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "lqOUaLOlDsyBePMAFwZzl": {
+      "metaInfo": {
+        "id": "lqOUaLOlDsyBePMAFwZzl",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetIntegrationConfigMappingRecords",
+        "description": "<p>This gets the integration configuration mapping records for a given configuration record name.</p>"
+      },
+      "mappings": {
+        "GetIntegrationConfigMappingRecords": {
+          "workflowContext": {
+            "client": {
+              "tenantId": "valueOf($.Start.tenantId)",
+              "legalEntityId": "valueOf($.Start.legalEntityId)"
+            },
+            "paycorAPI": {
+              "environmentName": "$.CheckAndEnrichContext.workflowContext.paycorAPI.environmentName",
+              "managedIntegrationsId": "$.CheckAndEnrichContext.workflowContext.paycorAPI.managedIntegrationsId",
+              "clientId": "$.CheckAndEnrichContext.workflowContext.paycorAPI.clientId",
+              "host": "$.CheckAndEnrichContext.workflowContext.paycorAPI.host",
+              "apimKey": "$.CheckAndEnrichContext.workflowContext.paycorAPI.apimKey"
+            },
+            "pinsApplication": {
+              "applicationId": "$.CheckAndEnrichContext.workflowContext.pinsApplication.applicationId",
+              "host": "$.CheckAndEnrichContext.workflowContext.pinsApplication.host",
+              "apimKey": "$.CheckAndEnrichContext.workflowContext.pinsApplication.apimKey"
+            },
+            "logging": {
+              "newRelicHost": "$.CheckAndEnrichContext.workflowContext.logging.newRelicHost",
+              "newRelicKey": "$.CheckAndEnrichContext.workflowContext.logging.newRelicKey",
+              "level": "$.CheckAndEnrichContext.workflowContext.logging.level"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "VgnjzVMcEAVmBtEvsErfb": {
+      "metaInfo": {
+        "id": "VgnjzVMcEAVmBtEvsErfb",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "UpsertLocation",
+        "description": ""
+      },
+      "mappings": {
+        "UpsertLocation": {
+          "records": [
+            {
+              "#forEach ($.GetIntegrationConfigMappingRecords.InstanceRecordEntityList) as record": [
+                {
+                  "#if (.recordName='Location') as record": [
+                    {
+                      "legalEntityId": "valueOf($.Start.legalEntityId)",
+                      "instanceRecordId": ".instanceRecordId",
+                      "instanceId": ".instanceId",
+                      "configRecordId": ".configRecordId",
+                      "instanceScopeId": ".instanceScopeId",
+                      "toValue": ".toValue",
+                      "isDefaultRecord": ".isDefaultRecord",
+                      "isDeleted": ".isDeleted",
+                      "recordName": ".recordName",
+                      "fromValue": ".fromValue",
+                      "__arrayItemName__": "record"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "attributes": {}
+    },
+    "UlthdZqmeeFhLhciXULpL": {
+      "metaInfo": {
+        "id": "UlthdZqmeeFhLhciXULpL",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "UpsertJobCodes",
+        "description": ""
+      },
+      "mappings": {
+        "UpsertJobCodes": {
+          "records": [
+            {
+              "#forEach ($.GetIntegrationConfigMappingRecords.InstanceRecordEntityList) as record": [
+                {
+                  "#if (.recordName='JobCode') as record": [
+                    {
+                      "legalEntityId": "valueOf($.Start.legalEntityId)",
+                      "instanceRecordId": ".instanceRecordId",
+                      "instanceId": ".instanceId",
+                      "configRecordId": ".configRecordId",
+                      "instanceScopeId": ".instanceScopeId",
+                      "toValue": ".toValue",
+                      "isDefaultRecord": ".isDefaultRecord",
+                      "isDeleted": ".isDeleted",
+                      "recordName": ".recordName",
+                      "fromValue": ".fromValue",
+                      "__arrayItemName__": "record"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [
+    {
+      "id": "pxFgfLnInnOeeuVZUpPNE",
+      "position": {
+        "x": 160,
+        "y": -112
+      },
+      "description": "Workflow to get Mapping data from integration config records",
+      "width": 150,
+      "height": 118
+    }
+  ],
+  "config": {
+    "name": "Get App Config",
+    "description": "Workflow to get the app configuration.",
+    "workflowAttributes": [],
+    "context": "",
+    "errorConfig": []
+  }
+}

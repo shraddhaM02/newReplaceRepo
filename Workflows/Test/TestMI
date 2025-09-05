@@ -1,0 +1,682 @@
+{
+  "id": "DFepcZiFlXXVQtVpejVuw",
+  "name": "TestMI",
+  "workflowName": "TestMI",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jgpWAGmLiHlyPFStCxopC",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "nwXVyMoAloDMhYYgPgJRJ",
+      "stepName": "Group",
+      "stepType": "GROUP",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Group",
+        "activityGroup": "Common",
+        "activityType": "GROUP",
+        "name": "Group",
+        "description": "",
+        "groupType": "PARALLEL",
+        "excludeFromWait": [],
+        "sourceSchemas": [
+          "tehUXHMFJPEONMuQMEmoJ",
+          "JquTeZXmwBVNQjVvPHYoY",
+          "bcPGJWekZprbWvpSGQarc",
+          "CuQPvXMVRaXdtONXRnuhF",
+          "lqOUaLOlDsyBePMAFwZzl",
+          "SlnotuuNZsxCInLpNjrlX"
+        ]
+      }
+    },
+    {
+      "id": "lqOUaLOlDsyBePMAFwZzl",
+      "stepName": "GetIntegrationConfigMappingRecords",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "GetIntegrationConfigMappingRecords",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "name": "GetIntegrationConfigMappingRecords",
+        "description": "",
+        "output": "",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "sourceSchemas": [
+          "nwXVyMoAloDMhYYgPgJRJ",
+          "tehUXHMFJPEONMuQMEmoJ",
+          "JquTeZXmwBVNQjVvPHYoY",
+          "bcPGJWekZprbWvpSGQarc",
+          "CuQPvXMVRaXdtONXRnuhF",
+          "SlnotuuNZsxCInLpNjrlX"
+        ]
+      },
+      "groupId": "nwXVyMoAloDMhYYgPgJRJ"
+    },
+    {
+      "id": "SlnotuuNZsxCInLpNjrlX",
+      "stepName": "GetIntegrationConfigRecords",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "GetIntegrationConfigRecords",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "name": "GetIntegrationConfigRecords",
+        "description": "",
+        "output": "",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "sourceSchemas": [
+          "nwXVyMoAloDMhYYgPgJRJ",
+          "tehUXHMFJPEONMuQMEmoJ",
+          "JquTeZXmwBVNQjVvPHYoY",
+          "bcPGJWekZprbWvpSGQarc",
+          "CuQPvXMVRaXdtONXRnuhF",
+          "lqOUaLOlDsyBePMAFwZzl"
+        ]
+      },
+      "groupId": "nwXVyMoAloDMhYYgPgJRJ"
+    },
+    {
+      "id": "QStwlIPgneiwhPDpHxmMP",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "End",
+        "sourceSchemas": [
+          "nwXVyMoAloDMhYYgPgJRJ",
+          "tehUXHMFJPEONMuQMEmoJ",
+          "JquTeZXmwBVNQjVvPHYoY",
+          "bcPGJWekZprbWvpSGQarc",
+          "CuQPvXMVRaXdtONXRnuhF",
+          "lqOUaLOlDsyBePMAFwZzl",
+          "SlnotuuNZsxCInLpNjrlX"
+        ],
+        "targetSchema": "WfJPyyAiydlWdlMRNmYZX"
+      }
+    },
+    {
+      "id": "bcPGJWekZprbWvpSGQarc",
+      "stepName": "CheckAndEnrichContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "CheckAndEnrichContext",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "name": "CheckAndEnrichContext",
+        "description": "",
+        "output": "",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "sourceSchemas": [
+          "CuQPvXMVRaXdtONXRnuhF"
+        ]
+      }
+    },
+    {
+      "id": "JquTeZXmwBVNQjVvPHYoY",
+      "stepName": "GetRegisteredLegalEntitiesForApp",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "GetRegisteredLegalEntitiesForApp",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "name": "GetRegisteredLegalEntitiesForApp",
+        "description": "",
+        "output": "",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "sourceSchemas": [
+          "bcPGJWekZprbWvpSGQarc",
+          "CuQPvXMVRaXdtONXRnuhF"
+        ]
+      }
+    },
+    {
+      "id": "tehUXHMFJPEONMuQMEmoJ",
+      "stepName": "LogToManagedIntegrations",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "LogToManagedIntegrations",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "name": "LogToManagedIntegrations",
+        "description": "",
+        "output": "",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "sourceSchemas": [
+          "JquTeZXmwBVNQjVvPHYoY",
+          "bcPGJWekZprbWvpSGQarc",
+          "CuQPvXMVRaXdtONXRnuhF"
+        ]
+      }
+    },
+    {
+      "id": "CuQPvXMVRaXdtONXRnuhF",
+      "stepName": "RESTService",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "name": "RESTService",
+        "description": "",
+        "path": "/testAPP/{id}",
+        "method": [
+          "GET"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [
+          {
+            "name": "id",
+            "type": "text"
+          }
+        ],
+        "output": "",
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "JREvZWxZIQMovQPtNvzMs",
+      "from": "CuQPvXMVRaXdtONXRnuhF",
+      "to": "bcPGJWekZprbWvpSGQarc",
+      "handleMap": {
+        "source": "CuQPvXMVRaXdtONXRnuhF_1",
+        "target": "bcPGJWekZprbWvpSGQarc_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "uJNzaDbFVYtccvztUAvmt",
+      "from": "bcPGJWekZprbWvpSGQarc",
+      "to": "JquTeZXmwBVNQjVvPHYoY",
+      "handleMap": {
+        "source": "bcPGJWekZprbWvpSGQarc_2",
+        "target": "JquTeZXmwBVNQjVvPHYoY_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "QkCsjnazKgCSghLTbpjgl",
+      "from": "JquTeZXmwBVNQjVvPHYoY",
+      "to": "tehUXHMFJPEONMuQMEmoJ",
+      "handleMap": {
+        "source": "JquTeZXmwBVNQjVvPHYoY_2",
+        "target": "tehUXHMFJPEONMuQMEmoJ_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "KthGsDITOuhfGdfxcNiGG",
+      "from": "tehUXHMFJPEONMuQMEmoJ",
+      "to": "nwXVyMoAloDMhYYgPgJRJ",
+      "handleMap": {
+        "source": "tehUXHMFJPEONMuQMEmoJ_2",
+        "target": "nwXVyMoAloDMhYYgPgJRJ_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "WYkLeVzWhwMNiCqKAFxoR",
+      "from": "nwXVyMoAloDMhYYgPgJRJ",
+      "to": "QStwlIPgneiwhPDpHxmMP",
+      "handleMap": {
+        "source": "nwXVyMoAloDMhYYgPgJRJ_2",
+        "target": "QStwlIPgneiwhPDpHxmMP_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "GWDaDGFLaYMpzbztaIQjb",
+      "from": "nwXVyMoAloDMhYYgPgJRJ",
+      "to": "lqOUaLOlDsyBePMAFwZzl",
+      "handleMap": {
+        "source": "nwXVyMoAloDMhYYgPgJRJ_1",
+        "target": "lqOUaLOlDsyBePMAFwZzl_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "etcyzAsezPJZgFQHwSVXS",
+      "from": "nwXVyMoAloDMhYYgPgJRJ",
+      "to": "SlnotuuNZsxCInLpNjrlX",
+      "handleMap": {
+        "source": "nwXVyMoAloDMhYYgPgJRJ_1",
+        "target": "SlnotuuNZsxCInLpNjrlX_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "kNNhIVXZWtahvWAVRhEon",
+      "from": "lqOUaLOlDsyBePMAFwZzl",
+      "to": "nwXVyMoAloDMhYYgPgJRJ",
+      "handleMap": {
+        "source": "lqOUaLOlDsyBePMAFwZzl_2",
+        "target": "nwXVyMoAloDMhYYgPgJRJ_2"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "beOiQMwymgVAkWHnUxGSX",
+      "from": "SlnotuuNZsxCInLpNjrlX",
+      "to": "nwXVyMoAloDMhYYgPgJRJ",
+      "handleMap": {
+        "source": "SlnotuuNZsxCInLpNjrlX_2",
+        "target": "nwXVyMoAloDMhYYgPgJRJ_2"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "nwXVyMoAloDMhYYgPgJRJ": {
+      "x": 512,
+      "y": -96,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "nwXVyMoAloDMhYYgPgJRJ_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "nwXVyMoAloDMhYYgPgJRJ_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left",
+      "width": 192,
+      "height": 380
+    },
+    "lqOUaLOlDsyBePMAFwZzl": {
+      "x": 64,
+      "y": 64,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "lqOUaLOlDsyBePMAFwZzl_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "lqOUaLOlDsyBePMAFwZzl_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "SlnotuuNZsxCInLpNjrlX": {
+      "x": 64,
+      "y": 208,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "SlnotuuNZsxCInLpNjrlX_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "SlnotuuNZsxCInLpNjrlX_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "QStwlIPgneiwhPDpHxmMP": {
+      "x": 792,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "QStwlIPgneiwhPDpHxmMP_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "bcPGJWekZprbWvpSGQarc": {
+      "x": 80,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "bcPGJWekZprbWvpSGQarc_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "bcPGJWekZprbWvpSGQarc_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "JquTeZXmwBVNQjVvPHYoY": {
+      "x": 224,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "JquTeZXmwBVNQjVvPHYoY_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "JquTeZXmwBVNQjVvPHYoY_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "tehUXHMFJPEONMuQMEmoJ": {
+      "x": 352,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "tehUXHMFJPEONMuQMEmoJ_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "tehUXHMFJPEONMuQMEmoJ_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "CuQPvXMVRaXdtONXRnuhF": {
+      "x": -64,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "CuQPvXMVRaXdtONXRnuhF_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    }
+  },
+  "mappings": {
+    "JquTeZXmwBVNQjVvPHYoY": {
+      "metaInfo": {
+        "id": "JquTeZXmwBVNQjVvPHYoY",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetRegisteredLegalEntitiesForApp",
+        "description": "<p>This activity gets a list of activated legal entities for a given application. It references the Global Activation Application.</p>"
+      },
+      "mappings": {
+        "GetRegisteredLegalEntitiesForApp": {
+          "workflowContext": {
+            "__expr__": "$.CheckAndEnrichContext.workflowContext"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "QStwlIPgneiwhPDpHxmMP": {
+      "metaInfo": {
+        "id": "QStwlIPgneiwhPDpHxmMP",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "End",
+        "description": ""
+      },
+      "mappings": {
+        "End": {
+          "body": {
+            "__expr__": "$.LogToManagedIntegrations"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "bcPGJWekZprbWvpSGQarc": {
+      "metaInfo": {
+        "id": "bcPGJWekZprbWvpSGQarc",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "CheckAndEnrichContext",
+        "description": "<p>This activity checks that the application context is correct. It then checks to ensure the client context (tenant/legal entity) is registered to use the application. Finally, it provides the Paycor API context information for the given application.  It also acts as a pass through for New Relic logging connection parameters.</p>"
+      },
+      "mappings": {
+        "CheckAndEnrichContext": {
+          "workflowContext": {
+            "pinsApplication": {
+              "applicationId": "$.RESTService.pathParams.id",
+              "host": "\"apim-paycor-dev-eus.azure-api.net\"",
+              "apimKey": "\"b2c29e70f2a0448e9b36174201411bb0\""
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "tehUXHMFJPEONMuQMEmoJ": {
+      "metaInfo": {
+        "id": "tehUXHMFJPEONMuQMEmoJ",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "LogToManagedIntegrations",
+        "description": "<p>This activity logs messages to Paycor's Managed Integrations system.</p>"
+      },
+      "mappings": {
+        "LogToManagedIntegrations": {
+          "workflowContext": {
+            "__expr__": "$.CheckAndEnrichContext.workflowContext",
+            "client": {
+              "tenantId": "\"911860\"",
+              "legalEntityId": "\"212199\"",
+              "requireTenantId": "true"
+            },
+            "paycorAPI": {
+              "__expr__": ".paycorAPI",
+              "environmentName": ".environmentName",
+              "ManagedIntegrationsId": "\"string\"",
+              "host": ".host",
+              "apimKey": ".apimKey"
+            },
+            "pinsApplication": {
+              "applicationId": ".pinsApplication.applicationId",
+              "host": ".pinsApplication.host",
+              "apimKey": ".pinsApplication.apimKey"
+            }
+          },
+          "messages": [
+            {
+              "messageType": "\"2\"",
+              "audienceType": "\"1\"",
+              "eventDateTime": "nowAsDateTime(\"yyyy-MM-dd'T'HH:mm:ss\")",
+              "message": "\"Testing\"",
+              "properties": [
+                {
+                  "__arrayItemName__": "property"
+                }
+              ],
+              "__arrayItemName__": "message"
+            }
+          ]
+        }
+      },
+      "attributes": {}
+    },
+    "lqOUaLOlDsyBePMAFwZzl": {
+      "metaInfo": {
+        "id": "lqOUaLOlDsyBePMAFwZzl",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetIntegrationConfigMappingRecords",
+        "description": "<p>This gets the integration configuration mapping records for a given configuration record name.</p>"
+      },
+      "mappings": {
+        "GetIntegrationConfigMappingRecords": {
+          "workflowContext": {
+            "client": {
+              "tenantId": "\"911860\"",
+              "legalEntityId": "\"212199\""
+            },
+            "paycorAPI": {
+              "environmentName": "$.CheckAndEnrichContext.workflowContext.paycorAPI.environmentName",
+              "managedIntegrationsId": "$.CheckAndEnrichContext.workflowContext.paycorAPI.managedIntegrationsId",
+              "clientId": "$.CheckAndEnrichContext.workflowContext.paycorAPI.clientId",
+              "host": "$.CheckAndEnrichContext.workflowContext.paycorAPI.host",
+              "apimKey": "$.CheckAndEnrichContext.workflowContext.paycorAPI.apimKey"
+            },
+            "pinsApplication": {
+              "applicationId": "$.CheckAndEnrichContext.workflowContext.pinsApplication.applicationId",
+              "host": "$.CheckAndEnrichContext.workflowContext.pinsApplication.host",
+              "apimKey": "$.CheckAndEnrichContext.workflowContext.pinsApplication.apimKey"
+            },
+            "logging": {
+              "newRelicHost": "$.CheckAndEnrichContext.workflowContext.logging.newRelicHost",
+              "newRelicKey": "$.CheckAndEnrichContext.workflowContext.logging.newRelicKey",
+              "level": "$.CheckAndEnrichContext.workflowContext.logging.level"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "SlnotuuNZsxCInLpNjrlX": {
+      "metaInfo": {
+        "id": "SlnotuuNZsxCInLpNjrlX",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetIntegrationConfigRecords",
+        "description": "<p>This activity gets the configuration records for an integration configuration.</p>"
+      },
+      "mappings": {
+        "GetIntegrationConfigRecords": {
+          "workflowContext": {
+            "client": {
+              "tenantId": "\"911860\"",
+              "legalEntityId": "\"212199\""
+            },
+            "paycorAPI": {
+              "environmentName": "$.CheckAndEnrichContext.workflowContext.paycorAPI.environmentName",
+              "managedIntegrationsId": "$.CheckAndEnrichContext.workflowContext.paycorAPI.managedIntegrationsId",
+              "clientId": "$.CheckAndEnrichContext.workflowContext.paycorAPI.clientId",
+              "host": "$.CheckAndEnrichContext.workflowContext.paycorAPI.host",
+              "apimKey": "$.CheckAndEnrichContext.workflowContext.paycorAPI.apimKey"
+            },
+            "pinsApplication": {
+              "applicationId": "$.CheckAndEnrichContext.workflowContext.pinsApplication.applicationId",
+              "host": "$.CheckAndEnrichContext.workflowContext.pinsApplication.host",
+              "apimKey": "$.CheckAndEnrichContext.workflowContext.pinsApplication.apimKey"
+            },
+            "logging": {
+              "newRelicHost": "$.CheckAndEnrichContext.workflowContext.logging.newRelicHost",
+              "newRelicKey": "$.CheckAndEnrichContext.workflowContext.logging.newRelicKey",
+              "level": "$.CheckAndEnrichContext.workflowContext.logging.level"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [],
+  "config": {
+    "name": "TestMI"
+  }
+}

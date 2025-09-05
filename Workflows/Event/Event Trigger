@@ -1,0 +1,213 @@
+{
+  "id": "ZkFYMtHvwjeGLAWWWBJJS",
+  "name": "Event Trigger",
+  "workflowName": "Event Trigger",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rcGpsFMHkSIhbZnEDWjsi",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "bSQScqCClHdhDAiGeevvI",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "End",
+        "description": "",
+        "sourceSchemas": [
+          "UmPGEqyfzfYjQMURSXHCq",
+          "nclZvpWJkSBvQEHijNtqR"
+        ]
+      }
+    },
+    {
+      "id": "nclZvpWJkSBvQEHijNtqR",
+      "stepName": "WebhookReceiver",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to receive webhook events as they occur.",
+      "deletable": true,
+      "config": {
+        "activityName": "WebhookReceiver",
+        "activityGroup": "Paycor",
+        "activityType": "EVENT_SOURCE",
+        "name": "WebhookReceiver",
+        "description": "Activity to receive webhook events as they occur.",
+        "path": "/rosnet",
+        "secret": "$:{\"id\":{},\"name\":\"rosnet@123\"}",
+        "allowedMediaTypes": "application/json",
+        "output": "",
+        "isCustomType": true,
+        "templateOfActivity": "Webhook",
+        "templateOfGroup": "HTTP",
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "UmPGEqyfzfYjQMURSXHCq",
+      "stepName": "MainProcess",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Subflow to process webhook event.",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "MainProcess",
+        "description": "Subflow to process webhook event.",
+        "subflowPath": "wf:{\"id\":\"wEUshVkGbxaooXtYxiUnP/TkcammMKbptHaPDikrxOZ\",\"name\":\"/Workflows/Process/Main Process\"}",
+        "waitForCompletion": true,
+        "sourceSchemas": [
+          "nclZvpWJkSBvQEHijNtqR"
+        ]
+      },
+      "activityCluster": null
+    }
+  ],
+  "transitions": [
+    {
+      "id": "hguRpNCgQDGLIEagLmbhb",
+      "from": "nclZvpWJkSBvQEHijNtqR",
+      "to": "UmPGEqyfzfYjQMURSXHCq",
+      "handleMap": {
+        "source": "nclZvpWJkSBvQEHijNtqR_1",
+        "target": "UmPGEqyfzfYjQMURSXHCq_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "JclvEIigZQXApVuzLzjsR",
+      "from": "UmPGEqyfzfYjQMURSXHCq",
+      "to": "bSQScqCClHdhDAiGeevvI",
+      "handleMap": {
+        "source": "UmPGEqyfzfYjQMURSXHCq_2",
+        "target": "bSQScqCClHdhDAiGeevvI_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "bSQScqCClHdhDAiGeevvI": {
+      "x": 240,
+      "y": 96,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "bSQScqCClHdhDAiGeevvI_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "nclZvpWJkSBvQEHijNtqR": {
+      "x": -96,
+      "y": 96,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "nclZvpWJkSBvQEHijNtqR_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "UmPGEqyfzfYjQMURSXHCq": {
+      "x": 64,
+      "y": 96,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "UmPGEqyfzfYjQMURSXHCq_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "UmPGEqyfzfYjQMURSXHCq_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "bSQScqCClHdhDAiGeevvI": {
+      "metaInfo": {
+        "id": "bSQScqCClHdhDAiGeevvI",
+        "versionInfo": {
+          "version": "0.0.1"
+        },
+        "name": "End",
+        "description": ""
+      },
+      "mappings": {}
+    },
+    "UmPGEqyfzfYjQMURSXHCq": {
+      "metaInfo": {
+        "id": "UmPGEqyfzfYjQMURSXHCq",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "MainProcess",
+        "description": "Subflow to process the webhook event."
+      },
+      "mappings": {
+        "MainProcess": {
+          "EventType": "$.WebhookReceiver.body.EventType",
+          "EventId": "$.WebhookReceiver.body.EventId",
+          "TenantId": "$.WebhookReceiver.body.TenantId",
+          "LegalEntityId": "$.WebhookReceiver.body.LegalEntityId",
+          "ItemId": "$.WebhookReceiver.body.ItemId",
+          "ExtendedProperties": {
+            "#copyOf": "$.WebhookReceiver.body.ExtendedProperties"
+          },
+          "Resource": {
+            "#copyOf": "$.WebhookReceiver.body.Resource"
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [
+    {
+      "id": "SeyhTjWdcXuUpadPsNpyh",
+      "position": {
+        "x": -96,
+        "y": -96
+      },
+      "description": "Receive webhook event when it is triggered from the Paycor side and send to the subflow to process.",
+      "width": 150,
+      "height": 150
+    }
+  ],
+  "config": {
+    "name": "Event Trigger",
+    "description": "Receives the webhook when it is triggered from the Paycor side.",
+    "workflowAttributes": [],
+    "context": "",
+    "errorConfig": []
+  }
+}

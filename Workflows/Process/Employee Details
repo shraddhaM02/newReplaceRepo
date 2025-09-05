@@ -1,0 +1,1296 @@
+{
+  "id": "HskXesSJxPTpsbmzFuCUf",
+  "name": "Employee Details",
+  "workflowName": "Employee Details",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "eDZcvXJbAMvmGbdyjlASN",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "nmwcDJUJxASgYeGyUgzbe",
+      "stepName": "ParellelProcessing",
+      "stepType": "GROUP",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Group",
+        "activityGroup": "Common",
+        "activityType": "GROUP",
+        "name": "ParellelProcessing",
+        "description": "",
+        "groupType": "PARALLEL",
+        "excludeFromWait": [],
+        "sourceSchemas": [
+          "JXtrGMtCKFGxiRkOKQIfK",
+          "mGIHXFYFeLhjsAUnaBvMX",
+          "YFeQDLjyhwOTNlcAEkZLj",
+          "PJtBeyiPqwImHDFGTYHSB",
+          "aLdIpWnYxecTCbvveZEiJ",
+          "SXHHMbNMSwWzUAMJZsHXR",
+          "NNehSjoueyjuKQhFZHwqh"
+        ]
+      }
+    },
+    {
+      "id": "mGIHXFYFeLhjsAUnaBvMX",
+      "stepName": "GetPayrateByEmployeeId",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to fetch Payrate details.",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTClient",
+        "activityGroup": "HTTP",
+        "activityType": "SIMPLE",
+        "name": "GetPayrateByEmployeeId",
+        "description": "Activity to fetch Payrate details.",
+        "scheme": "HTTPS",
+        "uri": "$:{\"id\":{},\"name\":\"/v1/employees/{employeeId}/payrates\"}",
+        "host": "$:{\"id\":{\"${Paycor.apiHost}\":\"uByPUzCacFODeSueqQYIx/QUXXOjtatnqdDHyyFetqG\"},\"name\":\"${Paycor.apiHost}\"}",
+        "port": "$:{\"id\":{},\"name\":\"\"}",
+        "method": "GET",
+        "authContext": "Paycor",
+        "sendToEngage": false,
+        "output": "wqTsfHCTtiUszzpafbHra",
+        "headers": [
+          {
+            "name": "Ocp-Apim-Subscription-Key",
+            "defaultValue": "$:{\"id\":{},\"name\":\"\"}",
+            "inRequest": true,
+            "inResponse": false,
+            "required": true
+          }
+        ],
+        "queryParams": [],
+        "pathParams": [
+          {
+            "name": "employeeId",
+            "type": "text"
+          }
+        ],
+        "authType": "NO_AUTH",
+        "auth": "ref:{\"id\":\"\",\"name\":\"\"}",
+        "userName": "",
+        "password": "",
+        "key": "",
+        "value": "",
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": [
+          "nmwcDJUJxASgYeGyUgzbe",
+          "JXtrGMtCKFGxiRkOKQIfK",
+          "YFeQDLjyhwOTNlcAEkZLj",
+          "PJtBeyiPqwImHDFGTYHSB",
+          "aLdIpWnYxecTCbvveZEiJ",
+          "SXHHMbNMSwWzUAMJZsHXR",
+          "NNehSjoueyjuKQhFZHwqh"
+        ]
+      },
+      "activityCluster": null,
+      "groupId": "nmwcDJUJxASgYeGyUgzbe"
+    },
+    {
+      "id": "YFeQDLjyhwOTNlcAEkZLj",
+      "stepName": "GetEmployeeByEmployeeId",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to fetch Employee details.",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTClient",
+        "activityGroup": "HTTP",
+        "activityType": "SIMPLE",
+        "name": "GetEmployeeByEmployeeId",
+        "description": "Activity to fetch Employee details.",
+        "scheme": "HTTPS",
+        "uri": "$:{\"id\":{},\"name\":\"/v1/employees/{employeeId}?include=All\"}",
+        "host": "$:{\"id\":{\"${Paycor.apiHost}\":\"uByPUzCacFODeSueqQYIx/QUXXOjtatnqdDHyyFetqG\"},\"name\":\"${Paycor.apiHost}\"}",
+        "port": "$:{\"id\":{},\"name\":\"\"}",
+        "method": "GET",
+        "authContext": "Paycor",
+        "sendToEngage": false,
+        "output": "pTdUnaxREWHOHbMButoFL",
+        "headers": [
+          {
+            "name": "Ocp-Apim-Subscription-Key",
+            "defaultValue": "$:{\"id\":{},\"name\":\"\"}",
+            "inRequest": true,
+            "inResponse": false,
+            "required": true
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "include",
+            "defaultValue": "All",
+            "required": false,
+            "type": "text"
+          }
+        ],
+        "pathParams": [
+          {
+            "name": "employeeId",
+            "type": "text"
+          }
+        ],
+        "authType": "NO_AUTH",
+        "auth": "ref:{\"id\":\"\",\"name\":\"\"}",
+        "userName": "",
+        "password": "",
+        "key": "",
+        "value": "",
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": [
+          "nmwcDJUJxASgYeGyUgzbe",
+          "JXtrGMtCKFGxiRkOKQIfK",
+          "mGIHXFYFeLhjsAUnaBvMX",
+          "PJtBeyiPqwImHDFGTYHSB",
+          "aLdIpWnYxecTCbvveZEiJ",
+          "SXHHMbNMSwWzUAMJZsHXR",
+          "NNehSjoueyjuKQhFZHwqh"
+        ]
+      },
+      "activityCluster": null,
+      "groupId": "nmwcDJUJxASgYeGyUgzbe"
+    },
+    {
+      "id": "JXtrGMtCKFGxiRkOKQIfK",
+      "stepName": "GetPersonByEmployeeId",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to fetch Person details.",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTClient",
+        "activityGroup": "HTTP",
+        "activityType": "SIMPLE",
+        "name": "GetPersonByEmployeeId",
+        "description": "Activity to fetch Person details.",
+        "scheme": "HTTPS",
+        "uri": "/v1/employees/{employeeId}/person?include=All",
+        "host": "$:{\"id\":{\"${Paycor.apiHost}\":\"uByPUzCacFODeSueqQYIx/QUXXOjtatnqdDHyyFetqG\"},\"name\":\"${Paycor.apiHost}\"}",
+        "port": "$:{\"id\":{},\"name\":\"\"}",
+        "method": "GET",
+        "authContext": "Paycor",
+        "sendToEngage": false,
+        "output": "MflCforVROAGfgZMNjhHo",
+        "headers": [
+          {
+            "name": "Ocp-Apim-Subscription-Key",
+            "defaultValue": "$:{\"id\":{},\"name\":\"\"}",
+            "inRequest": true,
+            "inResponse": false,
+            "required": true
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "include",
+            "defaultValue": "All",
+            "required": false,
+            "type": "text"
+          }
+        ],
+        "pathParams": [
+          {
+            "name": "employeeId",
+            "type": "text"
+          }
+        ],
+        "authType": "NO_AUTH",
+        "auth": "ref:{\"id\":\"\",\"name\":\"\"}",
+        "userName": "",
+        "password": "",
+        "key": "",
+        "value": "",
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": [
+          "nmwcDJUJxASgYeGyUgzbe",
+          "mGIHXFYFeLhjsAUnaBvMX",
+          "YFeQDLjyhwOTNlcAEkZLj",
+          "PJtBeyiPqwImHDFGTYHSB",
+          "aLdIpWnYxecTCbvveZEiJ",
+          "SXHHMbNMSwWzUAMJZsHXR",
+          "NNehSjoueyjuKQhFZHwqh"
+        ]
+      },
+      "activityCluster": null,
+      "groupId": "nmwcDJUJxASgYeGyUgzbe"
+    },
+    {
+      "id": "XhdYTpLoChoGvPfCeDlKl",
+      "stepName": "Success",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "Success",
+        "description": "",
+        "sourceSchemas": [
+          "psXJObplkNslSZxfJaGPF",
+          "nmwcDJUJxASgYeGyUgzbe",
+          "JXtrGMtCKFGxiRkOKQIfK",
+          "mGIHXFYFeLhjsAUnaBvMX",
+          "YFeQDLjyhwOTNlcAEkZLj",
+          "PJtBeyiPqwImHDFGTYHSB",
+          "aLdIpWnYxecTCbvveZEiJ",
+          "SXHHMbNMSwWzUAMJZsHXR",
+          "NNehSjoueyjuKQhFZHwqh",
+          "iExUrsnItmUVjRqpmThTx"
+        ]
+      }
+    },
+    {
+      "id": "MuqYKYSPIOZHNEheIIBdT",
+      "stepName": "DataNotFound",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "GenerateError",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "DataNotFound",
+        "description": "",
+        "errorCode": "",
+        "errorMessage": "",
+        "isCustomType": false,
+        "sourceSchemas": [
+          "UqvQVlOfRcypwMwYYpJSs",
+          "nmwcDJUJxASgYeGyUgzbe",
+          "JXtrGMtCKFGxiRkOKQIfK",
+          "mGIHXFYFeLhjsAUnaBvMX",
+          "YFeQDLjyhwOTNlcAEkZLj",
+          "PJtBeyiPqwImHDFGTYHSB",
+          "aLdIpWnYxecTCbvveZEiJ",
+          "SXHHMbNMSwWzUAMJZsHXR",
+          "NNehSjoueyjuKQhFZHwqh"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "UqvQVlOfRcypwMwYYpJSs",
+      "stepName": "LogToNewRelic",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "LogToNewRelic",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "name": "LogToNewRelic",
+        "sourceSchemas": [
+          "nmwcDJUJxASgYeGyUgzbe",
+          "JXtrGMtCKFGxiRkOKQIfK",
+          "mGIHXFYFeLhjsAUnaBvMX",
+          "YFeQDLjyhwOTNlcAEkZLj",
+          "PJtBeyiPqwImHDFGTYHSB",
+          "aLdIpWnYxecTCbvveZEiJ",
+          "SXHHMbNMSwWzUAMJZsHXR",
+          "NNehSjoueyjuKQhFZHwqh"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "PJtBeyiPqwImHDFGTYHSB",
+      "stepName": "SetRosnetOAuthContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "SetContext",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "SetRosnetOAuthContext",
+        "description": "",
+        "contexts": [
+          "Rosnet"
+        ],
+        "overWriteIfExists": true,
+        "sourceSchemas": [
+          "aLdIpWnYxecTCbvveZEiJ",
+          "SXHHMbNMSwWzUAMJZsHXR",
+          "NNehSjoueyjuKQhFZHwqh"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "aLdIpWnYxecTCbvveZEiJ",
+      "stepName": "SetPaycorOAuthContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "SetContext",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "SetPaycorOAuthContext",
+        "description": "",
+        "contexts": [
+          "Paycor"
+        ],
+        "overWriteIfExists": true,
+        "sourceSchemas": [
+          "SXHHMbNMSwWzUAMJZsHXR",
+          "NNehSjoueyjuKQhFZHwqh"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "SXHHMbNMSwWzUAMJZsHXR",
+      "stepName": "UseProfile",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "UseProfile",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "UseProfile",
+        "sourceSchemas": [
+          "NNehSjoueyjuKQhFZHwqh"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "NNehSjoueyjuKQhFZHwqh",
+      "stepName": "Start",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Start",
+        "activityGroup": "Common",
+        "activityType": "EVENT_SOURCE",
+        "output": "gKjvnqTDynSWKmwYAxDBg",
+        "name": "Start",
+        "sourceSchemas": []
+      }
+    },
+    {
+      "id": "iExUrsnItmUVjRqpmThTx",
+      "stepName": "CreateEmployee",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Subflow to create employee in Rosnet.",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "CreateEmployee",
+        "description": "Subflow to create employee in Rosnet.",
+        "subflowPath": "wf:{\"id\":\"dGJxDYOWBUzKQEYEiRbeL/wDasKjHzNamMBKTFjRRSq\",\"name\":\"/Workflows/Process/Create Employee\"}",
+        "waitForCompletion": true,
+        "contextMapping": [
+          {
+            "subflowContext": "Rosnet",
+            "workflowContext": "Rosnet"
+          }
+        ],
+        "output": "",
+        "sourceSchemas": [
+          "nmwcDJUJxASgYeGyUgzbe",
+          "JXtrGMtCKFGxiRkOKQIfK",
+          "mGIHXFYFeLhjsAUnaBvMX",
+          "YFeQDLjyhwOTNlcAEkZLj",
+          "PJtBeyiPqwImHDFGTYHSB",
+          "aLdIpWnYxecTCbvveZEiJ",
+          "SXHHMbNMSwWzUAMJZsHXR",
+          "NNehSjoueyjuKQhFZHwqh"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "psXJObplkNslSZxfJaGPF",
+      "stepName": "ModifyEmployee",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Subflow to modify employee in Rosnet.",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "ModifyEmployee",
+        "description": "Subflow to modify employee in Rosnet.",
+        "subflowPath": "wf:{\"id\":\"dGJxDYOWBUzKQEYEiRbeL/AEeOzGUDcakhXbsLjyufF\",\"name\":\"/Workflows/Process/Modify Employee\"}",
+        "waitForCompletion": true,
+        "contextMapping": [
+          {
+            "subflowContext": "Rosnet",
+            "workflowContext": "Rosnet"
+          }
+        ],
+        "output": "",
+        "sourceSchemas": [
+          "nmwcDJUJxASgYeGyUgzbe",
+          "JXtrGMtCKFGxiRkOKQIfK",
+          "mGIHXFYFeLhjsAUnaBvMX",
+          "YFeQDLjyhwOTNlcAEkZLj",
+          "PJtBeyiPqwImHDFGTYHSB",
+          "aLdIpWnYxecTCbvveZEiJ",
+          "SXHHMbNMSwWzUAMJZsHXR",
+          "NNehSjoueyjuKQhFZHwqh"
+        ]
+      },
+      "activityCluster": null
+    }
+  ],
+  "transitions": [
+    {
+      "id": "nfnMvkVUUTMxknSgqrSoe",
+      "from": "nmwcDJUJxASgYeGyUgzbe",
+      "to": "YFeQDLjyhwOTNlcAEkZLj",
+      "handleMap": {
+        "source": "nmwcDJUJxASgYeGyUgzbe_1",
+        "target": "YFeQDLjyhwOTNlcAEkZLj_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "WgwHPHfMarEcibKohNOaH",
+      "from": "nmwcDJUJxASgYeGyUgzbe",
+      "to": "mGIHXFYFeLhjsAUnaBvMX",
+      "handleMap": {
+        "source": "nmwcDJUJxASgYeGyUgzbe_1",
+        "target": "mGIHXFYFeLhjsAUnaBvMX_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "lWxSwkMUrCBbeyXPryKsP",
+      "from": "psXJObplkNslSZxfJaGPF",
+      "to": "XhdYTpLoChoGvPfCeDlKl",
+      "handleMap": {
+        "source": "psXJObplkNslSZxfJaGPF_2",
+        "target": "XhdYTpLoChoGvPfCeDlKl_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "YMRPctrywsOgXWgPGrPbk",
+      "from": "iExUrsnItmUVjRqpmThTx",
+      "to": "XhdYTpLoChoGvPfCeDlKl",
+      "handleMap": {
+        "source": "iExUrsnItmUVjRqpmThTx_2",
+        "target": "XhdYTpLoChoGvPfCeDlKl_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "TaLLVlJQhOpKDFPWCsJCv",
+      "from": "nmwcDJUJxASgYeGyUgzbe",
+      "to": "JXtrGMtCKFGxiRkOKQIfK",
+      "handleMap": {
+        "source": "nmwcDJUJxASgYeGyUgzbe_1",
+        "target": "JXtrGMtCKFGxiRkOKQIfK_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "LCNtvErJIlKIZQxsoaHji",
+      "from": "JXtrGMtCKFGxiRkOKQIfK",
+      "to": "nmwcDJUJxASgYeGyUgzbe",
+      "handleMap": {
+        "source": "JXtrGMtCKFGxiRkOKQIfK_2",
+        "target": "nmwcDJUJxASgYeGyUgzbe_2"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "TZmAGXgmBWPkWfHAHbXeO",
+      "from": "mGIHXFYFeLhjsAUnaBvMX",
+      "to": "nmwcDJUJxASgYeGyUgzbe",
+      "handleMap": {
+        "source": "mGIHXFYFeLhjsAUnaBvMX_2",
+        "target": "nmwcDJUJxASgYeGyUgzbe_2"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "KOmnWLJTVpkebYHnrfCSa",
+      "from": "YFeQDLjyhwOTNlcAEkZLj",
+      "to": "nmwcDJUJxASgYeGyUgzbe",
+      "handleMap": {
+        "source": "YFeQDLjyhwOTNlcAEkZLj_2",
+        "target": "nmwcDJUJxASgYeGyUgzbe_2"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "ONEFeonsHWGvckqvEWqYT",
+      "from": "UqvQVlOfRcypwMwYYpJSs",
+      "to": "MuqYKYSPIOZHNEheIIBdT",
+      "handleMap": {
+        "source": "UqvQVlOfRcypwMwYYpJSs_2",
+        "target": "MuqYKYSPIOZHNEheIIBdT_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "ftkIFPnWiZyCVxtoiaozv",
+      "from": "nmwcDJUJxASgYeGyUgzbe",
+      "to": "UqvQVlOfRcypwMwYYpJSs",
+      "handleMap": {
+        "source": "nmwcDJUJxASgYeGyUgzbe_2",
+        "target": "UqvQVlOfRcypwMwYYpJSs_1"
+      },
+      "name": "API Failed",
+      "description": "",
+      "type": "ERROR",
+      "lineType": "step",
+      "lineColor": "#ff7875",
+      "positionHandlers": []
+    },
+    {
+      "id": "HKTXZLQMgJpKFrdfxyZjr",
+      "from": "nmwcDJUJxASgYeGyUgzbe",
+      "to": "psXJObplkNslSZxfJaGPF",
+      "handleMap": {
+        "source": "nmwcDJUJxASgYeGyUgzbe_2",
+        "target": "psXJObplkNslSZxfJaGPF_1"
+      },
+      "name": "Employee Modified",
+      "description": "",
+      "type": "SUCCESS_NO_MATCHING_CONDITION",
+      "lineType": "step",
+      "lineColor": "#ff7875",
+      "positionHandlers": []
+    },
+    {
+      "id": "awMgOHlYzyTVYatzkKyiC",
+      "from": "NNehSjoueyjuKQhFZHwqh",
+      "to": "SXHHMbNMSwWzUAMJZsHXR",
+      "handleMap": {
+        "source": "NNehSjoueyjuKQhFZHwqh_1",
+        "target": "SXHHMbNMSwWzUAMJZsHXR_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "lUfXfkQuZFVhJfkuhCFXA",
+      "from": "SXHHMbNMSwWzUAMJZsHXR",
+      "to": "aLdIpWnYxecTCbvveZEiJ",
+      "handleMap": {
+        "source": "SXHHMbNMSwWzUAMJZsHXR_2",
+        "target": "aLdIpWnYxecTCbvveZEiJ_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "LSmYQwKIGchQPvWKbJoTc",
+      "from": "nmwcDJUJxASgYeGyUgzbe",
+      "to": "iExUrsnItmUVjRqpmThTx",
+      "handleMap": {
+        "source": "nmwcDJUJxASgYeGyUgzbe_2",
+        "target": "iExUrsnItmUVjRqpmThTx_1"
+      },
+      "name": "Employee Created",
+      "description": "",
+      "type": "SUCCESS_MATCHING_CONDITION",
+      "lineType": "step",
+      "lineColor": "#73d13d",
+      "positionHandlers": [],
+      "condition": "$.Start.EventType=\"Employee.Created\""
+    },
+    {
+      "id": "NJaBKQxBJhfsZqynFQHkM",
+      "from": "PJtBeyiPqwImHDFGTYHSB",
+      "to": "nmwcDJUJxASgYeGyUgzbe",
+      "handleMap": {
+        "source": "PJtBeyiPqwImHDFGTYHSB_2",
+        "target": "nmwcDJUJxASgYeGyUgzbe_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    },
+    {
+      "id": "BTgiYePqWyCdXQXZPWsLO",
+      "from": "aLdIpWnYxecTCbvveZEiJ",
+      "to": "PJtBeyiPqwImHDFGTYHSB",
+      "handleMap": {
+        "source": "aLdIpWnYxecTCbvveZEiJ_2",
+        "target": "PJtBeyiPqwImHDFGTYHSB_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "positionHandlers": []
+    }
+  ],
+  "diagram": {
+    "nmwcDJUJxASgYeGyUgzbe": {
+      "x": 156,
+      "y": -16,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "nmwcDJUJxASgYeGyUgzbe_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "nmwcDJUJxASgYeGyUgzbe_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left",
+      "width": 256,
+      "height": 476
+    },
+    "mGIHXFYFeLhjsAUnaBvMX": {
+      "x": 112,
+      "y": 320,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "mGIHXFYFeLhjsAUnaBvMX_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "mGIHXFYFeLhjsAUnaBvMX_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "YFeQDLjyhwOTNlcAEkZLj": {
+      "x": 112,
+      "y": 64,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "YFeQDLjyhwOTNlcAEkZLj_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "YFeQDLjyhwOTNlcAEkZLj_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "JXtrGMtCKFGxiRkOKQIfK": {
+      "x": 112,
+      "y": 192,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "JXtrGMtCKFGxiRkOKQIfK_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "JXtrGMtCKFGxiRkOKQIfK_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "XhdYTpLoChoGvPfCeDlKl": {
+      "x": 908,
+      "y": 176,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "XhdYTpLoChoGvPfCeDlKl_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "MuqYKYSPIOZHNEheIIBdT": {
+      "x": 892,
+      "y": 64,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "MuqYKYSPIOZHNEheIIBdT_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "UqvQVlOfRcypwMwYYpJSs": {
+      "x": 652,
+      "y": 64,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "UqvQVlOfRcypwMwYYpJSs_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "UqvQVlOfRcypwMwYYpJSs_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "PJtBeyiPqwImHDFGTYHSB": {
+      "x": -16,
+      "y": 176,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "PJtBeyiPqwImHDFGTYHSB_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "PJtBeyiPqwImHDFGTYHSB_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "aLdIpWnYxecTCbvveZEiJ": {
+      "x": -176,
+      "y": 176,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "aLdIpWnYxecTCbvveZEiJ_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "aLdIpWnYxecTCbvveZEiJ_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "SXHHMbNMSwWzUAMJZsHXR": {
+      "x": -320,
+      "y": 176,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "SXHHMbNMSwWzUAMJZsHXR_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "SXHHMbNMSwWzUAMJZsHXR_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "NNehSjoueyjuKQhFZHwqh": {
+      "x": -480,
+      "y": 176,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "NNehSjoueyjuKQhFZHwqh_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "iExUrsnItmUVjRqpmThTx": {
+      "x": 656,
+      "y": 176,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "iExUrsnItmUVjRqpmThTx_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "iExUrsnItmUVjRqpmThTx_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "psXJObplkNslSZxfJaGPF": {
+      "x": 652,
+      "y": 304,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "psXJObplkNslSZxfJaGPF_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "psXJObplkNslSZxfJaGPF_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "YFeQDLjyhwOTNlcAEkZLj": {
+      "metaInfo": {
+        "id": "YFeQDLjyhwOTNlcAEkZLj",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "RESTClient",
+        "description": ""
+      },
+      "mappings": {
+        "GetEmployeeByEmployeeId": {
+          "headers": {
+            "Ocp-Apim-Subscription-Key": "$.gv.Paycor.apimKey"
+          },
+          "additionalHeaders": [
+            {
+              "__arrayItemName__": "additionalHeader"
+            }
+          ],
+          "queryParams": {
+            "include": "'All'"
+          },
+          "pathParams": {
+            "employeeId": "$.Start.ItemId"
+          }
+        }
+      },
+      "attributes": {
+        "employeeNumber": [
+          "$.pathParams.employeeId"
+        ]
+      }
+    },
+    "JXtrGMtCKFGxiRkOKQIfK": {
+      "metaInfo": {
+        "id": "JXtrGMtCKFGxiRkOKQIfK",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetPersonData",
+        "description": ""
+      },
+      "mappings": {
+        "GetPersonByEmployeeId": {
+          "headers": {
+            "Ocp-Apim-Subscription-Key": "$.gv.Paycor.apimKey"
+          },
+          "additionalHeaders": [
+            {
+              "__arrayItemName__": "additionalHeader"
+            }
+          ],
+          "queryParams": {
+            "include": "'All'"
+          },
+          "pathParams": {
+            "employeeId": "$.Start.ItemId"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "mGIHXFYFeLhjsAUnaBvMX": {
+      "metaInfo": {
+        "id": "mGIHXFYFeLhjsAUnaBvMX",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetPayrateData",
+        "description": ""
+      },
+      "mappings": {
+        "GetPayrateByEmployeeId": {
+          "headers": {
+            "Ocp-Apim-Subscription-Key": "$.gv.Paycor.apimKey"
+          },
+          "additionalHeaders": [
+            {
+              "__arrayItemName__": "additionalHeader"
+            }
+          ],
+          "pathParams": {
+            "employeeId": "$.Start.ItemId"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "iExUrsnItmUVjRqpmThTx": {
+      "metaInfo": {
+        "id": "iExUrsnItmUVjRqpmThTx",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "CreateEmployee",
+        "description": ""
+      },
+      "mappings": {
+        "CreateEmployee": {
+          "tenantId": "$.Start.TenantId",
+          "legalEntityId": "$.Start.LegalEntityId",
+          "eventEffectiveDate": "nowAsDateTime(\"yyyy-MM-dd'T'HH:mm:ss\")",
+          "jobInfo": [
+            {
+              "eventEffectiveDate": "nowAsDateTime(\"yyyy-MM-dd'T'HH:mm:ss\")",
+              "payRate": {
+                "#if (!exists($.GetPayrateByEmployeeId.httpResponse.body.records[1].effectiveEndDate))": [
+                  "$.GetPayrateByEmployeeId.httpResponse.body.records[1].payRate"
+                ],
+                "#else": [
+                  "0"
+                ]
+              },
+              "__arrayItemName__": "jobInfo"
+            }
+          ],
+          "clientCode": "valueOf($.Start.LegalEntityId)",
+          "firstName": "$.GetPersonByEmployeeId.httpResponse.body.firstName",
+          "lastName": "$.GetPersonByEmployeeId.httpResponse.body.lastName",
+          "ssn": "$.GetPersonByEmployeeId.httpResponse.body.socialSecurityNumber",
+          "dob": "$.GetPersonByEmployeeId.httpResponse.body.demographicData.birthDate",
+          "payrollProvider_EmployeeUID": {
+            "#if (!isNullOrEmpty($.GetEmployeeByEmployeeId.httpResponse.body.alternateEmployeeNumber))": [
+              "$.GetEmployeeByEmployeeId.httpResponse.body.alternateEmployeeNumber"
+            ],
+            "#else": [
+              "$.GetEmployeeByEmployeeId.httpResponse.body.employeeNumber"
+            ]
+          },
+          "posProvider_EmployeeUID": "$.Start.ItemId",
+          "insertDate": "nowAsDateTime(\"yyyy-MM-dd'T'HH:mm:ss\")",
+          "updateDate": "nowAsDateTime(\"yyyy-MM-dd'T'HH:mm:ss\")",
+          "emailId": "$.GetEmployeeByEmployeeId.httpResponse.body.email.emailAddress",
+          "alohaMagCardOnly": "true",
+          "jobTitle": "$.GetEmployeeByEmployeeId.httpResponse.body.positionData.jobTitle",
+          "locationName": "$.GetEmployeeByEmployeeId.httpResponse.body.workLocation.name"
+        }
+      },
+      "attributes": {
+        "legalEntityId": [
+          "$.legalEntityId"
+        ]
+      }
+    },
+    "psXJObplkNslSZxfJaGPF": {
+      "metaInfo": {
+        "id": "psXJObplkNslSZxfJaGPF",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "ModifyEmployee",
+        "description": ""
+      },
+      "mappings": {
+        "ModifyEmployee": {
+          "tenantId": "$.Start.TenantId",
+          "legalEntityId": "$.Start.LegalEntityId",
+          "eventType": "$.Start.EventType",
+          "clientCode": "valueOf($.Start.LegalEntityId)",
+          "firstName": "$.GetPersonByEmployeeId.httpResponse.body.firstName",
+          "lastName": "$.GetPersonByEmployeeId.httpResponse.body.lastName",
+          "payrollProvider_EmployeeUID": {
+            "#if (!isNullOrEmpty($.GetEmployeeByEmployeeId.httpResponse.body.alternateEmployeeNumber))": [
+              "$.GetEmployeeByEmployeeId.httpResponse.body.alternateEmployeeNumber"
+            ],
+            "#else": [
+              "$.GetEmployeeByEmployeeId.httpResponse.body.employeeNumber"
+            ]
+          },
+          "posProvider_EmployeeUID": "$.Start.ItemId",
+          "locationNumber": "valueOf($.GetPersonByEmployeeId.httpResponse.body.addresses[1].zipCode)",
+          "updateDate": "nowAsDateTime(\"yyyy-MM-dd'T'HH:mm:ss\")",
+          "emailId": "$.GetEmployeeByEmployeeId.httpResponse.body.email.emailAddress",
+          "dob": "$.GetPersonByEmployeeId.httpResponse.body.demographicData.birthDate",
+          "ssn": "$.GetPersonByEmployeeId.httpResponse.body.socialSecurityNumber",
+          "alohaMagCardOnly": "true",
+          "terminationEffectiveDate": {
+            "#if (exists($.GetEmployeeByEmployeeId.httpResponse.body.employmentDateData.terminationDate))": [
+              "$.GetEmployeeByEmployeeId.httpResponse.body.employmentDateData.terminationDate"
+            ],
+            "#else": [
+              "nowAsDateTime(\"yyyy-MM-dd'T'HH:mm:ss\")"
+            ]
+          },
+          "status": "$.GetEmployeeByEmployeeId.httpResponse.body.statusData.status",
+          "reHireDate": "$.GetEmployeeByEmployeeId.httpResponse.body.employmentDateData.reHireDate",
+          "payRate": {
+            "#if (!exists($.GetPayrateByEmployeeId.httpResponse.body.records[1].effectiveEndDate))": [
+              "$.GetPayrateByEmployeeId.httpResponse.body.records[1].payRate"
+            ],
+            "#else": [
+              "0"
+            ]
+          },
+          "locationName": "$.GetEmployeeByEmployeeId.httpResponse.body.workLocation.name",
+          "jobTitle": "$.GetEmployeeByEmployeeId.httpResponse.body.positionData.jobTitle"
+        }
+      },
+      "attributes": {}
+    },
+    "XhdYTpLoChoGvPfCeDlKl": {
+      "metaInfo": {
+        "id": "XhdYTpLoChoGvPfCeDlKl",
+        "versionInfo": {
+          "version": "0.0.1"
+        },
+        "name": "Success",
+        "description": ""
+      },
+      "mappings": {}
+    },
+    "MuqYKYSPIOZHNEheIIBdT": {
+      "metaInfo": {
+        "id": "MuqYKYSPIOZHNEheIIBdT",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GenerateError",
+        "description": "This activity is for Generating Error"
+      },
+      "mappings": {
+        "GenerateError": {
+          "errorCode": "$.error.errorCode",
+          "errorMessage": "'API Failed'"
+        }
+      },
+      "attributes": {}
+    },
+    "UqvQVlOfRcypwMwYYpJSs": {
+      "metaInfo": {
+        "id": "UqvQVlOfRcypwMwYYpJSs",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "LogToNewRelic",
+        "description": ""
+      },
+      "mappings": {
+        "LogToNewRelic": {
+          "workflowContext": {
+            "pinsApplication": {
+              "applicationId": "$.gv.Context.app",
+              "host": "$.gv.Paycor.apiHost",
+              "apimKey": "$.gv.Paycor.apimKey"
+            },
+            "logging": {
+              "newRelicHost": "$.gv.NewRelic.host",
+              "newRelicKey": "$.gv.NewRelic.key",
+              "level": "$.gv.NewRelic.loggingLevel"
+            }
+          },
+          "message": "'Failed to get the employee, person or payrate details'",
+          "level": "'ERROR'",
+          "error": {
+            "__expr__": "$.error",
+            "stack": [
+              {
+                "__arrayItemName__": "stack"
+              }
+            ]
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "SXHHMbNMSwWzUAMJZsHXR": {
+      "metaInfo": {
+        "id": "SXHHMbNMSwWzUAMJZsHXR",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "UseProfile",
+        "description": ""
+      },
+      "mappings": {
+        "UseProfile": {
+          "profileName": "valueOf($.Start.LegalEntityId)"
+        }
+      },
+      "attributes": {}
+    },
+    "aLdIpWnYxecTCbvveZEiJ": {
+      "metaInfo": {
+        "id": "aLdIpWnYxecTCbvveZEiJ",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "SetPaycorOAuthContext",
+        "description": ""
+      },
+      "mappings": {
+        "SetPaycorOAuthContext": {
+          "contexts": {
+            "Paycor": {
+              "application": "$.gv.Context.app",
+              "env": "$.gv.Context.env",
+              "provider": "'Paycor'",
+              "resourceType": "'OAuth'",
+              "tag": {
+                "name": "'legalEntityId'",
+                "value": "valueOf($.Start.LegalEntityId)"
+              }
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "PJtBeyiPqwImHDFGTYHSB": {
+      "metaInfo": {
+        "id": "PJtBeyiPqwImHDFGTYHSB",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "SetRosnetOAuthContext",
+        "description": ""
+      },
+      "mappings": {
+        "SetRosnetOAuthContext": {
+          "contexts": {
+            "Rosnet": {
+              "application": "$.gv.Context.app",
+              "env": "$.gv.Context.env",
+              "provider": "'Rosnet'",
+              "resourceType": "'OAuth'",
+              "tag": {
+                "name": "'legalEntityId'",
+                "value": "valueOf($.Start.LegalEntityId)"
+              }
+            }
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [
+    {
+      "id": "WdImSgAJTLqcBmxvVXyKe",
+      "position": {
+        "x": -480,
+        "y": -32
+      },
+      "description": "Workflow to fetch employee, person, pay rate data and route it to either Create Employee or Modify Employee subflow.",
+      "width": 150,
+      "height": 182
+    }
+  ],
+  "config": {
+    "name": "Employee Details",
+    "description": "",
+    "workflowAttributes": [],
+    "context": "{\"Paycor\":\"A4N8Q1L\",\"Rosnet\":\"A4N8Q1L\"}",
+    "errorConfig": []
+  }
+}

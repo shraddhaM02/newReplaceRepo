@@ -1,0 +1,218 @@
+{
+  "id": "tDNmuLoKFckcSqIcFwNYO",
+  "name": "Employee Details Test",
+  "workflowName": "Employee Details Test",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jgpWAGmLiHlyPFStCxopC",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "XhdYTpLoChoGvPfCeDlKl",
+      "stepName": "Success",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "Success",
+        "description": "",
+        "sourceSchemas": [
+          "iExUrsnItmUVjRqpmThTx",
+          "WlOqyBoixKZibIsdLpBYu"
+        ]
+      }
+    },
+    {
+      "id": "WlOqyBoixKZibIsdLpBYu",
+      "stepName": "ProcessEmployeeData",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "output": "gKjvnqTDynSWKmwYAxDBg",
+        "name": "ProcessEmployeeData",
+        "description": "",
+        "path": "/processEmployeeData",
+        "method": [
+          "POST"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "iExUrsnItmUVjRqpmThTx",
+      "stepName": "ProcessEmployee",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Subflow to process employee data",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "contextMapping": [
+          {
+            "subflowContext": "Paycor",
+            "workflowContext": ""
+          },
+          {
+            "subflowContext": "Rosnet",
+            "workflowContext": ""
+          }
+        ],
+        "name": "ProcessEmployee",
+        "description": "Subflow to process employee data",
+        "subflowPath": "wf:{\"id\":\"lMeaDyulkyOJayrVgEHIa/HskXesSJxPTpsbmzFuCUf\",\"name\":\"/Workflows/Process/Employee Details\"}",
+        "waitForCompletion": true,
+        "output": "",
+        "sourceSchemas": [
+          "WlOqyBoixKZibIsdLpBYu"
+        ]
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "YMRPctrywsOgXWgPGrPbk",
+      "from": "iExUrsnItmUVjRqpmThTx",
+      "to": "XhdYTpLoChoGvPfCeDlKl",
+      "handleMap": {
+        "source": "iExUrsnItmUVjRqpmThTx_2",
+        "target": "XhdYTpLoChoGvPfCeDlKl_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "mPPZVtjJqEPZHQEyXxUrI",
+      "from": "WlOqyBoixKZibIsdLpBYu",
+      "to": "iExUrsnItmUVjRqpmThTx",
+      "handleMap": {
+        "source": "WlOqyBoixKZibIsdLpBYu_1",
+        "target": "iExUrsnItmUVjRqpmThTx_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "XhdYTpLoChoGvPfCeDlKl": {
+      "x": 1392,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "XhdYTpLoChoGvPfCeDlKl_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "WlOqyBoixKZibIsdLpBYu": {
+      "x": 1024,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "WlOqyBoixKZibIsdLpBYu_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "iExUrsnItmUVjRqpmThTx": {
+      "x": 1232,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "iExUrsnItmUVjRqpmThTx_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "iExUrsnItmUVjRqpmThTx_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "iExUrsnItmUVjRqpmThTx": {
+      "metaInfo": {
+        "id": "iExUrsnItmUVjRqpmThTx",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "CreateEmployee",
+        "description": ""
+      },
+      "mappings": {
+        "ProcessEmployee": {
+          "EventType": "$.ProcessEmployeeData.body.EventType",
+          "EventId": "$.ProcessEmployeeData.body.EventId",
+          "LegalEntityId": "$.ProcessEmployeeData.body.LegalEntityId",
+          "TenantId": "$.ProcessEmployeeData.body.TenantId",
+          "ItemId": "$.ProcessEmployeeData.body.ItemId",
+          "ExtendedProperties": {
+            "#copyOf": "$.ProcessEmployeeData.body.ExtendedProperties"
+          },
+          "Resource": {
+            "Id": "$.ProcessEmployeeData.body.Resource.Id",
+            "Url": "$.ProcessEmployeeData.body.Resource.Url"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "XhdYTpLoChoGvPfCeDlKl": {
+      "metaInfo": {
+        "id": "XhdYTpLoChoGvPfCeDlKl",
+        "versionInfo": {
+          "version": "0.0.1"
+        },
+        "name": "Success",
+        "description": ""
+      },
+      "mappings": {}
+    }
+  },
+  "notes": [],
+  "config": {
+    "name": "Employee Details Test",
+    "description": "",
+    "workflowAttributes": [],
+    "context": "{}",
+    "errorConfig": []
+  }
+}

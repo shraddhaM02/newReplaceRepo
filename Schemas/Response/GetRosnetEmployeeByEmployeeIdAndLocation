@@ -1,0 +1,16 @@
+{
+  "id": "xQrpqbjqkOyzFNtyXvdaA",
+  "name": "GetRosnetEmployeeByEmployeeIdAndLocation",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rWhUHFPxXoAFMOwWGzxHF",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "GetRosnetEmployeeByEmployeeIdAndLocation",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/xQrpqbjqkOyzFNtyXvdaA"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

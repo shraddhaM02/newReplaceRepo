@@ -1,0 +1,16 @@
+{
+  "id": "GbSFIrgEisKLudRIHjRcC",
+  "name": "AddJob",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "dPtjQFYTTRKSUYGcJkfsL",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "AddJob",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/GbSFIrgEisKLudRIHjRcC"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

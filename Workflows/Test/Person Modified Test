@@ -1,0 +1,240 @@
+{
+  "id": "mQumXSYtKEXrFPoYOzBVD",
+  "name": "Person Modified Test",
+  "workflowName": "Person Modified Test",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jgpWAGmLiHlyPFStCxopC",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "MFpIZkUXIthfSxJYuxGPP",
+      "stepName": "UseProfile",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityGroup": "Common",
+        "activityName": "UseProfile",
+        "activityType": "SIMPLE",
+        "name": "UseProfile",
+        "sourceSchemas": [
+          "YEWMwoeQYTyXsRybrKrXD"
+        ]
+      }
+    },
+    {
+      "id": "hOvWbjMWTIkCovqikVJxK",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityType": "END",
+        "activityName": "End",
+        "activityGroup": "Common",
+        "name": "End",
+        "sourceSchemas": [
+          "KRUtRBDKmSofnHpBlzDPb",
+          "MFpIZkUXIthfSxJYuxGPP",
+          "YEWMwoeQYTyXsRybrKrXD"
+        ]
+      }
+    },
+    {
+      "id": "YEWMwoeQYTyXsRybrKrXD",
+      "stepName": "RESTService",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "output": "gKjvnqTDynSWKmwYAxDBg",
+        "name": "RESTService",
+        "description": "",
+        "path": "/testPersonModified",
+        "method": [
+          "POST"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "KRUtRBDKmSofnHpBlzDPb",
+      "stepName": "Subflow",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "Subflow",
+        "description": "",
+        "subflowPath": "wf:{\"id\":\"bkjGHARbXhrDdnwUvfWkZ/KYfJCwLclUTFItweJwvBi\",\"name\":\"/Workflows/Process/Modify Person\"}",
+        "waitForCompletion": true,
+        "sourceSchemas": [
+          "MFpIZkUXIthfSxJYuxGPP",
+          "YEWMwoeQYTyXsRybrKrXD"
+        ]
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "EDkIOJgmgGXfjOmVxipQe",
+      "from": "KRUtRBDKmSofnHpBlzDPb",
+      "to": "hOvWbjMWTIkCovqikVJxK",
+      "handleMap": {
+        "source": "KRUtRBDKmSofnHpBlzDPb_2",
+        "target": "hOvWbjMWTIkCovqikVJxK_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "TfxbwphnBMDcOUTvNrAgl",
+      "from": "YEWMwoeQYTyXsRybrKrXD",
+      "to": "MFpIZkUXIthfSxJYuxGPP",
+      "handleMap": {
+        "source": "YEWMwoeQYTyXsRybrKrXD_1",
+        "target": "MFpIZkUXIthfSxJYuxGPP_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "tlfkxnuscOSwXvbeyLdcx",
+      "from": "MFpIZkUXIthfSxJYuxGPP",
+      "to": "KRUtRBDKmSofnHpBlzDPb",
+      "handleMap": {
+        "source": "MFpIZkUXIthfSxJYuxGPP_2",
+        "target": "KRUtRBDKmSofnHpBlzDPb_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "MFpIZkUXIthfSxJYuxGPP": {
+      "x": -16,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "MFpIZkUXIthfSxJYuxGPP_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "MFpIZkUXIthfSxJYuxGPP_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "hOvWbjMWTIkCovqikVJxK": {
+      "x": 352,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "hOvWbjMWTIkCovqikVJxK_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "YEWMwoeQYTyXsRybrKrXD": {
+      "x": -192,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "YEWMwoeQYTyXsRybrKrXD_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "KRUtRBDKmSofnHpBlzDPb": {
+      "x": 160,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "KRUtRBDKmSofnHpBlzDPb_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "KRUtRBDKmSofnHpBlzDPb_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "KRUtRBDKmSofnHpBlzDPb": {
+      "metaInfo": {
+        "id": "KRUtRBDKmSofnHpBlzDPb",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "Subflow",
+        "description": ""
+      },
+      "mappings": {
+        "Subflow": {
+          "tenantId": "$.RESTService.body.TenantId",
+          "legalEntityId": "$.RESTService.body.LegalEntityId",
+          "employeeId": "$.RESTService.body.ItemId",
+          "eventType": "$.RESTService.body.EventType",
+          "eventId": "$.RESTService.body.EventId"
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [],
+  "config": {
+    "name": "Person Modified Test",
+    "description": "",
+    "workflowAttributes": [],
+    "context": "",
+    "errorConfig": []
+  }
+}

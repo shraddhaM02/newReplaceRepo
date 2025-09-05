@@ -1,0 +1,284 @@
+{
+  "id": "LUsuLFtShDbDTHHBIUWbk",
+  "name": "Terminate Employee Test",
+  "workflowName": "Terminate Employee Test",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jgpWAGmLiHlyPFStCxopC",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "LPILqpsSNuiSziMUfXGMQ",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityType": "END",
+        "activityName": "End",
+        "activityGroup": "Common",
+        "name": "End",
+        "sourceSchemas": [
+          "PnyBNDqmxsmSmnrAjUJhk",
+          "yFTHmtwfCUxzehFzAqcce"
+        ]
+      }
+    },
+    {
+      "id": "yFTHmtwfCUxzehFzAqcce",
+      "stepName": "RESTService",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "output": "GSHoSpAkSrLzBJNsQypHp",
+        "name": "RESTService",
+        "description": "",
+        "path": "/terminateEmployeeTest",
+        "method": [
+          "POST"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "PnyBNDqmxsmSmnrAjUJhk",
+      "stepName": "Subflow",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "contextMapping": [
+          {
+            "subflowContext": "Rosnet",
+            "workflowContext": "Rosnet"
+          }
+        ],
+        "name": "Subflow",
+        "description": "",
+        "subflowPath": "wf:{\"id\":\"bkjGHARbXhrDdnwUvfWkZ/XbdwXOAWnTOimkvpDNhRp\",\"name\":\"/Workflows/Process/Terminate Employee\"}",
+        "waitForCompletion": true,
+        "sourceSchemas": [
+          "yFTHmtwfCUxzehFzAqcce",
+          "GqaFcaMAfuoBVQqkFRyie"
+        ]
+      }
+    },
+    {
+      "id": "GqaFcaMAfuoBVQqkFRyie",
+      "stepName": "SetContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "SetContext",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "SetContext",
+        "description": "",
+        "contexts": [
+          "Rosnet"
+        ],
+        "overWriteIfExists": true,
+        "sourceSchemas": [
+          "yFTHmtwfCUxzehFzAqcce"
+        ]
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "DmKOMboBMJqPkvLITPzNA",
+      "from": "PnyBNDqmxsmSmnrAjUJhk",
+      "to": "LPILqpsSNuiSziMUfXGMQ",
+      "handleMap": {
+        "source": "PnyBNDqmxsmSmnrAjUJhk_2",
+        "target": "LPILqpsSNuiSziMUfXGMQ_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "yufoJULNVwrMzeNkvBqbk",
+      "from": "yFTHmtwfCUxzehFzAqcce",
+      "to": "GqaFcaMAfuoBVQqkFRyie",
+      "handleMap": {
+        "source": "yFTHmtwfCUxzehFzAqcce_1",
+        "target": "GqaFcaMAfuoBVQqkFRyie_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "mMAjSXggQcqiFzkevYzJc",
+      "from": "GqaFcaMAfuoBVQqkFRyie",
+      "to": "PnyBNDqmxsmSmnrAjUJhk",
+      "handleMap": {
+        "source": "GqaFcaMAfuoBVQqkFRyie_2",
+        "target": "PnyBNDqmxsmSmnrAjUJhk_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "LPILqpsSNuiSziMUfXGMQ": {
+      "x": 616,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "LPILqpsSNuiSziMUfXGMQ_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "yFTHmtwfCUxzehFzAqcce": {
+      "x": 16,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "yFTHmtwfCUxzehFzAqcce_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "PnyBNDqmxsmSmnrAjUJhk": {
+      "x": 344,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "PnyBNDqmxsmSmnrAjUJhk_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "PnyBNDqmxsmSmnrAjUJhk_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "GqaFcaMAfuoBVQqkFRyie": {
+      "x": 180,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "GqaFcaMAfuoBVQqkFRyie_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "GqaFcaMAfuoBVQqkFRyie_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "GqaFcaMAfuoBVQqkFRyie": {
+      "metaInfo": {
+        "id": "GqaFcaMAfuoBVQqkFRyie",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "SetContext",
+        "description": ""
+      },
+      "mappings": {
+        "SetContext": {
+          "contexts": {
+            "Rosnet": {
+              "application": "$.gv.Context.app",
+              "env": "$.gv.Context.env",
+              "provider": "'Rosnet'",
+              "resourceType": "'OAuth'",
+              "tag": {
+                "name": "'legalEntityId'",
+                "value": "valueOf($.RESTService.body.legalEntityId)"
+              }
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "PnyBNDqmxsmSmnrAjUJhk": {
+      "metaInfo": {
+        "id": "PnyBNDqmxsmSmnrAjUJhk",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "Subflow",
+        "description": ""
+      },
+      "mappings": {
+        "Subflow": {
+          "tenantId": "$.RESTService.body.tenantId",
+          "legalEntityId": "$.RESTService.body.legalEntityId",
+          "posProvider_EmployeeUID": "$.RESTService.body.posProvider_EmployeeUID",
+          "terminationEffectiveDate": "$.RESTService.body.terminationEffectiveDate",
+          "clientCode": "$.RESTService.body.clientCode",
+          "locationNumber": "$.RESTService.body.locationNumber",
+          "payrollProvider_EmployeeUID": "$.RESTService.body.payrollProvider_EmployeeUID",
+          "firstName": "$.RESTService.body.firstName",
+          "lastName": "$.RESTService.body.lastName",
+          "employeeTerminationCode": "$.RESTService.body.employeeTerminationCode",
+          "locationName": "$.RESTService.body.locationName",
+          "jobTitle": "$.RESTService.body.jobTitle"
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [],
+  "config": {
+    "name": "Terminate Employee Test",
+    "description": "",
+    "workflowAttributes": [],
+    "context": "{\"Rosnet\":\"A4N8Q1L\"}",
+    "errorConfig": []
+  }
+}

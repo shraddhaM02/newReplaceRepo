@@ -1,0 +1,16 @@
+{
+  "id": "pTdUnaxREWHOHbMButoFL",
+  "name": "GetEmployeeByEmployeeIdResponse",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rWhUHFPxXoAFMOwWGzxHF",
+  "content": {
+    "name": "GetEmployeeByEmployeeIdResponse",
+    "type": "json-schema",
+    "destination": "source",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/pTdUnaxREWHOHbMButoFL"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

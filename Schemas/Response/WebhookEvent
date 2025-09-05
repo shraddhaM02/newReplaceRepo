@@ -1,0 +1,16 @@
+{
+  "id": "gKjvnqTDynSWKmwYAxDBg",
+  "name": "WebhookEvent",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rWhUHFPxXoAFMOwWGzxHF",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "WebhookEvent",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/gKjvnqTDynSWKmwYAxDBg"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

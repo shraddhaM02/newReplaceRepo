@@ -1,0 +1,16 @@
+{
+  "id": "JhhnImPbTZzsnVWXQLKwQ",
+  "name": "TransferJob",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "dPtjQFYTTRKSUYGcJkfsL",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "content": null,
+    "name": "TransferJob",
+    "schemaSource": "file",
+    "reference": "$ref://schema-registry/JhhnImPbTZzsnVWXQLKwQ"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

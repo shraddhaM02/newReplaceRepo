@@ -1,0 +1,16 @@
+{
+  "id": "nIsjwKfjIESmzRUUsnDdN",
+  "name": "SendEmployeeData",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "dPtjQFYTTRKSUYGcJkfsL",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "content": null,
+    "name": "SendEmployeeData",
+    "schemaSource": "file",
+    "reference": "$ref://schema-registry/nIsjwKfjIESmzRUUsnDdN"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

@@ -1,0 +1,16 @@
+{
+  "id": "XkeQlyfNLXoYRAUlcxtZe",
+  "name": "ModifyEmployee",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "dPtjQFYTTRKSUYGcJkfsL",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "ModifyEmployee",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/XkeQlyfNLXoYRAUlcxtZe"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

@@ -1,0 +1,16 @@
+{
+  "id": "iCYxVVhUEDbWJMyfcxDze",
+  "name": "GetRosnetEmployeeData",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rWhUHFPxXoAFMOwWGzxHF",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "GetRosnetEmployeeData",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/iCYxVVhUEDbWJMyfcxDze"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

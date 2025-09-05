@@ -1,0 +1,16 @@
+{
+  "id": "gppKUfqttzbHggskokBYJ",
+  "name": "ModifyJob",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "dPtjQFYTTRKSUYGcJkfsL",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "ModifyJob",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/gppKUfqttzbHggskokBYJ"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

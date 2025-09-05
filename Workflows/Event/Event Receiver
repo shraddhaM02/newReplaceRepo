@@ -1,0 +1,206 @@
+{
+  "id": "hLIWFokXiHrPUoHAakKCE",
+  "name": "Event Receiver",
+  "workflowName": "Event Receiver",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rcGpsFMHkSIhbZnEDWjsi",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "ynNXphagFQLpBCCRRzPbI",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityType": "END",
+        "activityName": "End",
+        "activityGroup": "Common",
+        "name": "End",
+        "sourceSchemas": [
+          "EqxpYOWYFwTzgoXtUcPNF",
+          "rYfHcYvmmlIBSKzAjlzEX"
+        ]
+      }
+    },
+    {
+      "id": "rYfHcYvmmlIBSKzAjlzEX",
+      "stepName": "ReceiveEvent",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "Message Receiver to receive the webhook event details.",
+      "deletable": true,
+      "config": {
+        "activityName": "ReceiveMessage",
+        "activityGroup": "IntegrationPatterns",
+        "activityType": "EVENT_SOURCE",
+        "output": "gKjvnqTDynSWKmwYAxDBg",
+        "maxMessageRate": 100,
+        "maxOutstandingMessages": 100,
+        "maxFailedMessages": 5,
+        "resetTimeout": 60,
+        "name": "ReceiveEvent",
+        "description": "Message Receiver to receive the webhook event details.",
+        "destinationType": "QUEUE",
+        "queueName": "rosnet.webhook.event",
+        "autoAcknowledge": true,
+        "properties": [],
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "EqxpYOWYFwTzgoXtUcPNF",
+      "stepName": "EventProcess",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Subflow to process events.",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "EventProcess",
+        "description": "Subflow to process events.",
+        "subflowPath": "wf:{\"id\":\"ddgKVGKUrmpZrgRWDgXra/XiACbtNBzUXjNAGfReqXi\",\"name\":\"/Workflows/Process/Event Process\"}",
+        "waitForCompletion": true,
+        "contextMapping": [],
+        "output": "",
+        "sourceSchemas": [
+          "rYfHcYvmmlIBSKzAjlzEX"
+        ]
+      },
+      "activityCluster": null
+    }
+  ],
+  "transitions": [
+    {
+      "id": "sBjRxgHSPKAUuuwKLjQMH",
+      "from": "EqxpYOWYFwTzgoXtUcPNF",
+      "to": "ynNXphagFQLpBCCRRzPbI",
+      "handleMap": {
+        "source": "EqxpYOWYFwTzgoXtUcPNF_2",
+        "target": "ynNXphagFQLpBCCRRzPbI_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "jNglHIkKNhPrVUgZmrcVh",
+      "from": "rYfHcYvmmlIBSKzAjlzEX",
+      "to": "EqxpYOWYFwTzgoXtUcPNF",
+      "handleMap": {
+        "source": "rYfHcYvmmlIBSKzAjlzEX_1",
+        "target": "EqxpYOWYFwTzgoXtUcPNF_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "ynNXphagFQLpBCCRRzPbI": {
+      "x": 432,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "ynNXphagFQLpBCCRRzPbI_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "rYfHcYvmmlIBSKzAjlzEX": {
+      "x": 128,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "rYfHcYvmmlIBSKzAjlzEX_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "EqxpYOWYFwTzgoXtUcPNF": {
+      "x": 288,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "EqxpYOWYFwTzgoXtUcPNF_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "EqxpYOWYFwTzgoXtUcPNF_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "EqxpYOWYFwTzgoXtUcPNF": {
+      "metaInfo": {
+        "id": "EqxpYOWYFwTzgoXtUcPNF",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "Subflow",
+        "description": ""
+      },
+      "mappings": {
+        "Subflow": {
+          "EventType": "$.ReceiveEvent.body.EventType",
+          "EventId": "$.ReceiveEvent.body.EventId",
+          "LegalEntityId": "$.ReceiveEvent.body.LegalEntityId",
+          "ItemId": "$.ReceiveEvent.body.ItemId",
+          "ExtendedProperties": {
+            "#copyOf": "$.ReceiveEvent.body.ExtendedProperties"
+          },
+          "Resource": {
+            "Id": "$.ReceiveEvent.body.Resource.Id",
+            "Url": "$.ReceiveEvent.body.Resource.Url"
+          },
+          "TenantId": "$.ReceiveEvent.body.TenantId"
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [
+    {
+      "id": "yoAvNqHknQpTJdRdSmenU",
+      "position": {
+        "x": 128,
+        "y": -80
+      },
+      "description": "This workflow is used to receive event details and process it.",
+      "width": 150,
+      "height": 102
+    }
+  ],
+  "config": {
+    "name": "Event Receiver",
+    "description": "Workflow to receive the event and process it.",
+    "workflowAttributes": [],
+    "context": "",
+    "errorConfig": []
+  }
+}

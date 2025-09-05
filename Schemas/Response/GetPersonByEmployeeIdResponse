@@ -1,0 +1,16 @@
+{
+  "id": "MflCforVROAGfgZMNjhHo",
+  "name": "GetPersonByEmployeeIdResponse",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rWhUHFPxXoAFMOwWGzxHF",
+  "content": {
+    "name": "GetPersonByEmployeeIdResponse",
+    "type": "json-schema",
+    "destination": "source",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/MflCforVROAGfgZMNjhHo"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

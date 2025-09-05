@@ -1,0 +1,294 @@
+{
+  "id": "NxDPBCFZvNKSnPmGRCnUH",
+  "name": "Rehire Employee Test",
+  "workflowName": "Rehire Employee Test",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jgpWAGmLiHlyPFStCxopC",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "sHHXKgtHDGIWtGcflyVye",
+      "stepName": "RehireEmployee",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "output": "VVbmXnkQhpEIptDjgHUKk",
+        "name": "RehireEmployee",
+        "description": "",
+        "path": "/rehirEmployeeTest",
+        "method": [
+          "POST"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "tKoEHsfDtPNcYomnIQsIj",
+      "stepName": "SetContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "SetContext",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "SetContext",
+        "description": "",
+        "contexts": [
+          "Rosnet"
+        ],
+        "overWriteIfExists": true,
+        "sourceSchemas": [
+          "sHHXKgtHDGIWtGcflyVye"
+        ]
+      }
+    },
+    {
+      "id": "TBGUXnvGIgCTjuxAAODax",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityType": "END",
+        "activityName": "End",
+        "activityGroup": "Common",
+        "name": "End",
+        "sourceSchemas": [
+          "JLKeSexCzkiASzAujjvQe",
+          "tKoEHsfDtPNcYomnIQsIj",
+          "sHHXKgtHDGIWtGcflyVye"
+        ]
+      }
+    },
+    {
+      "id": "JLKeSexCzkiASzAujjvQe",
+      "stepName": "Subflow",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "contextMapping": [
+          {
+            "subflowContext": "Rosnet",
+            "workflowContext": "Rosnet"
+          }
+        ],
+        "name": "Subflow",
+        "description": "",
+        "subflowPath": "wf:{\"id\":\"bkjGHARbXhrDdnwUvfWkZ/tGjSGhVUCWLZpNpeqsdyp\",\"name\":\"/Workflows/Process/Rehire Employee\"}",
+        "waitForCompletion": true,
+        "sourceSchemas": [
+          "tKoEHsfDtPNcYomnIQsIj",
+          "sHHXKgtHDGIWtGcflyVye"
+        ]
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "jLeEQvZFFoLaWubYGufsC",
+      "from": "JLKeSexCzkiASzAujjvQe",
+      "to": "TBGUXnvGIgCTjuxAAODax",
+      "handleMap": {
+        "source": "JLKeSexCzkiASzAujjvQe_2",
+        "target": "TBGUXnvGIgCTjuxAAODax_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "GpryUhHPNsYOYYNmUgwhZ",
+      "from": "sHHXKgtHDGIWtGcflyVye",
+      "to": "tKoEHsfDtPNcYomnIQsIj",
+      "handleMap": {
+        "source": "sHHXKgtHDGIWtGcflyVye_1",
+        "target": "tKoEHsfDtPNcYomnIQsIj_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "fypvWzMbdExhbuPxCjKTj",
+      "from": "tKoEHsfDtPNcYomnIQsIj",
+      "to": "JLKeSexCzkiASzAujjvQe",
+      "handleMap": {
+        "source": "tKoEHsfDtPNcYomnIQsIj_2",
+        "target": "JLKeSexCzkiASzAujjvQe_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "sHHXKgtHDGIWtGcflyVye": {
+      "x": 16,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "sHHXKgtHDGIWtGcflyVye_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "tKoEHsfDtPNcYomnIQsIj": {
+      "x": 180,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "tKoEHsfDtPNcYomnIQsIj_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "tKoEHsfDtPNcYomnIQsIj_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "TBGUXnvGIgCTjuxAAODax": {
+      "x": 512,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "TBGUXnvGIgCTjuxAAODax_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "JLKeSexCzkiASzAujjvQe": {
+      "x": 344,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "JLKeSexCzkiASzAujjvQe_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "JLKeSexCzkiASzAujjvQe_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "tKoEHsfDtPNcYomnIQsIj": {
+      "metaInfo": {
+        "id": "tKoEHsfDtPNcYomnIQsIj",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "SetContext",
+        "description": ""
+      },
+      "mappings": {
+        "SetContext": {
+          "contexts": {
+            "Rosnet": {
+              "application": "$.gv.Context.app",
+              "env": "$.gv.Context.env",
+              "provider": "'Rosnet'",
+              "resourceType": "'OAuth'",
+              "tag": {
+                "name": "'legalEntityId'",
+                "value": "valueOf($.RehireEmployee.body.legalEntityId)"
+              }
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "JLKeSexCzkiASzAujjvQe": {
+      "metaInfo": {
+        "id": "JLKeSexCzkiASzAujjvQe",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "Subflow",
+        "description": ""
+      },
+      "mappings": {
+        "Subflow": {
+          "tenantId": "$.RehireEmployee.body.tenantId",
+          "legalEntityId": "$.RehireEmployee.body.legalEntityId",
+          "firstName": "$.RehireEmployee.body.firstName",
+          "lastName": "$.RehireEmployee.body.lastName",
+          "clientCode": "$.RehireEmployee.body.clientCode",
+          "ssn": "$.RehireEmployee.body.ssn",
+          "insertDate": "$.RehireEmployee.body.insertDate",
+          "updateDate": "$.RehireEmployee.body.updateDate",
+          "payrollProvider_EmployeeUID": "$.RehireEmployee.body.payrollProvider_EmployeeUID",
+          "posProvider_EmployeeUID": "$.RehireEmployee.body.posProvider_EmployeeUID",
+          "locationNumber": "$.RehireEmployee.body.locationNumber",
+          "oldLocationNumber": "$.RehireEmployee.body.oldLocationNumber",
+          "rehireIntoDifferentLocationFlag": "$.RehireEmployee.body.rehireIntoDifferentLocationFlag",
+          "jobInfo": {
+            "#copyOf": "$.RehireEmployee.body.jobInfo"
+          },
+          "email": "$.RehireEmployee.body.email",
+          "dob": "$.RehireEmployee.body.dob",
+          "jobTitle": "$.RehireEmployee.body.jobTitle",
+          "locationName": "$.RehireEmployee.body.locationName",
+          "alohaMagCardOnly": "$.RehireEmployee.body.alohaMagCardOnly"
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [],
+  "config": {
+    "name": "Rehire Employee Test",
+    "description": "",
+    "workflowAttributes": [],
+    "context": "{\"Rosnet\":\"A4N8Q1L\"}",
+    "errorConfig": []
+  }
+}

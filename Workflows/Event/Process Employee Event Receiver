@@ -1,0 +1,206 @@
+{
+  "id": "GmLZFzWtjMdqJehZdUmxz",
+  "name": "Process Employee Event Receiver",
+  "workflowName": "Process Employee Event Receiver",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rcGpsFMHkSIhbZnEDWjsi",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "yWnAqTkOIjRnfRhNsxFZT",
+      "stepName": "ProcessEmployeeDetails",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Subflow to process employee details.",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "ProcessEmployeeDetails",
+        "description": "Subflow to process employee details.",
+        "subflowPath": "wf:{\"id\":\"wEUshVkGbxaooXtYxiUnP/HskXesSJxPTpsbmzFuCUf\",\"name\":\"/Workflows/Process/Employee Details\"}",
+        "waitForCompletion": true,
+        "sourceSchemas": [
+          "EVGAuFZPmqgTzHGJAAAOP"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "EVGAuFZPmqgTzHGJAAAOP",
+      "stepName": "ReceiveProcessEmployeeMessage",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to receive Employee Created or Employee Modified.",
+      "deletable": true,
+      "config": {
+        "activityName": "ReceiveMessage",
+        "activityGroup": "IntegrationPatterns",
+        "activityType": "EVENT_SOURCE",
+        "name": "ReceiveProcessEmployeeMessage",
+        "description": "Activity to receive Employee Created or Employee Modified.",
+        "destinationType": "QUEUE",
+        "queueName": "process.employee.details",
+        "autoAcknowledge": true,
+        "output": "gKjvnqTDynSWKmwYAxDBg",
+        "onError": "Discard",
+        "redeliveryAttempts": 0,
+        "maxMessageRate": 100,
+        "maxOutstandingMessages": 10,
+        "maxFailedMessages": 5,
+        "resetTimeout": 60,
+        "properties": [],
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "WKhdJUhszHpNFeJObIuVA",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityType": "END",
+        "activityName": "End",
+        "activityGroup": "Common",
+        "name": "End",
+        "sourceSchemas": [
+          "yWnAqTkOIjRnfRhNsxFZT",
+          "EVGAuFZPmqgTzHGJAAAOP"
+        ]
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "UmgJlLOiKqySxoamgrPFT",
+      "from": "EVGAuFZPmqgTzHGJAAAOP",
+      "to": "yWnAqTkOIjRnfRhNsxFZT",
+      "handleMap": {
+        "source": "EVGAuFZPmqgTzHGJAAAOP_1",
+        "target": "yWnAqTkOIjRnfRhNsxFZT_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "LAATIbCizIVgsiRNXIlMr",
+      "from": "yWnAqTkOIjRnfRhNsxFZT",
+      "to": "WKhdJUhszHpNFeJObIuVA",
+      "handleMap": {
+        "source": "yWnAqTkOIjRnfRhNsxFZT_2",
+        "target": "WKhdJUhszHpNFeJObIuVA_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "yWnAqTkOIjRnfRhNsxFZT": {
+      "x": 240,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "yWnAqTkOIjRnfRhNsxFZT_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "yWnAqTkOIjRnfRhNsxFZT_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "EVGAuFZPmqgTzHGJAAAOP": {
+      "x": 96,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "EVGAuFZPmqgTzHGJAAAOP_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "WKhdJUhszHpNFeJObIuVA": {
+      "x": 384,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "WKhdJUhszHpNFeJObIuVA_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "yWnAqTkOIjRnfRhNsxFZT": {
+      "metaInfo": {
+        "id": "yWnAqTkOIjRnfRhNsxFZT",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "Subflow",
+        "description": ""
+      },
+      "mappings": {
+        "Subflow": {
+          "EventType": "$.ReceiveProcessEmployeeMessage.body.EventType",
+          "EventId": "$.ReceiveProcessEmployeeMessage.body.EventId",
+          "LegalEntityId": "$.ReceiveProcessEmployeeMessage.body.LegalEntityId",
+          "TenantId": "$.ReceiveProcessEmployeeMessage.body.TenantId",
+          "ItemId": "$.ReceiveProcessEmployeeMessage.body.ItemId",
+          "ExtendedProperties": {
+            "#copyOf": "$.ReceiveProcessEmployeeMessage.body.ExtendedProperties"
+          },
+          "Resource": {
+            "Id": "$.ReceiveProcessEmployeeMessage.body.Resource.Id",
+            "Url": "$.ReceiveProcessEmployeeMessage.body.Resource.Url"
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [
+    {
+      "id": "ounqWDaoYIRBvCKsswwbU",
+      "position": {
+        "x": 32,
+        "y": -160
+      },
+      "description": "Workflow to receive the webhook events of type Employee created and Employee",
+      "width": 150,
+      "height": 150
+    }
+  ],
+  "config": {
+    "name": "Process Employee Event Receiver",
+    "description": "",
+    "workflowAttributes": [],
+    "context": "",
+    "errorConfig": []
+  }
+}

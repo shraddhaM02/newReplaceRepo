@@ -1,0 +1,16 @@
+{
+  "id": "FYeECtPLRRDNIXfMYAoRF",
+  "name": "TestModeSchema",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "lfk_nnASIJUGRRYs__OsW",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "content": null,
+    "name": "TestModeSchema",
+    "schemaSource": "file",
+    "reference": "$ref://schema-registry/FYeECtPLRRDNIXfMYAoRF"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

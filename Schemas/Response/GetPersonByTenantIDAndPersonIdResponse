@@ -1,0 +1,16 @@
+{
+  "id": "mDTqsNXDfclkDbjnVGWSF",
+  "name": "GetPersonByTenantIDAndPersonIdResponse",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rWhUHFPxXoAFMOwWGzxHF",
+  "content": {
+    "name": "GetPersonByTenantIDAndPersonIdResponse",
+    "type": "json-schema",
+    "destination": "source",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/mDTqsNXDfclkDbjnVGWSF"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

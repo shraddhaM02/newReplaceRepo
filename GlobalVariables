@@ -1,0 +1,163 @@
+{
+  "sAjvvvDsmlFTdNjHpzZmz": {
+    "id": "sAjvvvDsmlFTdNjHpzZmz",
+    "name": "Rosnet",
+    "variables": [
+      {
+        "id": "BxbhSzKjdAVcPULtImGaQ",
+        "type": "string",
+        "name": "apiHost",
+        "enabled": true,
+        "defaultValue": "wfmt-api.rosnetqa.com",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "BMhtNstPWvXkBnFzsOsjW",
+        "globalVariableType": ""
+      }
+    ],
+    "appId": "tJvoEMBnhXCrBzPYXcRLi",
+    "gitEnabled": true
+  },
+  "cTXzlAyxtzyoEpdVmIkxF": {
+    "id": "cTXzlAyxtzyoEpdVmIkxF",
+    "name": "Paycor",
+    "variables": [
+      {
+        "id": "mHXObehmGoPOoXNPnkhUx",
+        "type": "string",
+        "name": "apiHost",
+        "enabled": true,
+        "defaultValue": "apis-quarterly.paycor.com",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "mjHUvbAsXDacqHlWOalPr",
+        "globalVariableType": ""
+      },
+      {
+        "id": "ltBEQUYgpwLrbCHgbeUvl",
+        "type": "string",
+        "name": "apimKey",
+        "enabled": true,
+        "defaultValue": "7043349f429d4f609810afdc4327b3e6",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "mjHUvbAsXDacqHlWOalPr",
+        "globalVariableType": ""
+      }
+    ],
+    "appId": "tJvoEMBnhXCrBzPYXcRLi",
+    "gitEnabled": true
+  },
+  "nNtIACXaAIQOxflfUHPap": {
+    "id": "nNtIACXaAIQOxflfUHPap",
+    "name": "Context",
+    "variables": [
+      {
+        "id": "vyfHGDMJonVajZOnEomAw",
+        "type": "string",
+        "name": "app",
+        "enabled": true,
+        "defaultValue": "4f1bfec8-e5c2-44b7-b2c9-cfe5dc7104ff",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "RcSolPwIMKPGczBgZHzJm",
+        "globalVariableType": ""
+      },
+      {
+        "id": "gtaqbdIEieKgjsXfaowBW",
+        "type": "string",
+        "name": "env",
+        "enabled": true,
+        "defaultValue": "Quarterly",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "RcSolPwIMKPGczBgZHzJm",
+        "globalVariableType": ""
+      },
+      {
+        "id": "YizXyoZaicGYmzQiPZgTA",
+        "type": "boolean",
+        "name": "testMode",
+        "enabled": true,
+        "defaultValue": "true",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "RcSolPwIMKPGczBgZHzJm",
+        "globalVariableType": ""
+      }
+    ],
+    "appId": "tJvoEMBnhXCrBzPYXcRLi",
+    "gitEnabled": true
+  },
+  "oidnEEmQktNaGfIDotorA": {
+    "id": "oidnEEmQktNaGfIDotorA",
+    "name": "NewRelic",
+    "variables": [
+      {
+        "id": "lReIlszbQjUteMYQZVfST",
+        "type": "string",
+        "name": "host",
+        "enabled": true,
+        "defaultValue": "log-quarterly.paycor.com",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "hypESyxqsNtvLWfvGAPVJ",
+        "globalVariableType": ""
+      },
+      {
+        "id": "avCLrOJyUtVVwDHvZxZuS",
+        "type": "secret",
+        "name": "key",
+        "enabled": true,
+        "defaultValue": "9La6Bb9Yb9Rb6Nn8Fc9Tc4Wu3Hu9Sd8Hy7Ai3We",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "hypESyxqsNtvLWfvGAPVJ",
+        "globalVariableType": ""
+      },
+      {
+        "id": "LQXYoxPfVpkGCJdaSqQrv",
+        "type": "string",
+        "name": "loggingLevel",
+        "enabled": true,
+        "defaultValue": "ERROR",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "hypESyxqsNtvLWfvGAPVJ",
+        "globalVariableType": ""
+      }
+    ],
+    "appId": "tJvoEMBnhXCrBzPYXcRLi",
+    "gitEnabled": true
+  },
+  "ITHtilCldjSQhHvbDdlzX": {
+    "id": "ITHtilCldjSQhHvbDdlzX",
+    "name": "Pins",
+    "variables": [
+      {
+        "id": "MxQOgvEzpWnaEhqoPqacf",
+        "type": "string",
+        "name": "host",
+        "enabled": true,
+        "defaultValue": "apim-paycor-dev-eus.azure-api.net",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "brmDvyKFkAvyQDclMulDc",
+        "globalVariableType": ""
+      },
+      {
+        "id": "ghFpclsuzxCHAmXvdJOme",
+        "type": "secret",
+        "name": "apimKey",
+        "enabled": true,
+        "defaultValue": "759691ff3cc14128a1c8c28b8f25bd8b",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "brmDvyKFkAvyQDclMulDc",
+        "globalVariableType": ""
+      }
+    ],
+    "appId": "tJvoEMBnhXCrBzPYXcRLi",
+    "gitEnabled": true
+  }
+}

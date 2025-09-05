@@ -1,0 +1,195 @@
+{
+  "id": "sUhoSkJmRwICYhLcBXTHi",
+  "name": "Main Process Test",
+  "workflowName": "Main Process Test",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jgpWAGmLiHlyPFStCxopC",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "sikWvtipbVDupPnQaUmGS",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityType": "END",
+        "activityName": "End",
+        "activityGroup": "Common",
+        "name": "End",
+        "sourceSchemas": [
+          "asXQqJxJpvgBtrkcsncIs",
+          "vrPLRjCAqYRGQoQevPmHY"
+        ]
+      }
+    },
+    {
+      "id": "vrPLRjCAqYRGQoQevPmHY",
+      "stepName": "EventTriggerTest",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "REST service to send the webhook event for testing purposes.",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "output": "gKjvnqTDynSWKmwYAxDBg",
+        "name": "EventTriggerTest",
+        "description": "REST service to send the webhook event for testing purposes.",
+        "path": "/eventTriggerTest",
+        "method": [
+          "POST"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "asXQqJxJpvgBtrkcsncIs",
+      "stepName": "MainProcess",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "MainProcess",
+        "description": "",
+        "subflowPath": "wf:{\"id\":\"wEUshVkGbxaooXtYxiUnP/TkcammMKbptHaPDikrxOZ\",\"name\":\"/Workflows/Process/Main Process\"}",
+        "waitForCompletion": true,
+        "sourceSchemas": [
+          "vrPLRjCAqYRGQoQevPmHY"
+        ]
+      },
+      "activityCluster": null
+    }
+  ],
+  "transitions": [
+    {
+      "id": "QpVMscWylBdujXjZTGwkI",
+      "from": "asXQqJxJpvgBtrkcsncIs",
+      "to": "sikWvtipbVDupPnQaUmGS",
+      "handleMap": {
+        "source": "asXQqJxJpvgBtrkcsncIs_2",
+        "target": "sikWvtipbVDupPnQaUmGS_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "rEnDwCiuWqnSJswMmOQnU",
+      "from": "vrPLRjCAqYRGQoQevPmHY",
+      "to": "asXQqJxJpvgBtrkcsncIs",
+      "handleMap": {
+        "source": "vrPLRjCAqYRGQoQevPmHY_1",
+        "target": "asXQqJxJpvgBtrkcsncIs_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "sikWvtipbVDupPnQaUmGS": {
+      "x": 432,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "sikWvtipbVDupPnQaUmGS_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "vrPLRjCAqYRGQoQevPmHY": {
+      "x": 48,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "vrPLRjCAqYRGQoQevPmHY_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "asXQqJxJpvgBtrkcsncIs": {
+      "x": 240,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "asXQqJxJpvgBtrkcsncIs_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "asXQqJxJpvgBtrkcsncIs_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "asXQqJxJpvgBtrkcsncIs": {
+      "metaInfo": {
+        "id": "asXQqJxJpvgBtrkcsncIs",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "Subflow",
+        "description": ""
+      },
+      "mappings": {
+        "Subflow": {
+          "EventType": "$.EventTriggerTest.body.EventType",
+          "EventId": "$.EventTriggerTest.body.EventId",
+          "LegalEntityId": "$.EventTriggerTest.body.LegalEntityId",
+          "ItemId": "$.EventTriggerTest.body.ItemId",
+          "ExtendedProperties": {
+            "#copyOf": "$.EventTriggerTest.body.ExtendedProperties"
+          },
+          "Resource": {
+            "#copyOf": "$.EventTriggerTest.body.Resource"
+          },
+          "TenantId": "$.EventTriggerTest.body.TenantId"
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [],
+  "config": {
+    "name": "Main Process Test",
+    "description": "",
+    "workflowAttributes": [],
+    "context": "",
+    "errorConfig": []
+  }
+}

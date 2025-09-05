@@ -1,0 +1,16 @@
+{
+  "id": "LemOOrHIGzIRgqeKWbnED",
+  "name": "PaycorHasMoreResults",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jCZgvcHcHEQMdqAUJFuFM",
+  "content": {
+    "name": "PaycorHasMoreResults",
+    "type": "json-schema",
+    "destination": "source",
+    "content": null,
+    "schemaSource": "file",
+    "reference": "$ref://schema-registry/LemOOrHIGzIRgqeKWbnED"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

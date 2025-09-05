@@ -1,0 +1,221 @@
+{
+  "id": "ISINoAEzlORghXNoNSaEx",
+  "name": "Data table truncate",
+  "workflowName": "Data table truncate",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jgpWAGmLiHlyPFStCxopC",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "guwnHplaVggmBhqAnpoCp",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityType": "END",
+        "activityName": "End",
+        "activityGroup": "Common",
+        "name": "End",
+        "sourceSchemas": [
+          "SIitigtQYVlWCVQZIjbyI",
+          "mKLKjtyGPGbVcxIfWFKbx",
+          "aMpiWHWeUtNUzUedCUaDx"
+        ]
+      }
+    },
+    {
+      "id": "mKLKjtyGPGbVcxIfWFKbx",
+      "stepName": "DataTableTruncate",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "DataTableTruncate",
+        "activityGroup": "DataTables",
+        "activityType": "SIMPLE",
+        "name": "DataTableTruncate",
+        "description": "",
+        "dataTable": "dt:{\"id\":\"MNBodqCORLulzTggsqIsF\",\"name\":\"RosnetInstanceJobcodeRecords\"}",
+        "isCustomType": true,
+        "sourceSchemas": [
+          "aMpiWHWeUtNUzUedCUaDx"
+        ]
+      }
+    },
+    {
+      "id": "SIitigtQYVlWCVQZIjbyI",
+      "stepName": "DataTableTruncate_1",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "DataTableTruncate",
+        "activityGroup": "DataTables",
+        "activityType": "SIMPLE",
+        "name": "DataTableTruncate_1",
+        "description": "",
+        "dataTable": "dt:{\"id\":\"vZMjPbVpfMdRwweFdkWcd\",\"name\":\"RosnetInstanceLocationRecords\"}",
+        "isCustomType": true,
+        "sourceSchemas": [
+          "aMpiWHWeUtNUzUedCUaDx"
+        ]
+      }
+    },
+    {
+      "id": "aMpiWHWeUtNUzUedCUaDx",
+      "stepName": "RESTService",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "name": "RESTService",
+        "description": "",
+        "path": "/truncate",
+        "method": [
+          "GET"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "output": "",
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    }
+  ],
+  "transitions": [
+    {
+      "id": "UjLimZRURoXYiSiOCYIdb",
+      "from": "aMpiWHWeUtNUzUedCUaDx",
+      "to": "mKLKjtyGPGbVcxIfWFKbx",
+      "handleMap": {
+        "source": "aMpiWHWeUtNUzUedCUaDx_1",
+        "target": "mKLKjtyGPGbVcxIfWFKbx_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "LvNJjQJCXzdEhOdjoucdY",
+      "from": "mKLKjtyGPGbVcxIfWFKbx",
+      "to": "SIitigtQYVlWCVQZIjbyI",
+      "handleMap": {
+        "source": "mKLKjtyGPGbVcxIfWFKbx_2",
+        "target": "SIitigtQYVlWCVQZIjbyI_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "CkqFkFaiseNSkBZraYrqp",
+      "from": "SIitigtQYVlWCVQZIjbyI",
+      "to": "guwnHplaVggmBhqAnpoCp",
+      "handleMap": {
+        "source": "SIitigtQYVlWCVQZIjbyI_2",
+        "target": "guwnHplaVggmBhqAnpoCp_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "guwnHplaVggmBhqAnpoCp": {
+      "x": 568,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "guwnHplaVggmBhqAnpoCp_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "mKLKjtyGPGbVcxIfWFKbx": {
+      "x": 240,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "mKLKjtyGPGbVcxIfWFKbx_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "mKLKjtyGPGbVcxIfWFKbx_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "SIitigtQYVlWCVQZIjbyI": {
+      "x": 404,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "SIitigtQYVlWCVQZIjbyI_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "SIitigtQYVlWCVQZIjbyI_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "aMpiWHWeUtNUzUedCUaDx": {
+      "x": 64,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "aMpiWHWeUtNUzUedCUaDx_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    }
+  },
+  "mappings": {},
+  "notes": [],
+  "config": {
+    "name": "Data table truncate",
+    "description": "",
+    "workflowAttributes": [],
+    "context": "",
+    "errorConfig": []
+  }
+}

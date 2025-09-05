@@ -1,0 +1,892 @@
+{
+  "id": "XbdwXOAWnTOimkvpDNhRp",
+  "name": "Terminate Employee",
+  "workflowName": "Terminate Employee",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "eDZcvXJbAMvmGbdyjlASN",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "BkCJbdOBHUImZWmiDbIBL",
+      "stepName": "LocationNumber",
+      "stepType": "GROUP",
+      "icon": "",
+      "indicator": "",
+      "description": "Group to iterate over location numbers.",
+      "deletable": true,
+      "config": {
+        "activityName": "Group",
+        "activityGroup": "Common",
+        "activityType": "GROUP",
+        "name": "LocationNumber",
+        "description": "Group to iterate over location numbers.",
+        "groupType": "FOR",
+        "index": "i",
+        "variableName": "locationNumber",
+        "iterateOn": "$.FetchLocations.dtQueryOutput.records",
+        "maxIterations": 50,
+        "startIndex": "0",
+        "step": 1,
+        "outputStep": "plGohkGjbVZLgOxNXTJaP",
+        "collectOutput": false,
+        "reverse": false,
+        "sourceSchemas": [
+          "HMxRTYvxXkWBNapsDjSxF",
+          "FmixsdmkyYzgoucKTdNIU",
+          "kQjHAjgMBlolexvTIovSA",
+          "aUdktGcZlkzVYArjwTcBz",
+          "UisawzcStfCeZimYepAEE"
+        ]
+      }
+    },
+    {
+      "id": "plGohkGjbVZLgOxNXTJaP",
+      "stepName": "EmployeeTermination",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to call terminate employee API.",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTClient",
+        "activityGroup": "HTTP",
+        "activityType": "SIMPLE",
+        "name": "EmployeeTermination",
+        "description": "Activity to call terminate employee API.",
+        "scheme": "HTTP",
+        "uri": "$:{\"id\":{},\"name\":\"/api/v1/Employee/terminateEmployee\"}",
+        "host": "$:{\"id\":{\"${Rosnet.apiHost}\":\"ymGFMHzWIzJeLezksSYNe/BxbhSzKjdAVcPULtImGaQ\"},\"name\":\"${Rosnet.apiHost}\"}",
+        "port": "$:{\"id\":{},\"name\":\"\"}",
+        "method": "PUT",
+        "authContext": "Rosnet",
+        "sendToEngage": false,
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "authType": "NO_AUTH",
+        "auth": "ref:{\"id\":\"\",\"name\":\"\"}",
+        "userName": "",
+        "password": "",
+        "key": "",
+        "value": "",
+        "output": "",
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": [
+          "BkCJbdOBHUImZWmiDbIBL",
+          "HMxRTYvxXkWBNapsDjSxF",
+          "FmixsdmkyYzgoucKTdNIU",
+          "kQjHAjgMBlolexvTIovSA",
+          "aUdktGcZlkzVYArjwTcBz",
+          "UisawzcStfCeZimYepAEE"
+        ],
+        "targetSchema": "GSHoSpAkSrLzBJNsQypHp"
+      },
+      "activityCluster": null,
+      "groupId": "BkCJbdOBHUImZWmiDbIBL"
+    },
+    {
+      "id": "kQjHAjgMBlolexvTIovSA",
+      "stepName": "FetchLocations",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to fetch locations.",
+      "deletable": true,
+      "config": {
+        "activityName": "DataTableQuery",
+        "activityGroup": "DataTables",
+        "activityType": "SIMPLE",
+        "name": "FetchLocations",
+        "description": "Activity to fetch locations.",
+        "dataTable": "dt:{\"id\":\"yIsRqagJNaFCwzcbEBePM\",\"name\":\"RosnetInstanceLocationRecords\"}",
+        "pageSize": 100,
+        "batchSize": 0,
+        "conditions": [
+          {
+            "name": "group_1",
+            "filters": [
+              {
+                "field": "legalEntityId",
+                "operator": "=",
+                "condition": "AND"
+              },
+              {
+                "field": "toValue",
+                "operator": "="
+              }
+            ]
+          }
+        ],
+        "rowNum": false,
+        "columns": [
+          {
+            "name": "legalEntityId",
+            "isKey": false
+          },
+          {
+            "name": "instanceRecordId",
+            "isKey": true
+          },
+          {
+            "name": "instanceId",
+            "isKey": false
+          },
+          {
+            "name": "configRecordId",
+            "isKey": false
+          },
+          {
+            "name": "instanceScopeId",
+            "isKey": false
+          },
+          {
+            "name": "toValue",
+            "isKey": false
+          },
+          {
+            "name": "isDefaultRecord",
+            "isKey": false
+          },
+          {
+            "name": "isDeleted",
+            "isKey": false
+          },
+          {
+            "name": "recordName",
+            "isKey": false
+          },
+          {
+            "name": "fromValue",
+            "isKey": false
+          }
+        ],
+        "isCustomType": true,
+        "sourceSchemas": [
+          "aUdktGcZlkzVYArjwTcBz",
+          "UisawzcStfCeZimYepAEE"
+        ]
+      }
+    },
+    {
+      "id": "FmixsdmkyYzgoucKTdNIU",
+      "stepName": "FetchJobcodes",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to fetch Jobcodes.",
+      "deletable": true,
+      "config": {
+        "activityName": "DataTableQuery",
+        "activityGroup": "DataTables",
+        "activityType": "SIMPLE",
+        "conditions": [
+          {
+            "name": "group_1",
+            "filters": [
+              {
+                "field": "legalEntityId",
+                "operator": "=",
+                "condition": "AND"
+              },
+              {
+                "field": "toValue",
+                "operator": "="
+              }
+            ]
+          }
+        ],
+        "rowNum": false,
+        "columns": [
+          {
+            "name": "legalEntityId",
+            "isKey": false
+          },
+          {
+            "name": "instanceRecordId",
+            "isKey": true
+          },
+          {
+            "name": "instanceId",
+            "isKey": false
+          },
+          {
+            "name": "configRecordId",
+            "isKey": false
+          },
+          {
+            "name": "instanceScopeId",
+            "isKey": false
+          },
+          {
+            "name": "toValue",
+            "isKey": false
+          },
+          {
+            "name": "isDefaultRecord",
+            "isKey": false
+          },
+          {
+            "name": "isDeleted",
+            "isKey": false
+          },
+          {
+            "name": "recordName",
+            "isKey": false
+          },
+          {
+            "name": "fromValue",
+            "isKey": false
+          }
+        ],
+        "name": "FetchJobcodes",
+        "description": "Activity to fetch Jobcodes.",
+        "dataTable": "dt:{\"id\":\"ndUwhEkvxGnxGYIUZruts\",\"name\":\"RosnetInstanceJobcodeRecords\"}",
+        "pageSize": 100,
+        "batchSize": 0,
+        "isCustomType": true,
+        "sourceSchemas": [
+          "kQjHAjgMBlolexvTIovSA",
+          "aUdktGcZlkzVYArjwTcBz",
+          "UisawzcStfCeZimYepAEE"
+        ]
+      }
+    },
+    {
+      "id": "HMxRTYvxXkWBNapsDjSxF",
+      "stepName": "ClientCode",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Mapper",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "ClientCode",
+        "description": "",
+        "sourceSchemas": [
+          "FmixsdmkyYzgoucKTdNIU",
+          "kQjHAjgMBlolexvTIovSA",
+          "aUdktGcZlkzVYArjwTcBz",
+          "UisawzcStfCeZimYepAEE"
+        ],
+        "targetSchema": "OrTpqLNnEHpVSlGzlUTVZ"
+      }
+    },
+    {
+      "id": "UisawzcStfCeZimYepAEE",
+      "stepName": "Start",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Start",
+        "activityGroup": "Common",
+        "activityType": "EVENT_SOURCE",
+        "output": "GSHoSpAkSrLzBJNsQypHp",
+        "name": "Start",
+        "sourceSchemas": []
+      }
+    },
+    {
+      "id": "aUdktGcZlkzVYArjwTcBz",
+      "stepName": "GetAppConfig",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Subflow to get the application configuration.",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "GetAppConfig",
+        "description": "Subflow to get the application configuration.",
+        "subflowPath": "wf:{\"id\":\"lMeaDyulkyOJayrVgEHIa/bUPOjeGcHzphUOSlevENN\",\"name\":\"/Workflows/Process/Get App Config\"}",
+        "waitForCompletion": true,
+        "sourceSchemas": [
+          "UisawzcStfCeZimYepAEE"
+        ]
+      }
+    },
+    {
+      "id": "RMSEjGhgxWbVicOvdznhO",
+      "stepName": "GenerateError",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "This activity is for Generating Error",
+      "deletable": true,
+      "config": {
+        "name": "GenerateError",
+        "description": "",
+        "errorCode": "",
+        "errorMessage": "",
+        "activityGroup": "Common",
+        "activityName": "GenerateError",
+        "activityType": "SIMPLE",
+        "isCustomType": false,
+        "sourceSchemas": [
+          "wzEDslGHQmCKsBsCUxxxL",
+          "BkCJbdOBHUImZWmiDbIBL",
+          "HMxRTYvxXkWBNapsDjSxF",
+          "FmixsdmkyYzgoucKTdNIU",
+          "kQjHAjgMBlolexvTIovSA",
+          "aUdktGcZlkzVYArjwTcBz",
+          "UisawzcStfCeZimYepAEE"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "UVnNqBeeIOoblQoNuYIZm",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "End",
+        "sourceSchemas": [
+          "BkCJbdOBHUImZWmiDbIBL",
+          "HMxRTYvxXkWBNapsDjSxF",
+          "FmixsdmkyYzgoucKTdNIU",
+          "kQjHAjgMBlolexvTIovSA",
+          "aUdktGcZlkzVYArjwTcBz",
+          "UisawzcStfCeZimYepAEE"
+        ],
+        "targetSchema": "sqXqlwLQkCehZywbEAYYc"
+      }
+    },
+    {
+      "id": "wzEDslGHQmCKsBsCUxxxL",
+      "stepName": "LogToNewRelic",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "LogToNewRelic",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "name": "LogToNewRelic",
+        "sourceSchemas": [
+          "BkCJbdOBHUImZWmiDbIBL",
+          "HMxRTYvxXkWBNapsDjSxF",
+          "FmixsdmkyYzgoucKTdNIU",
+          "kQjHAjgMBlolexvTIovSA",
+          "aUdktGcZlkzVYArjwTcBz",
+          "UisawzcStfCeZimYepAEE"
+        ]
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "aVeIyEGRdalNKoPknLPfp",
+      "from": "BkCJbdOBHUImZWmiDbIBL",
+      "to": "plGohkGjbVZLgOxNXTJaP",
+      "handleMap": {
+        "source": "BkCJbdOBHUImZWmiDbIBL_1",
+        "target": "plGohkGjbVZLgOxNXTJaP_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "JEboUeYoVZBMFHWcuGfyx",
+      "from": "plGohkGjbVZLgOxNXTJaP",
+      "to": "BkCJbdOBHUImZWmiDbIBL",
+      "handleMap": {
+        "source": "plGohkGjbVZLgOxNXTJaP_2",
+        "target": "BkCJbdOBHUImZWmiDbIBL_2"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "CCpoFuynraoGCTjSVqkqV",
+      "from": "UisawzcStfCeZimYepAEE",
+      "to": "aUdktGcZlkzVYArjwTcBz",
+      "handleMap": {
+        "source": "UisawzcStfCeZimYepAEE_1",
+        "target": "aUdktGcZlkzVYArjwTcBz_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "soFFyRQRzyDGpgYoORZyF",
+      "from": "aUdktGcZlkzVYArjwTcBz",
+      "to": "kQjHAjgMBlolexvTIovSA",
+      "handleMap": {
+        "source": "aUdktGcZlkzVYArjwTcBz_2",
+        "target": "kQjHAjgMBlolexvTIovSA_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "UyBKkpTTSfyhiDOlorUXc",
+      "from": "kQjHAjgMBlolexvTIovSA",
+      "to": "FmixsdmkyYzgoucKTdNIU",
+      "handleMap": {
+        "source": "kQjHAjgMBlolexvTIovSA_2",
+        "target": "FmixsdmkyYzgoucKTdNIU_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "uSwzFsRuzAaRxIBPVXKgu",
+      "from": "FmixsdmkyYzgoucKTdNIU",
+      "to": "HMxRTYvxXkWBNapsDjSxF",
+      "handleMap": {
+        "source": "FmixsdmkyYzgoucKTdNIU_2",
+        "target": "HMxRTYvxXkWBNapsDjSxF_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "RzfAhQDXaaCQVflUCnLEZ",
+      "from": "HMxRTYvxXkWBNapsDjSxF",
+      "to": "BkCJbdOBHUImZWmiDbIBL",
+      "handleMap": {
+        "source": "HMxRTYvxXkWBNapsDjSxF_2",
+        "target": "BkCJbdOBHUImZWmiDbIBL_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "aLuGEXtyCPKCPpPZvYpIw",
+      "from": "BkCJbdOBHUImZWmiDbIBL",
+      "to": "wzEDslGHQmCKsBsCUxxxL",
+      "handleMap": {
+        "source": "BkCJbdOBHUImZWmiDbIBL_2",
+        "target": "wzEDslGHQmCKsBsCUxxxL_1"
+      },
+      "name": "Api Failed",
+      "description": "",
+      "type": "ERROR",
+      "lineType": "step",
+      "lineColor": "#ff7875"
+    },
+    {
+      "id": "JzodMzuwWWoVyhvgtFYAz",
+      "from": "BkCJbdOBHUImZWmiDbIBL",
+      "to": "UVnNqBeeIOoblQoNuYIZm",
+      "handleMap": {
+        "source": "BkCJbdOBHUImZWmiDbIBL_2",
+        "target": "UVnNqBeeIOoblQoNuYIZm_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#73d13d"
+    },
+    {
+      "id": "GyDtPWIKvuEgoqQvghGiv",
+      "from": "wzEDslGHQmCKsBsCUxxxL",
+      "to": "RMSEjGhgxWbVicOvdznhO",
+      "handleMap": {
+        "source": "wzEDslGHQmCKsBsCUxxxL_2",
+        "target": "RMSEjGhgxWbVicOvdznhO_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "BkCJbdOBHUImZWmiDbIBL": {
+      "x": 1384,
+      "y": -16,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "BkCJbdOBHUImZWmiDbIBL_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "BkCJbdOBHUImZWmiDbIBL_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left",
+      "width": 192,
+      "height": 220
+    },
+    "plGohkGjbVZLgOxNXTJaP": {
+      "x": 64,
+      "y": 64,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "plGohkGjbVZLgOxNXTJaP_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "plGohkGjbVZLgOxNXTJaP_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "kQjHAjgMBlolexvTIovSA": {
+      "x": 912,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "kQjHAjgMBlolexvTIovSA_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "kQjHAjgMBlolexvTIovSA_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "FmixsdmkyYzgoucKTdNIU": {
+      "x": 1056,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "FmixsdmkyYzgoucKTdNIU_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "FmixsdmkyYzgoucKTdNIU_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "HMxRTYvxXkWBNapsDjSxF": {
+      "x": 1220,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "HMxRTYvxXkWBNapsDjSxF_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "HMxRTYvxXkWBNapsDjSxF_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "UisawzcStfCeZimYepAEE": {
+      "x": 608,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "UisawzcStfCeZimYepAEE_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "aUdktGcZlkzVYArjwTcBz": {
+      "x": 752,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "aUdktGcZlkzVYArjwTcBz_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "aUdktGcZlkzVYArjwTcBz_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "RMSEjGhgxWbVicOvdznhO": {
+      "x": 1856,
+      "y": 160,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "RMSEjGhgxWbVicOvdznhO_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "UVnNqBeeIOoblQoNuYIZm": {
+      "x": 1856,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "UVnNqBeeIOoblQoNuYIZm_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "wzEDslGHQmCKsBsCUxxxL": {
+      "x": 1712,
+      "y": 160,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "wzEDslGHQmCKsBsCUxxxL_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "wzEDslGHQmCKsBsCUxxxL_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "UVnNqBeeIOoblQoNuYIZm": {
+      "metaInfo": {
+        "id": "UVnNqBeeIOoblQoNuYIZm",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "End",
+        "description": ""
+      },
+      "mappings": {
+        "End": {
+          "body": {
+            "#copyOf": "$.LocationNumber.httpResponse.body"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "plGohkGjbVZLgOxNXTJaP": {
+      "metaInfo": {
+        "id": "plGohkGjbVZLgOxNXTJaP",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "EmployeeTermination",
+        "description": "Activity to call terminate employee API."
+      },
+      "mappings": {
+        "EmployeeTermination": {
+          "additionalHeaders": [
+            {
+              "__arrayItemName__": "additionalHeader"
+            }
+          ],
+          "body": {
+            "posProvider_EmployeeUID": "$.Start.posProvider_EmployeeUID",
+            "terminationEffectiveDate": "$.Start.terminationEffectiveDate",
+            "clientCode": "$.ClientCode.clientCode[1]",
+            "locationNumber": "intValue($.LocationNumber.locationNumber.fromValue)",
+            "payrollProvider_EmployeeUID": "$.Start.payrollProvider_EmployeeUID",
+            "firstName": "$.Start.firstName",
+            "lastName": "$.Start.lastName",
+            "employeeTerminationCode": "1"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "aUdktGcZlkzVYArjwTcBz": {
+      "metaInfo": {
+        "id": "aUdktGcZlkzVYArjwTcBz",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetAppConfig",
+        "description": "Subflow to get the application configuration."
+      },
+      "mappings": {
+        "GetAppConfig": {
+          "tenantId": "$.Start.tenantId",
+          "legalEntityId": "$.Start.legalEntityId"
+        }
+      },
+      "attributes": {}
+    },
+    "kQjHAjgMBlolexvTIovSA": {
+      "metaInfo": {
+        "id": "kQjHAjgMBlolexvTIovSA",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "FetchLocations",
+        "description": "Activity to fetch locations."
+      },
+      "mappings": {
+        "FetchLocations": {
+          "conditions": {
+            "group_1": {
+              "legalEntityId": "valueOf($.Start.legalEntityId)",
+              "toValue": "$.Start.locationName"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "FmixsdmkyYzgoucKTdNIU": {
+      "metaInfo": {
+        "id": "FmixsdmkyYzgoucKTdNIU",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "FetchJobcodes",
+        "description": "Activity to fetch Jobcodes."
+      },
+      "mappings": {
+        "FetchJobcodes": {
+          "conditions": {
+            "group_1": {
+              "legalEntityId": "valueOf($.Start.legalEntityId)",
+              "toValue": "$.Start.locationName"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "HMxRTYvxXkWBNapsDjSxF": {
+      "metaInfo": {
+        "id": "HMxRTYvxXkWBNapsDjSxF",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "ClientCode",
+        "description": ""
+      },
+      "mappings": {
+        "ClientCode": {
+          "clientCode": [
+            {
+              "__aexpr__": "split($.GetAppConfig.InstanceRecordEntityList[1].fromValue,'.')"
+            }
+          ]
+        }
+      },
+      "attributes": {}
+    },
+    "wzEDslGHQmCKsBsCUxxxL": {
+      "metaInfo": {
+        "id": "wzEDslGHQmCKsBsCUxxxL",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "LogToNewRelic",
+        "description": ""
+      },
+      "mappings": {
+        "LogToNewRelic": {
+          "workflowContext": {
+            "pinsApplication": {
+              "host": "$.gv.Pins.host",
+              "apimKey": "$.gv.Pins.apimKey"
+            },
+            "logging": {
+              "newRelicHost": "$.gv.NewRelic.host",
+              "newRelicKey": "$.gv.NewRelic.key",
+              "level": "$.gv.NewRelic.loggingLevel"
+            }
+          },
+          "message": "'Failed to terminate employee'",
+          "level": "'ERROR'",
+          "error": {
+            "__expr__": "$.error",
+            "stack": [
+              {
+                "__arrayItemName__": "stack"
+              }
+            ]
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [
+    {
+      "id": "NykEEHcAUHXrfxZKIgzor",
+      "position": {
+        "x": 624,
+        "y": -96
+      },
+      "description": "Workflow to terminate an employee across all locations.",
+      "width": 150,
+      "height": 102
+    }
+  ],
+  "config": {
+    "name": "Terminate Employee",
+    "description": "Workflow to terminate an employee across all locations.",
+    "workflowAttributes": [],
+    "context": "{\"Rosnet\":\"A4N8Q1L\"}",
+    "errorConfig": []
+  }
+}

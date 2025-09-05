@@ -1,0 +1,16 @@
+{
+  "id": "EMwnQiKaRHeIicdCXIGPZ",
+  "name": "InstanceRecord",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jCZgvcHcHEQMdqAUJFuFM",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "InstanceRecord",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/EMwnQiKaRHeIicdCXIGPZ"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

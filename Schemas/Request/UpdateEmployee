@@ -1,0 +1,16 @@
+{
+  "id": "hSCnDGyUzKOXAfQdCwcxh",
+  "name": "UpdateEmployee",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "dPtjQFYTTRKSUYGcJkfsL",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "UpdateEmployee",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/hSCnDGyUzKOXAfQdCwcxh"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

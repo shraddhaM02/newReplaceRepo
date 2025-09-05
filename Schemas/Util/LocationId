@@ -1,0 +1,16 @@
+{
+  "id": "hONFrLvnJyGnlfzdzGzqo",
+  "name": "LocationId",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jCZgvcHcHEQMdqAUJFuFM",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "LocationId",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/hONFrLvnJyGnlfzdzGzqo"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

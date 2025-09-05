@@ -1,0 +1,16 @@
+{
+  "id": "QInRrrRTGhVDtAjHQYrYM",
+  "name": "GetWorkLocationsForALegalEntityResponse",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rWhUHFPxXoAFMOwWGzxHF",
+  "content": {
+    "name": "GetWorkLocationsForALegalEntityResponse",
+    "type": "json-schema",
+    "destination": "source",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/QInRrrRTGhVDtAjHQYrYM"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

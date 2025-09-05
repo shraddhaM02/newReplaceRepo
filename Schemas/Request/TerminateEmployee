@@ -1,0 +1,16 @@
+{
+  "id": "GSHoSpAkSrLzBJNsQypHp",
+  "name": "TerminateEmployee",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "dPtjQFYTTRKSUYGcJkfsL",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "TerminateEmployee",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/GSHoSpAkSrLzBJNsQypHp"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

@@ -1,0 +1,318 @@
+{
+  "id": "TkcammMKbptHaPDikrxOZ",
+  "name": "Main Process",
+  "workflowName": "Main Process",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "eDZcvXJbAMvmGbdyjlASN",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "lNLaIKuGNUrLqOkrcAFKb",
+      "stepName": "Start",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Start",
+        "activityGroup": "Common",
+        "activityType": "EVENT_SOURCE",
+        "output": "gKjvnqTDynSWKmwYAxDBg",
+        "name": "Start",
+        "sourceSchemas": []
+      }
+    },
+    {
+      "id": "bSQScqCClHdhDAiGeevvI",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "End",
+        "description": "",
+        "sourceSchemas": [
+          "XNekeXjFHNlGWrXoYWvRH",
+          "lNLaIKuGNUrLqOkrcAFKb",
+          "AsvMPbInOCJrMuZmlfAGr"
+        ]
+      },
+      "activityCluster": []
+    },
+    {
+      "id": "AsvMPbInOCJrMuZmlfAGr",
+      "stepName": "SendProcessEmployeeMessage",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to send events through the queue as they occur.",
+      "deletable": true,
+      "config": {
+        "activityName": "SendMessage",
+        "activityGroup": "IntegrationPatterns",
+        "activityType": "SIMPLE",
+        "name": "SendProcessEmployeeMessage",
+        "description": "Activity to send events through the queue as they occur.",
+        "destinationType": "QUEUE",
+        "channelName": "process.employee.details",
+        "messageProperties": [],
+        "output": "",
+        "isCustomType": true,
+        "executeAsActivity": "ASBSendMessage",
+        "executeAsActivityGroup": "AzureServiceBus",
+        "sourceSchemas": [
+          "lNLaIKuGNUrLqOkrcAFKb"
+        ],
+        "targetSchema": "gKjvnqTDynSWKmwYAxDBg"
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "XNekeXjFHNlGWrXoYWvRH",
+      "stepName": "SendWebhookEvent",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to send events through the queue as they occur.",
+      "deletable": true,
+      "config": {
+        "activityName": "SendMessage",
+        "activityGroup": "IntegrationPatterns",
+        "activityType": "SIMPLE",
+        "name": "SendWebhookEvent",
+        "description": "Activity to send events through the queue as they occur.",
+        "destinationType": "QUEUE",
+        "channelName": "rosnet.webhook.event",
+        "messageProperties": [],
+        "output": "",
+        "isCustomType": true,
+        "executeAsActivity": "ASBSendMessage",
+        "executeAsActivityGroup": "AzureServiceBus",
+        "sourceSchemas": [
+          "lNLaIKuGNUrLqOkrcAFKb"
+        ],
+        "targetSchema": "gKjvnqTDynSWKmwYAxDBg"
+      },
+      "activityCluster": []
+    }
+  ],
+  "transitions": [
+    {
+      "id": "lbXsMTPefLmqSfuJUawee",
+      "from": "lNLaIKuGNUrLqOkrcAFKb",
+      "to": "AsvMPbInOCJrMuZmlfAGr",
+      "handleMap": {
+        "source": "lNLaIKuGNUrLqOkrcAFKb_1",
+        "target": "AsvMPbInOCJrMuZmlfAGr_1"
+      },
+      "name": "Other",
+      "description": "",
+      "type": "SUCCESS_NO_MATCHING_CONDITION",
+      "lineType": "step",
+      "lineColor": "#ff7875"
+    },
+    {
+      "id": "CgUHvSDHtUQahepaWLzMF",
+      "from": "lNLaIKuGNUrLqOkrcAFKb",
+      "to": "XNekeXjFHNlGWrXoYWvRH",
+      "handleMap": {
+        "source": "lNLaIKuGNUrLqOkrcAFKb_1",
+        "target": "XNekeXjFHNlGWrXoYWvRH_1"
+      },
+      "name": "Employee Payrate or Person Modified",
+      "description": "",
+      "type": "SUCCESS_MATCHING_CONDITION",
+      "lineType": "step",
+      "lineColor": "#73d13d",
+      "condition": "$.Start.EventType=\"Person.Modified\" || $.Start.EventType=\"Employee.PayRate.Created\" || $.Start.EventType=\"Employee.PayRate.Modified\""
+    },
+    {
+      "id": "WdwLIIONXYIQifHsPQIDQ",
+      "from": "XNekeXjFHNlGWrXoYWvRH",
+      "to": "bSQScqCClHdhDAiGeevvI",
+      "handleMap": {
+        "source": "XNekeXjFHNlGWrXoYWvRH_2",
+        "target": "bSQScqCClHdhDAiGeevvI_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "vUhfgNmStkWxMDxdbUzso",
+      "from": "AsvMPbInOCJrMuZmlfAGr",
+      "to": "bSQScqCClHdhDAiGeevvI",
+      "handleMap": {
+        "source": "AsvMPbInOCJrMuZmlfAGr_2",
+        "target": "bSQScqCClHdhDAiGeevvI_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "lNLaIKuGNUrLqOkrcAFKb": {
+      "x": -144,
+      "y": 96,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "lNLaIKuGNUrLqOkrcAFKb_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "bSQScqCClHdhDAiGeevvI": {
+      "x": 432,
+      "y": 96,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "bSQScqCClHdhDAiGeevvI_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "AsvMPbInOCJrMuZmlfAGr": {
+      "x": 160,
+      "y": 224,
+      "handles": [
+        {
+          "position": "left",
+          "type": "source",
+          "id": "AsvMPbInOCJrMuZmlfAGr_1"
+        },
+        {
+          "position": "right",
+          "type": "source",
+          "id": "AsvMPbInOCJrMuZmlfAGr_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "XNekeXjFHNlGWrXoYWvRH": {
+      "x": 160,
+      "y": 96,
+      "handles": [
+        {
+          "position": "left",
+          "type": "source",
+          "id": "XNekeXjFHNlGWrXoYWvRH_1"
+        },
+        {
+          "position": "right",
+          "type": "source",
+          "id": "XNekeXjFHNlGWrXoYWvRH_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "bSQScqCClHdhDAiGeevvI": {
+      "metaInfo": {
+        "id": "bSQScqCClHdhDAiGeevvI",
+        "versionInfo": {
+          "version": "0.0.1"
+        },
+        "name": "End",
+        "description": ""
+      },
+      "mappings": {}
+    },
+    "AsvMPbInOCJrMuZmlfAGr": {
+      "metaInfo": {
+        "id": "AsvMPbInOCJrMuZmlfAGr",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "SendProcessEmployeeMessage",
+        "description": ""
+      },
+      "mappings": {
+        "SendProcessEmployeeMessage": {
+          "body": {
+            "EventType": "$.Start.EventType",
+            "EventId": "$.Start.EventId",
+            "TenantId": "$.Start.TenantId",
+            "LegalEntityId": "$.Start.LegalEntityId",
+            "ItemId": "$.Start.ItemId",
+            "ExtendedProperties": {
+              "#copyOf": "$.Start.ExtendedProperties"
+            },
+            "Resource": {
+              "#copyOf": "$.Start.Resource"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "XNekeXjFHNlGWrXoYWvRH": {
+      "metaInfo": {
+        "id": "XNekeXjFHNlGWrXoYWvRH",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "SendWebhookEvent",
+        "description": "Activity to send events through the queue as they occur."
+      },
+      "mappings": {
+        "SendWebhookEvent": {
+          "body": {
+            "EventType": "$.Start.EventType",
+            "EventId": "$.Start.EventId",
+            "TenantId": "$.Start.TenantId",
+            "LegalEntityId": "$.Start.LegalEntityId",
+            "ItemId": "$.Start.ItemId",
+            "ExtendedProperties": {
+              "#copyOf": "$.Start.ExtendedProperties"
+            },
+            "Resource": {
+              "#copyOf": "$.Start.Resource"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [
+    {
+      "id": "XmBnGcJtaPrDKDRDNvMDv",
+      "position": {
+        "x": -128,
+        "y": -48
+      },
+      "description": "Workflow to send the webhook event via the Send Message channel.",
+      "width": 150,
+      "height": 118
+    }
+  ],
+  "config": {
+    "name": "Main Process",
+    "description": "Workflow to send the webhook event via the Send Message channel.",
+    "workflowAttributes": [],
+    "context": "{\"Engage\":\"Engage4N8Q1L\"}",
+    "errorConfig": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "PdYfZrWBCKBRDChPnjNqH",
+  "name": "EventProcessDetails",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "dPtjQFYTTRKSUYGcJkfsL",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "EventProcessDetails",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/PdYfZrWBCKBRDChPnjNqH"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

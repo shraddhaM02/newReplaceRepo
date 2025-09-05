@@ -1,0 +1,16 @@
+{
+  "id": "NXhlkUWnoqpvYafSneCsO",
+  "name": "RemoveJob",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "dPtjQFYTTRKSUYGcJkfsL",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "RemoveJob",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/NXhlkUWnoqpvYafSneCsO"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

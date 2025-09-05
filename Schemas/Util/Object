@@ -1,0 +1,16 @@
+{
+  "id": "sqXqlwLQkCehZywbEAYYc",
+  "name": "Object",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jCZgvcHcHEQMdqAUJFuFM",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "name": "Object",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/sqXqlwLQkCehZywbEAYYc"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

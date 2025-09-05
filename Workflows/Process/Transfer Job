@@ -1,0 +1,633 @@
+{
+  "id": "zeVPnzRBaITPjQxhexOdI",
+  "name": "Transfer Job",
+  "workflowName": "Transfer Job",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "eDZcvXJbAMvmGbdyjlASN",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "eexrsxzoZOvhcZvlEwvcd",
+      "stepName": "RemoveJob",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to call RemoveJob api.",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTClient",
+        "activityGroup": "HTTP",
+        "activityType": "SIMPLE",
+        "name": "RemoveJob",
+        "description": "Activity to call RemoveJob api.",
+        "scheme": "HTTPS",
+        "uri": "$:{\"id\":{},\"name\":\"/api/v1/Employee/removeJob\"}",
+        "host": "$:{\"id\":{\"${Rosnet.apiHost}\":\"NTBhqXRgFLWLJOAyJkgfy/BxbhSzKjdAVcPULtImGaQ\"},\"name\":\"${Rosnet.apiHost}\"}",
+        "port": "$:{\"id\":{},\"name\":\"\"}",
+        "method": "PUT",
+        "timeout": 15000,
+        "authContext": "Rosnet",
+        "sendToEngage": false,
+        "showHttpFormSelectionPanel": false,
+        "pathParams": [],
+        "queryParams": [],
+        "sourceSchemas": [
+          "LVcrrxRvRkitQgeYgXnYW"
+        ],
+        "targetSchema": "NXhlkUWnoqpvYafSneCsO"
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "LVcrrxRvRkitQgeYgXnYW",
+      "stepName": "Start",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Start",
+        "activityGroup": "Common",
+        "activityType": "EVENT_SOURCE",
+        "output": "gppKUfqttzbHggskokBYJ",
+        "name": "Start",
+        "sourceSchemas": []
+      }
+    },
+    {
+      "id": "jLHMMhLOoBErErFdQEVxj",
+      "stepName": "RemoveJobApiError",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "GenerateError",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "RemoveJobApiError",
+        "description": "",
+        "errorCode": "",
+        "errorMessage": "",
+        "isCustomType": false,
+        "sourceSchemas": [
+          "OExWjfIdRigUOGvdkacJZ",
+          "eexrsxzoZOvhcZvlEwvcd",
+          "LVcrrxRvRkitQgeYgXnYW"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "DhqpUBgZtREGsLGqeKEug",
+      "stepName": "LogAddJobApiError",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "LogToNewRelic",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "name": "LogAddJobApiError",
+        "description": "",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "sourceSchemas": [
+          "CVhncWwlJBNTJcLOxoQFf",
+          "eexrsxzoZOvhcZvlEwvcd",
+          "LVcrrxRvRkitQgeYgXnYW"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "XkvyUfXIczBSKzfwoYWLi",
+      "stepName": "AddJobApiError",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "GenerateError",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "AddJobApiError",
+        "description": "",
+        "errorCode": "",
+        "errorMessage": "",
+        "isCustomType": false,
+        "sourceSchemas": [
+          "DhqpUBgZtREGsLGqeKEug",
+          "CVhncWwlJBNTJcLOxoQFf",
+          "eexrsxzoZOvhcZvlEwvcd",
+          "LVcrrxRvRkitQgeYgXnYW"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "PVWtvLpXdvEhcOqXZsPNu",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityType": "END",
+        "activityName": "End",
+        "activityGroup": "Common",
+        "name": "End",
+        "sourceSchemas": [
+          "CVhncWwlJBNTJcLOxoQFf",
+          "eexrsxzoZOvhcZvlEwvcd",
+          "LVcrrxRvRkitQgeYgXnYW"
+        ]
+      }
+    },
+    {
+      "id": "CVhncWwlJBNTJcLOxoQFf",
+      "stepName": "AddJob",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "Activity to call AddJob api.",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTClient",
+        "activityGroup": "HTTP",
+        "activityType": "SIMPLE",
+        "name": "AddJob",
+        "description": "Activity to call AddJob api.",
+        "scheme": "HTTPS",
+        "uri": "$:{\"id\":{},\"name\":\"/api/v1/Employee/addJob\"}",
+        "host": "$:{\"id\":{\"${Rosnet.apiHost}\":\"NTBhqXRgFLWLJOAyJkgfy/BxbhSzKjdAVcPULtImGaQ\"},\"name\":\"${Rosnet.apiHost}\"}",
+        "port": "$:{\"id\":{},\"name\":\"\"}",
+        "method": "PUT",
+        "timeout": 15000,
+        "authContext": "Rosnet",
+        "sendToEngage": false,
+        "showHttpFormSelectionPanel": false,
+        "pathParams": [],
+        "queryParams": [],
+        "sourceSchemas": [
+          "eexrsxzoZOvhcZvlEwvcd",
+          "LVcrrxRvRkitQgeYgXnYW"
+        ],
+        "targetSchema": "GbSFIrgEisKLudRIHjRcC"
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "OExWjfIdRigUOGvdkacJZ",
+      "stepName": "LogRemoveJobApiError",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "LogToNewRelic",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "name": "LogRemoveJobApiError",
+        "description": "",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "sourceSchemas": [
+          "eexrsxzoZOvhcZvlEwvcd",
+          "LVcrrxRvRkitQgeYgXnYW"
+        ]
+      },
+      "activityCluster": null
+    }
+  ],
+  "transitions": [
+    {
+      "id": "XmsYENzLgOwXIkCGGIOJQ",
+      "from": "LVcrrxRvRkitQgeYgXnYW",
+      "to": "eexrsxzoZOvhcZvlEwvcd",
+      "handleMap": {
+        "source": "LVcrrxRvRkitQgeYgXnYW_1",
+        "target": "eexrsxzoZOvhcZvlEwvcd_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "sNpSNivIdTKkBwpttivxf",
+      "from": "OExWjfIdRigUOGvdkacJZ",
+      "to": "jLHMMhLOoBErErFdQEVxj",
+      "handleMap": {
+        "source": "OExWjfIdRigUOGvdkacJZ_2",
+        "target": "jLHMMhLOoBErErFdQEVxj_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "HrtjxiVhmfzGolIoxVXuo",
+      "from": "eexrsxzoZOvhcZvlEwvcd",
+      "to": "CVhncWwlJBNTJcLOxoQFf",
+      "handleMap": {
+        "source": "eexrsxzoZOvhcZvlEwvcd_2",
+        "target": "CVhncWwlJBNTJcLOxoQFf_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#73d13d"
+    },
+    {
+      "id": "pgsqxrIaCMOHTfnoabSLt",
+      "from": "CVhncWwlJBNTJcLOxoQFf",
+      "to": "PVWtvLpXdvEhcOqXZsPNu",
+      "handleMap": {
+        "source": "CVhncWwlJBNTJcLOxoQFf_2",
+        "target": "PVWtvLpXdvEhcOqXZsPNu_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#73d13d"
+    },
+    {
+      "id": "hQliIwDFufoLSTKcYRIIY",
+      "from": "DhqpUBgZtREGsLGqeKEug",
+      "to": "XkvyUfXIczBSKzfwoYWLi",
+      "handleMap": {
+        "source": "DhqpUBgZtREGsLGqeKEug_2",
+        "target": "XkvyUfXIczBSKzfwoYWLi_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "EbRBsXKBaJmEBWAHzsqbp",
+      "from": "CVhncWwlJBNTJcLOxoQFf",
+      "to": "DhqpUBgZtREGsLGqeKEug",
+      "handleMap": {
+        "source": "CVhncWwlJBNTJcLOxoQFf_2",
+        "target": "DhqpUBgZtREGsLGqeKEug_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#ff7875"
+    },
+    {
+      "id": "ZqvxyeckNYAyelrDMNMQN",
+      "from": "eexrsxzoZOvhcZvlEwvcd",
+      "to": "OExWjfIdRigUOGvdkacJZ",
+      "handleMap": {
+        "source": "eexrsxzoZOvhcZvlEwvcd_2",
+        "target": "OExWjfIdRigUOGvdkacJZ_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#ff7875"
+    }
+  ],
+  "diagram": {
+    "eexrsxzoZOvhcZvlEwvcd": {
+      "x": 320,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "eexrsxzoZOvhcZvlEwvcd_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "eexrsxzoZOvhcZvlEwvcd_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "LVcrrxRvRkitQgeYgXnYW": {
+      "x": 128,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "LVcrrxRvRkitQgeYgXnYW_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "jLHMMhLOoBErErFdQEVxj": {
+      "x": 672,
+      "y": 176,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "jLHMMhLOoBErErFdQEVxj_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "DhqpUBgZtREGsLGqeKEug": {
+      "x": 704,
+      "y": -64,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "DhqpUBgZtREGsLGqeKEug_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "DhqpUBgZtREGsLGqeKEug_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "XkvyUfXIczBSKzfwoYWLi": {
+      "x": 848,
+      "y": -64,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "XkvyUfXIczBSKzfwoYWLi_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "PVWtvLpXdvEhcOqXZsPNu": {
+      "x": 720,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "PVWtvLpXdvEhcOqXZsPNu_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "CVhncWwlJBNTJcLOxoQFf": {
+      "x": 520,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "CVhncWwlJBNTJcLOxoQFf_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "CVhncWwlJBNTJcLOxoQFf_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "OExWjfIdRigUOGvdkacJZ": {
+      "x": 528,
+      "y": 176,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "OExWjfIdRigUOGvdkacJZ_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "OExWjfIdRigUOGvdkacJZ_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "OExWjfIdRigUOGvdkacJZ": {
+      "metaInfo": {
+        "id": "OExWjfIdRigUOGvdkacJZ",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "LogRemoveJobApiError",
+        "description": ""
+      },
+      "mappings": {
+        "LogRemoveJobApiError": {
+          "workflowContext": {
+            "pinsApplication": {
+              "applicationId": "$.gv.Context.app",
+              "host": "$.gv.Paycor.apiHost",
+              "apimKey": "$.gv.Paycor.apimKey"
+            },
+            "logging": {
+              "newRelicHost": "$.gv.NewRelic.host",
+              "newRelicKey": "$.gv.NewRelic.key",
+              "level": "$.gv.NewRelic.loggingLevel"
+            }
+          },
+          "message": "'Failed to remove job'",
+          "level": "'ERROR'",
+          "error": {
+            "__expr__": "$.error",
+            "stack": [
+              {
+                "__arrayItemName__": "stack"
+              }
+            ]
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "jLHMMhLOoBErErFdQEVxj": {
+      "metaInfo": {
+        "id": "jLHMMhLOoBErErFdQEVxj",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GenerateError",
+        "description": "This activity is for Generating Error"
+      },
+      "mappings": {
+        "GenerateError": {
+          "errorCode": "$.error.errorCode",
+          "errorMessage": "'Remove job Api Failed'"
+        }
+      },
+      "attributes": {}
+    },
+    "DhqpUBgZtREGsLGqeKEug": {
+      "metaInfo": {
+        "id": "DhqpUBgZtREGsLGqeKEug",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "LogAddJobApiError",
+        "description": ""
+      },
+      "mappings": {
+        "LogAddJobApiError": {
+          "workflowContext": {
+            "pinsApplication": {
+              "applicationId": "$.gv.Context.app",
+              "host": "$.gv.Paycor.apiHost",
+              "apimKey": "$.gv.Paycor.apimKey"
+            },
+            "logging": {
+              "newRelicHost": "$.gv.NewRelic.host",
+              "newRelicKey": "$.gv.NewRelic.key",
+              "level": "$.gv.NewRelic.loggingLevel"
+            }
+          },
+          "message": "'Failed to call Add Job Api'",
+          "level": "'ERROR'",
+          "error": {
+            "__expr__": "$.error",
+            "stack": [
+              {
+                "__arrayItemName__": "stack"
+              }
+            ]
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "XkvyUfXIczBSKzfwoYWLi": {
+      "metaInfo": {
+        "id": "XkvyUfXIczBSKzfwoYWLi",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GenerateError_1",
+        "description": "This activity is for Generating Error"
+      },
+      "mappings": {
+        "GenerateError_1": {
+          "errorCode": "$.error.errorCode",
+          "errorMessage": "'Add Job Api Failed'"
+        }
+      },
+      "attributes": {}
+    },
+    "eexrsxzoZOvhcZvlEwvcd": {
+      "metaInfo": {
+        "id": "eexrsxzoZOvhcZvlEwvcd",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "RemoveJob",
+        "description": ""
+      },
+      "mappings": {
+        "RemoveJob": {
+          "additionalHeaders": [
+            {
+              "__arrayItemName__": "additionalHeader"
+            }
+          ],
+          "body": {
+            "posProvider_EmployeeUID": "$.Start.posProvider_EmployeeUID",
+            "firstName": "$.Start.firstName",
+            "lastName": "$.Start.lastName",
+            "jobInfo": {
+              "jobCode": "$.Start.jobInfo.jobCode",
+              "payRate": "$.Start.jobInfo.payRate",
+              "eventEffectiveDate": "$.Start.jobInfo.eventEffectiveDate"
+            },
+            "payrollProvider_EmployeeUID": "$.Start.payrollProvider_EmployeeUID",
+            "locationNumber": "$.Start.locationNumber"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "CVhncWwlJBNTJcLOxoQFf": {
+      "metaInfo": {
+        "id": "CVhncWwlJBNTJcLOxoQFf",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "AddJob",
+        "description": ""
+      },
+      "mappings": {
+        "AddJob": {
+          "additionalHeaders": [
+            {
+              "__arrayItemName__": "additionalHeader"
+            }
+          ],
+          "body": {
+            "posProvider_EmployeeUID": "$.Start.posProvider_EmployeeUID",
+            "firstName": "$.Start.firstName",
+            "lastName": "$.Start.lastName",
+            "payrollProvider_EmployeeUID": "$.Start.payrollProvider_EmployeeUID",
+            "locationNumber": "$.Start.locationNumber",
+            "jobInfo": {
+              "jobCode": "$.Start.jobInfo.jobCode",
+              "payRate": "$.Start.jobInfo.payRate",
+              "eventEffectiveDate": "$.Start.jobInfo.eventEffectiveDate"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [
+    {
+      "id": "yFvukSjMfpvzMJZaOPilm",
+      "position": {
+        "x": 128,
+        "y": -96
+      },
+      "description": "Workflow to process the job transfer.",
+      "width": 150,
+      "height": 118
+    }
+  ],
+  "config": {
+    "name": "Transfer Job",
+    "workflowAttributes": [],
+    "context": "{\"Rosnet\":\"A4N8Q1L\"}",
+    "errorConfig": [],
+    "description": "Workflow to process the job transfer."
+  }
+}

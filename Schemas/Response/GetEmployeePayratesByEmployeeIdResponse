@@ -1,0 +1,16 @@
+{
+  "id": "wqTsfHCTtiUszzpafbHra",
+  "name": "GetEmployeePayratesByEmployeeIdResponse",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rWhUHFPxXoAFMOwWGzxHF",
+  "content": {
+    "name": "GetEmployeePayratesByEmployeeIdResponse",
+    "type": "json-schema",
+    "destination": "source",
+    "content": null,
+    "schemaSource": "file",
+    "reference": "$ref://schema-registry/wqTsfHCTtiUszzpafbHra"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

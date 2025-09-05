@@ -1,0 +1,222 @@
+{
+  "id": "ZtiKOLjnFpQIkrPiZsaZM",
+  "name": "Transfer Job Test",
+  "workflowName": "Transfer Job Test",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "jgpWAGmLiHlyPFStCxopC",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "bKUbTurnxoJXWmqiCBKpw",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityType": "END",
+        "activityName": "End",
+        "activityGroup": "Common",
+        "name": "End",
+        "sourceSchemas": [
+          "nBBOfHsDkQYukzgCOHYgs",
+          "TfsFMbBXWMBGgasZtRBtI"
+        ]
+      }
+    },
+    {
+      "id": "TfsFMbBXWMBGgasZtRBtI",
+      "stepName": "TestTransfer",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "name": "TestTransfer",
+        "description": "",
+        "path": "/transferJobTest",
+        "method": [
+          "POST"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "output": "gppKUfqttzbHggskokBYJ",
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "nBBOfHsDkQYukzgCOHYgs",
+      "stepName": "TransferJob",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "Subflow",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "TransferJob",
+        "description": "",
+        "subflowPath": "wf:{\"id\":\"bkjGHARbXhrDdnwUvfWkZ/zeVPnzRBaITPjQxhexOdI\",\"name\":\"/Workflows/Process/Transfer Job\"}",
+        "waitForCompletion": true,
+        "sourceSchemas": [
+          "TfsFMbBXWMBGgasZtRBtI"
+        ]
+      }
+    },
+    {
+      "id": "CKUpSGtkIPatazLzJBfKC",
+      "stepName": "SetContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "SetContext",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "SetContext",
+        "description": "",
+        "contexts": [
+          "Rosnet"
+        ],
+        "overWriteIfExists": true,
+        "sourceSchemas": [
+          "TfsFMbBXWMBGgasZtRBtI"
+        ]
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "LzPLqnKmZLEktUapcGtFe",
+      "from": "nBBOfHsDkQYukzgCOHYgs",
+      "to": "bKUbTurnxoJXWmqiCBKpw",
+      "handleMap": {
+        "source": "nBBOfHsDkQYukzgCOHYgs_2",
+        "target": "bKUbTurnxoJXWmqiCBKpw_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "LNsVtCgUKHEtavIwDaKwk",
+      "from": "TfsFMbBXWMBGgasZtRBtI",
+      "to": "CKUpSGtkIPatazLzJBfKC",
+      "handleMap": {
+        "source": "TfsFMbBXWMBGgasZtRBtI_1",
+        "target": "CKUpSGtkIPatazLzJBfKC_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "PYfZUQrxXZTegwBxguMLh",
+      "from": "CKUpSGtkIPatazLzJBfKC",
+      "to": "nBBOfHsDkQYukzgCOHYgs",
+      "handleMap": {
+        "source": "CKUpSGtkIPatazLzJBfKC_2",
+        "target": "nBBOfHsDkQYukzgCOHYgs_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "bKUbTurnxoJXWmqiCBKpw": {
+      "x": 584,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "bKUbTurnxoJXWmqiCBKpw_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "TfsFMbBXWMBGgasZtRBtI": {
+      "x": 48,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "TfsFMbBXWMBGgasZtRBtI_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "nBBOfHsDkQYukzgCOHYgs": {
+      "x": 376,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "nBBOfHsDkQYukzgCOHYgs_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "nBBOfHsDkQYukzgCOHYgs_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "CKUpSGtkIPatazLzJBfKC": {
+      "x": 212,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "CKUpSGtkIPatazLzJBfKC_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "CKUpSGtkIPatazLzJBfKC_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {},
+  "notes": [],
+  "config": {
+    "name": "Transfer Job Test",
+    "description": "",
+    "workflowAttributes": [],
+    "context": "{\"Rosnet\":\"A4N8Q1L\"}",
+    "errorConfig": []
+  }
+}

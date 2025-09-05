@@ -1,0 +1,16 @@
+{
+  "id": "CtwEfgxBmdEZOAATaNYJz",
+  "name": "GetJobTitlesByLegalEntityIdResponse",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "rWhUHFPxXoAFMOwWGzxHF",
+  "content": {
+    "name": "GetJobTitlesByLegalEntityIdResponse",
+    "type": "json-schema",
+    "destination": "source",
+    "schemaSource": "file",
+    "content": null,
+    "reference": "$ref://schema-registry/CtwEfgxBmdEZOAATaNYJz"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true
+}

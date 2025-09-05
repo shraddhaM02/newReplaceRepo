@@ -1,0 +1,813 @@
+{
+  "id": "oezwOybhVeedqGBmhdgKI",
+  "name": "Upsert Instance Record",
+  "workflowName": "Upsert Instance Record",
+  "itemType": "workflow",
+  "appId": "tJvoEMBnhXCrBzPYXcRLi",
+  "folderId": "SgDpIETCoSNpdPygXjZbm",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "rPvgsVmtIAODfPkjHDfAz",
+      "stepName": "GetJobCodes",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTClient",
+        "activityGroup": "HTTP",
+        "activityType": "SIMPLE",
+        "queryParams": [],
+        "pathParams": [
+          {
+            "name": "legalEntityId",
+            "type": "text"
+          }
+        ],
+        "headers": [
+          {
+            "name": "Ocp-Apim-Subscription-Key",
+            "defaultValue": "$:{\"id\":{},\"name\":\"\"}",
+            "inRequest": true,
+            "inResponse": false,
+            "required": true
+          }
+        ],
+        "output": "CtwEfgxBmdEZOAATaNYJz",
+        "name": "GetJobCodes",
+        "description": "",
+        "scheme": "HTTPS",
+        "uri": "$:{\"id\":{},\"name\":\"/v1/legalentities/{legalEntityId}/jobtitles\"}",
+        "host": "$:{\"id\":{\"${Paycor.apiHost}\":\"YCIjAbsoDkeHXvYBoIZSZ/mHXObehmGoPOoXNPnkhUx\"},\"name\":\"${Paycor.apiHost}\"}",
+        "port": "$:{\"id\":{},\"name\":\"\"}",
+        "method": "GET",
+        "timeout": 15000,
+        "authContext": "Paycor",
+        "sendToEngage": false,
+        "authType": "NO_AUTH",
+        "auth": "ref:{\"id\":\"\",\"name\":\"\"}",
+        "userName": "",
+        "password": "",
+        "key": "",
+        "value": "",
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": [
+          "zWshBeyMlnNUJZwXkQMDL",
+          "nLJbZyKRygiKHkStmwyFr",
+          "frsfogmrkUZSTLKHToQOP",
+          "NCYmnnYsfxcFWhxjdwDQz",
+          "JHjkBjBkflFrkEYQhcBxy"
+        ]
+      }
+    },
+    {
+      "id": "mJgOunsnUSoZXMqlJBPDM",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityType": "END",
+        "activityName": "End",
+        "activityGroup": "Common",
+        "name": "End",
+        "sourceSchemas": [
+          "kAqdUSFOnaRWRmDnQZYIc",
+          "LQoQfmxfswKSkFwtIMvDo",
+          "zWshBeyMlnNUJZwXkQMDL",
+          "nLJbZyKRygiKHkStmwyFr",
+          "frsfogmrkUZSTLKHToQOP",
+          "NCYmnnYsfxcFWhxjdwDQz",
+          "JHjkBjBkflFrkEYQhcBxy",
+          "rPvgsVmtIAODfPkjHDfAz"
+        ]
+      }
+    },
+    {
+      "id": "zWshBeyMlnNUJZwXkQMDL",
+      "stepName": "SetContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "SetContext",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "SetContext",
+        "description": "",
+        "contexts": [
+          "Paycor"
+        ],
+        "overWriteIfExists": true,
+        "sourceSchemas": [
+          "nLJbZyKRygiKHkStmwyFr",
+          "frsfogmrkUZSTLKHToQOP",
+          "NCYmnnYsfxcFWhxjdwDQz",
+          "JHjkBjBkflFrkEYQhcBxy"
+        ]
+      }
+    },
+    {
+      "id": "LQoQfmxfswKSkFwtIMvDo",
+      "stepName": "GetJobLocation",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTClient",
+        "activityGroup": "HTTP",
+        "activityType": "SIMPLE",
+        "queryParams": [],
+        "pathParams": [
+          {
+            "name": "legalEntityId",
+            "type": "text"
+          }
+        ],
+        "output": "QInRrrRTGhVDtAjHQYrYM",
+        "headers": [
+          {
+            "name": "Ocp-Apim-Subscription-Key",
+            "defaultValue": "$:{\"id\":{},\"name\":\"\"}",
+            "inRequest": true,
+            "inResponse": false,
+            "required": true
+          }
+        ],
+        "name": "GetJobLocation",
+        "description": "",
+        "scheme": "HTTPS",
+        "uri": "$:{\"id\":{},\"name\":\"/v1/legalentities/{legalEntityId}/worklocations\"}",
+        "host": "$:{\"id\":{\"${Paycor.apiHost}\":\"YCIjAbsoDkeHXvYBoIZSZ/mHXObehmGoPOoXNPnkhUx\"},\"name\":\"${Paycor.apiHost}\"}",
+        "port": "$:{\"id\":{},\"name\":\"\"}",
+        "method": "GET",
+        "timeout": 15000,
+        "authContext": "Paycor",
+        "sendToEngage": false,
+        "authType": "NO_AUTH",
+        "auth": "ref:{\"id\":\"\",\"name\":\"\"}",
+        "userName": "",
+        "password": "",
+        "key": "",
+        "value": "",
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": [
+          "zWshBeyMlnNUJZwXkQMDL",
+          "nLJbZyKRygiKHkStmwyFr",
+          "frsfogmrkUZSTLKHToQOP",
+          "NCYmnnYsfxcFWhxjdwDQz",
+          "JHjkBjBkflFrkEYQhcBxy"
+        ]
+      }
+    },
+    {
+      "id": "JHjkBjBkflFrkEYQhcBxy",
+      "stepName": "UpsertInsertRecord",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "queryParams": [],
+        "pathParams": [
+          {
+            "name": "legalEntityId",
+            "type": "text"
+          },
+          {
+            "name": "option",
+            "type": "text"
+          }
+        ],
+        "name": "UpsertInsertRecord",
+        "description": "",
+        "path": "/upsertInstanceRecord/{legalEntityId}/{option}",
+        "method": [
+          "GET"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "output": "",
+        "showHttpFormSelectionPanel": false,
+        "sourceSchemas": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "kAqdUSFOnaRWRmDnQZYIc",
+      "stepName": "AddIntegrationConfMappingOptions",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "AddIntegrationConfMappingOptions",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "name": "AddIntegrationConfMappingOptions",
+        "sourceSchemas": [
+          "LQoQfmxfswKSkFwtIMvDo",
+          "zWshBeyMlnNUJZwXkQMDL",
+          "nLJbZyKRygiKHkStmwyFr",
+          "frsfogmrkUZSTLKHToQOP",
+          "NCYmnnYsfxcFWhxjdwDQz",
+          "JHjkBjBkflFrkEYQhcBxy",
+          "rPvgsVmtIAODfPkjHDfAz"
+        ]
+      }
+    },
+    {
+      "id": "nLJbZyKRygiKHkStmwyFr",
+      "stepName": "GetRegisteredLegalEntitiesForApp",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "GetRegisteredLegalEntitiesForApp",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "name": "GetRegisteredLegalEntitiesForApp",
+        "sourceSchemas": [
+          "frsfogmrkUZSTLKHToQOP",
+          "NCYmnnYsfxcFWhxjdwDQz",
+          "JHjkBjBkflFrkEYQhcBxy"
+        ]
+      }
+    },
+    {
+      "id": "frsfogmrkUZSTLKHToQOP",
+      "stepName": "GetIntegrationConfigMappingRecords",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "GetIntegrationConfigMappingRecords",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "name": "GetIntegrationConfigMappingRecords",
+        "description": "",
+        "output": "",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "sourceSchemas": [
+          "NCYmnnYsfxcFWhxjdwDQz",
+          "JHjkBjBkflFrkEYQhcBxy"
+        ]
+      }
+    },
+    {
+      "id": "NCYmnnYsfxcFWhxjdwDQz",
+      "stepName": "CheckAndEnrichContext",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "CheckAndEnrichContext",
+        "activityGroup": "Paycornext",
+        "activityType": "SIMPLE",
+        "isCustomType": true,
+        "templateOfActivity": "Subflow",
+        "templateOfGroup": "Common",
+        "name": "CheckAndEnrichContext",
+        "sourceSchemas": [
+          "JHjkBjBkflFrkEYQhcBxy"
+        ]
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "id": "cOacJOjnsWrkgOqOUwLUy",
+      "from": "JHjkBjBkflFrkEYQhcBxy",
+      "to": "NCYmnnYsfxcFWhxjdwDQz",
+      "handleMap": {
+        "source": "JHjkBjBkflFrkEYQhcBxy_1",
+        "target": "NCYmnnYsfxcFWhxjdwDQz_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "kpSnRCEagUCMZjthNntbN",
+      "from": "kAqdUSFOnaRWRmDnQZYIc",
+      "to": "mJgOunsnUSoZXMqlJBPDM",
+      "handleMap": {
+        "source": "kAqdUSFOnaRWRmDnQZYIc_2",
+        "target": "mJgOunsnUSoZXMqlJBPDM_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "nYBweaUNQpVsudlwWVWzV",
+      "from": "LQoQfmxfswKSkFwtIMvDo",
+      "to": "kAqdUSFOnaRWRmDnQZYIc",
+      "handleMap": {
+        "source": "LQoQfmxfswKSkFwtIMvDo_2",
+        "target": "kAqdUSFOnaRWRmDnQZYIc_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "FYkKafIgGkUVqaFOwhvUh",
+      "from": "rPvgsVmtIAODfPkjHDfAz",
+      "to": "kAqdUSFOnaRWRmDnQZYIc",
+      "handleMap": {
+        "source": "rPvgsVmtIAODfPkjHDfAz_2",
+        "target": "kAqdUSFOnaRWRmDnQZYIc_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "eLNUjmXMarbLdJlGgDbhO",
+      "from": "zWshBeyMlnNUJZwXkQMDL",
+      "to": "LQoQfmxfswKSkFwtIMvDo",
+      "handleMap": {
+        "source": "zWshBeyMlnNUJZwXkQMDL_2",
+        "target": "LQoQfmxfswKSkFwtIMvDo_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "SUCCESS_MATCHING_CONDITION",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "condition": "$.UpsertInsertRecord.pathParams.option='Location'"
+    },
+    {
+      "id": "HHTgojkEOpRPpjOxjWYch",
+      "from": "zWshBeyMlnNUJZwXkQMDL",
+      "to": "rPvgsVmtIAODfPkjHDfAz",
+      "handleMap": {
+        "source": "zWshBeyMlnNUJZwXkQMDL_2",
+        "target": "rPvgsVmtIAODfPkjHDfAz_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "SUCCESS_NO_MATCHING_CONDITION",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "QcyqMBPCLTfbesGxdhNDf",
+      "from": "NCYmnnYsfxcFWhxjdwDQz",
+      "to": "frsfogmrkUZSTLKHToQOP",
+      "handleMap": {
+        "source": "NCYmnnYsfxcFWhxjdwDQz_2",
+        "target": "frsfogmrkUZSTLKHToQOP_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "JuKnuxSkwyBqAUZwDMyLr",
+      "from": "frsfogmrkUZSTLKHToQOP",
+      "to": "nLJbZyKRygiKHkStmwyFr",
+      "handleMap": {
+        "source": "frsfogmrkUZSTLKHToQOP_2",
+        "target": "nLJbZyKRygiKHkStmwyFr_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
+    {
+      "id": "jWJJQapQQcgNJVBvZjpHS",
+      "from": "nLJbZyKRygiKHkStmwyFr",
+      "to": "zWshBeyMlnNUJZwXkQMDL",
+      "handleMap": {
+        "source": "nLJbZyKRygiKHkStmwyFr_2",
+        "target": "zWshBeyMlnNUJZwXkQMDL_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    }
+  ],
+  "diagram": {
+    "rPvgsVmtIAODfPkjHDfAz": {
+      "x": 888,
+      "y": 128,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "rPvgsVmtIAODfPkjHDfAz_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "rPvgsVmtIAODfPkjHDfAz_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "mJgOunsnUSoZXMqlJBPDM": {
+      "x": 1208,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "mJgOunsnUSoZXMqlJBPDM_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    },
+    "zWshBeyMlnNUJZwXkQMDL": {
+      "x": 712,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "zWshBeyMlnNUJZwXkQMDL_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "zWshBeyMlnNUJZwXkQMDL_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "LQoQfmxfswKSkFwtIMvDo": {
+      "x": 888,
+      "y": -32,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "LQoQfmxfswKSkFwtIMvDo_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "LQoQfmxfswKSkFwtIMvDo_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "JHjkBjBkflFrkEYQhcBxy": {
+      "x": 144,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "JHjkBjBkflFrkEYQhcBxy_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "kAqdUSFOnaRWRmDnQZYIc": {
+      "x": 1064,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "kAqdUSFOnaRWRmDnQZYIc_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "kAqdUSFOnaRWRmDnQZYIc_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "nLJbZyKRygiKHkStmwyFr": {
+      "x": 560,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "nLJbZyKRygiKHkStmwyFr_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "nLJbZyKRygiKHkStmwyFr_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "frsfogmrkUZSTLKHToQOP": {
+      "x": 416,
+      "y": 48,
+      "handles": [
+        {
+          "type": "source",
+          "position": "left",
+          "id": "frsfogmrkUZSTLKHToQOP_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "frsfogmrkUZSTLKHToQOP_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "NCYmnnYsfxcFWhxjdwDQz": {
+      "x": 272,
+      "y": 48,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "NCYmnnYsfxcFWhxjdwDQz_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "NCYmnnYsfxcFWhxjdwDQz_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "NCYmnnYsfxcFWhxjdwDQz": {
+      "metaInfo": {
+        "id": "NCYmnnYsfxcFWhxjdwDQz",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "CheckAndEnrichContext",
+        "description": ""
+      },
+      "mappings": {
+        "CheckAndEnrichContext": {
+          "workflowContext": {
+            "client": {
+              "legalEntityId": "$.UpsertInsertRecord.pathParams.legalEntityId",
+              "requireTenantId": "false"
+            },
+            "pinsApplication": {
+              "applicationId": "$.gv.Context.app",
+              "host": "$.gv.Pins.host",
+              "apimKey": "$.gv.Pins.apimKey"
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "zWshBeyMlnNUJZwXkQMDL": {
+      "metaInfo": {
+        "id": "zWshBeyMlnNUJZwXkQMDL",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "SetContext",
+        "description": ""
+      },
+      "mappings": {
+        "SetContext": {
+          "contexts": {
+            "Paycor": {
+              "application": "$.gv.Context.app",
+              "env": "$.gv.Context.env",
+              "provider": "'Paycor'",
+              "resourceType": "'OAuth'",
+              "tag": {
+                "name": "'legalEntityId'",
+                "value": "$.UpsertInsertRecord.pathParams.legalEntityId"
+              }
+            }
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "LQoQfmxfswKSkFwtIMvDo": {
+      "metaInfo": {
+        "id": "LQoQfmxfswKSkFwtIMvDo",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetJobLocation",
+        "description": ""
+      },
+      "mappings": {
+        "GetJobLocation": {
+          "headers": {
+            "Ocp-Apim-Subscription-Key": "$.gv.Paycor.apimKey"
+          },
+          "additionalHeaders": [
+            {
+              "__arrayItemName__": "additionalHeader"
+            }
+          ],
+          "pathParams": {
+            "legalEntityId": "intValue($.UpsertInsertRecord.pathParams.legalEntityId)"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "kAqdUSFOnaRWRmDnQZYIc": {
+      "metaInfo": {
+        "id": "kAqdUSFOnaRWRmDnQZYIc",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "AddIntegrationConfMappingOptions",
+        "description": ""
+      },
+      "mappings": {
+        "AddIntegrationConfMappingOptions": {
+          "workflowContext": {
+            "__expr__": "$.CheckAndEnrichContext.workflowContext"
+          },
+          "configRecordName": {
+            "#if ($.UpsertInsertRecord.pathParams.option='Location')": [
+              "'Location'"
+            ],
+            "#else": [
+              "'JobCode'"
+            ]
+          },
+          "targetList": "'To'",
+          "instanceRecordOptions": {
+            "instanceOptions": [
+              {
+                "#if ($.UpsertInsertRecord.pathParams.option='JobCode') as instanceOption1": [
+                  {
+                    "#forEach ($.GetJobCodes.httpResponse.body.records) as instanceOption1, true, true": [
+                      {
+                        "optionOrder": "position()",
+                        "optionValue": ".jobTitle",
+                        "optionDisplay": ".jobTitle",
+                        "isDefault": "false",
+                        "__arrayItemName__": "instanceOption1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "#if ($.UpsertInsertRecord.pathParams.option='Location') as instanceOption2": [
+                  {
+                    "#forEach ($.GetJobLocation.httpResponse.body.records) as instanceOption2, true, true": [
+                      {
+                        "optionOrder": "position()",
+                        "optionValue": ".name",
+                        "optionDisplay": ".name",
+                        "isDefault": "false",
+                        "__arrayItemName__": "instanceOption2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "rPvgsVmtIAODfPkjHDfAz": {
+      "metaInfo": {
+        "id": "rPvgsVmtIAODfPkjHDfAz",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetJobCodes",
+        "description": ""
+      },
+      "mappings": {
+        "GetJobCodes": {
+          "headers": {
+            "Ocp-Apim-Subscription-Key": "$.gv.Paycor.apimKey"
+          },
+          "additionalHeaders": [
+            {
+              "__arrayItemName__": "additionalHeader"
+            }
+          ],
+          "pathParams": {
+            "legalEntityId": "$.UpsertInsertRecord.pathParams.legalEntityId"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "frsfogmrkUZSTLKHToQOP": {
+      "metaInfo": {
+        "id": "frsfogmrkUZSTLKHToQOP",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetIntegrationConfigMappingRecords",
+        "description": "<p>This gets the integration configuration mapping records for a given configuration record name.</p>"
+      },
+      "mappings": {
+        "GetIntegrationConfigMappingRecords": {
+          "workflowContext": {
+            "__expr__": "$.CheckAndEnrichContext.workflowContext"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "nLJbZyKRygiKHkStmwyFr": {
+      "metaInfo": {
+        "id": "nLJbZyKRygiKHkStmwyFr",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetRegisteredLegalEntitiesForApp",
+        "description": ""
+      },
+      "mappings": {
+        "GetRegisteredLegalEntitiesForApp": {
+          "workflowContext": {
+            "__expr__": "$.CheckAndEnrichContext.workflowContext"
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [
+    {
+      "id": "XnMpMKUDbVrWTbruuaFmy",
+      "position": {
+        "x": 160,
+        "y": -96
+      },
+      "description": "workflow to upsert JobCodes and Locations.",
+      "width": 150,
+      "height": 86
+    }
+  ],
+  "config": {
+    "name": "Upsert Instance Record",
+    "description": "workflow to upsert JobCodes and Locations.",
+    "workflowAttributes": [],
+    "context": "{\"Paycor\":\"A4N8Q1L\"}",
+    "errorConfig": []
+  }
+}
