@@ -4,32 +4,10 @@
   "workflowName": "Create Employee Test",
   "itemType": "workflow",
   "appId": "tJvoEMBnhXCrBzPYXcRLi",
-  "folderId": "jgpWAGmLiHlyPFStCxopC",
+  "folderId": "MecqdFmZktKZmqltwGEBY",
   "type": "ORCHESTRATION",
   "version": "0.0.1",
   "steps": [
-    {
-      "id": "QmWUMdvmhgBBVYKmMvujp",
-      "stepName": "End",
-      "stepType": "END",
-      "icon": "",
-      "indicator": "",
-      "description": "",
-      "deletable": true,
-      "config": {
-        "activityName": "End",
-        "activityGroup": "Common",
-        "activityType": "END",
-        "name": "End",
-        "sourceSchemas": [
-          "ewHbhtJrVyOavdoSoyTiw",
-          "kFWYLZTxKvaywMfFJVkUw",
-          "raaCqnyTBsvzglqUZyCRn",
-          "CtrcezFVTDFRpZEenycEJ"
-        ]
-      },
-      "activityCluster": []
-    },
     {
       "id": "CtrcezFVTDFRpZEenycEJ",
       "stepName": "CreateEmployee",
@@ -61,19 +39,30 @@
       "activityCluster": null
     },
     {
-      "id": "raaCqnyTBsvzglqUZyCRn",
-      "stepName": "UseProfile",
+      "id": "ewHbhtJrVyOavdoSoyTiw",
+      "stepName": "ProcessCreateEmployee",
       "stepType": "SIMPLE",
       "icon": "",
       "indicator": "",
-      "description": "",
+      "description": "Subflow to process create employee",
       "deletable": true,
       "config": {
-        "activityName": "UseProfile",
+        "activityName": "Subflow",
         "activityGroup": "Common",
         "activityType": "SIMPLE",
-        "name": "UseProfile",
+        "name": "ProcessCreateEmployee",
+        "description": "Subflow to process create employee",
+        "subflowPath": "wf:{\"id\":\"lMeaDyulkyOJayrVgEHIa/wDasKjHzNamMBKTFjRRSq\",\"name\":\"/Workflows/Process/Create Employee\"}",
+        "waitForCompletion": true,
+        "contextMapping": [
+          {
+            "subflowContext": "Rosnet",
+            "workflowContext": "Rosnet"
+          }
+        ],
         "sourceSchemas": [
+          "kFWYLZTxKvaywMfFJVkUw",
+          "raaCqnyTBsvzglqUZyCRn",
           "CtrcezFVTDFRpZEenycEJ"
         ]
       }
@@ -103,36 +92,61 @@
       }
     },
     {
-      "id": "ewHbhtJrVyOavdoSoyTiw",
-      "stepName": "ProcessCreateEmployee",
+      "id": "QmWUMdvmhgBBVYKmMvujp",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "End",
+        "sourceSchemas": [
+          "ewHbhtJrVyOavdoSoyTiw",
+          "kFWYLZTxKvaywMfFJVkUw",
+          "raaCqnyTBsvzglqUZyCRn",
+          "CtrcezFVTDFRpZEenycEJ"
+        ]
+      },
+      "activityCluster": []
+    },
+    {
+      "id": "raaCqnyTBsvzglqUZyCRn",
+      "stepName": "UseProfile",
       "stepType": "SIMPLE",
       "icon": "",
       "indicator": "",
-      "description": "Subflow to process create employee",
+      "description": "",
       "deletable": true,
       "config": {
-        "activityName": "Subflow",
+        "activityName": "UseProfile",
         "activityGroup": "Common",
         "activityType": "SIMPLE",
-        "name": "ProcessCreateEmployee",
-        "description": "Subflow to process create employee",
-        "subflowPath": "wf:{\"id\":\"lMeaDyulkyOJayrVgEHIa/wDasKjHzNamMBKTFjRRSq\",\"name\":\"/Workflows/Process/Create Employee\"}",
-        "waitForCompletion": true,
-        "contextMapping": [
-          {
-            "subflowContext": "Rosnet",
-            "workflowContext": "Rosnet"
-          }
-        ],
+        "name": "UseProfile",
         "sourceSchemas": [
-          "kFWYLZTxKvaywMfFJVkUw",
-          "raaCqnyTBsvzglqUZyCRn",
           "CtrcezFVTDFRpZEenycEJ"
         ]
       }
     }
   ],
   "transitions": [
+    {
+      "id": "FcaQQzCNlorzBwScGyYdb",
+      "from": "CtrcezFVTDFRpZEenycEJ",
+      "to": "raaCqnyTBsvzglqUZyCRn",
+      "handleMap": {
+        "source": "CtrcezFVTDFRpZEenycEJ_1",
+        "target": "raaCqnyTBsvzglqUZyCRn_1"
+      },
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c"
+    },
     {
       "id": "GDPBDmZXUfGvVymOQGvYA",
       "from": "ewHbhtJrVyOavdoSoyTiw",
@@ -154,20 +168,6 @@
       "handleMap": {
         "source": "kFWYLZTxKvaywMfFJVkUw_2",
         "target": "ewHbhtJrVyOavdoSoyTiw_1"
-      },
-      "name": "",
-      "description": "",
-      "type": "DEFAULT",
-      "lineType": "step",
-      "lineColor": "#8c8c8c"
-    },
-    {
-      "id": "FcaQQzCNlorzBwScGyYdb",
-      "from": "CtrcezFVTDFRpZEenycEJ",
-      "to": "raaCqnyTBsvzglqUZyCRn",
-      "handleMap": {
-        "source": "CtrcezFVTDFRpZEenycEJ_1",
-        "target": "raaCqnyTBsvzglqUZyCRn_1"
       },
       "name": "",
       "description": "",
@@ -377,7 +377,7 @@
       },
       "description": "Workflow to send collected API data from parent flow to send Employee API.",
       "width": 150,
-      "height": 118
+      "height": 178
     }
   ],
   "config": {
