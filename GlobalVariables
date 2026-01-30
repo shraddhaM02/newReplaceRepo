@@ -171,6 +171,13 @@
         "type": "string",
         "defaultValue": "ghi",
         "enabled": true
+      },
+      {
+        "id": "QYYDkSUxMTELtkwcKqafm",
+        "name": "demo",
+        "type": "string",
+        "defaultValue": "pass",
+        "enabled": true
       }
     ],
     "enabled": true,
