@@ -178,6 +178,13 @@
         "type": "string",
         "defaultValue": "pass",
         "enabled": true
+      },
+      {
+        "id": "ppjJaiauVnxAOHfUTxsLe",
+        "name": "hello",
+        "type": "string",
+        "defaultValue": "cd",
+        "enabled": true
       }
     ],
     "enabled": true,
