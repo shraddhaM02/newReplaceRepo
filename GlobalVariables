@@ -164,7 +164,15 @@
     "id": "TFZikeOpqwNBEWFLiQHQX",
     "appId": "zTyvxjhNGqqoZyNvBsJcy",
     "name": "Demo",
-    "variables": [],
+    "variables": [
+      {
+        "id": "SvPCkxKKSWSjbwTiBFmXs",
+        "name": "abcdef",
+        "type": "string",
+        "defaultValue": "ghi",
+        "enabled": true
+      }
+    ],
     "enabled": true,
     "gitEnabled": true
   }
