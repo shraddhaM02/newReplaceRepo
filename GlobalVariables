@@ -190,18 +190,10 @@
     "enabled": true,
     "gitEnabled": true
   },
-  "PdACMYvLJifMIPbLtpSoP": {
-    "id": "PdACMYvLJifMIPbLtpSoP",
+  "zxqcYaNucWWpaByntZRde": {
+    "id": "zxqcYaNucWWpaByntZRde",
     "appId": "zTyvxjhNGqqoZyNvBsJcy",
-    "name": "ABC",
-    "variables": [],
-    "enabled": true,
-    "gitEnabled": true
-  },
-  "VhNZdKdCuXnajiopOVlHO": {
-    "id": "VhNZdKdCuXnajiopOVlHO",
-    "appId": "zTyvxjhNGqqoZyNvBsJcy",
-    "name": "GHI",
+    "name": "new",
     "variables": [],
     "enabled": true,
     "gitEnabled": true
