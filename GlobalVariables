@@ -135,6 +135,17 @@
     "name": "Pins",
     "variables": [
       {
+        "id": "ghFpclsuzxCHAmXvdJOme",
+        "type": "secret",
+        "name": "apimKey",
+        "enabled": true,
+        "defaultValue": "759691ff3cc14128a1c8c28b8f25bd8b",
+        "scope": "Deployment",
+        "description": "",
+        "groupId": "brmDvyKFkAvyQDclMulDc",
+        "globalVariableType": ""
+      },
+      {
         "id": "MxQOgvEzpWnaEhqoPqacf",
         "type": "string",
         "name": "host",
@@ -146,15 +157,11 @@
         "globalVariableType": ""
       },
       {
-        "id": "ghFpclsuzxCHAmXvdJOme",
-        "type": "secret",
-        "name": "apimKey",
-        "enabled": true,
-        "defaultValue": "759691ff3cc14128a1c8c28b8f25bd8b",
-        "scope": "Deployment",
-        "description": "",
-        "groupId": "brmDvyKFkAvyQDclMulDc",
-        "globalVariableType": ""
+        "id": "NmFvHIyaacZlfgcBBJFmp",
+        "name": "abc",
+        "type": "string",
+        "defaultValue": "def",
+        "enabled": true
       }
     ],
     "appId": "tJvoEMBnhXCrBzPYXcRLi",
