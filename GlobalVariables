@@ -210,7 +210,15 @@
     "id": "WBEZyEXkjVQUQsmqiIgAp",
     "appId": "zTyvxjhNGqqoZyNvBsJcy",
     "name": "web",
-    "variables": [],
+    "variables": [
+      {
+        "id": "SbwuOeNSqNvWioLGTymvL",
+        "name": "abc",
+        "type": "string",
+        "defaultValue": "123",
+        "enabled": true
+      }
+    ],
     "enabled": true,
     "gitEnabled": true
   }
