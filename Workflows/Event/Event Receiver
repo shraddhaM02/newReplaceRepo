@@ -4,28 +4,33 @@
   "workflowName": "Event Receiver",
   "itemType": "workflow",
   "appId": "tJvoEMBnhXCrBzPYXcRLi",
-  "folderId": "rcGpsFMHkSIhbZnEDWjsi",
+  "folderId": "lhTvIkfTlxGYSRywdEaxo",
   "type": "ORCHESTRATION",
   "version": "0.0.1",
   "steps": [
     {
-      "id": "ynNXphagFQLpBCCRRzPbI",
-      "stepName": "End",
-      "stepType": "END",
+      "id": "EqxpYOWYFwTzgoXtUcPNF",
+      "stepName": "EventProcess",
+      "stepType": "SIMPLE",
       "icon": "",
       "indicator": "",
-      "description": "",
+      "description": "Subflow to process events.",
       "deletable": true,
       "config": {
-        "activityType": "END",
-        "activityName": "End",
+        "activityName": "Subflow",
         "activityGroup": "Common",
-        "name": "End",
+        "activityType": "SIMPLE",
+        "name": "EventProcess",
+        "description": "Subflow to process events.",
+        "subflowPath": "wf:{\"id\":\"ddgKVGKUrmpZrgRWDgXra/XiACbtNBzUXjNAGfReqXi\",\"name\":\"/Workflows/Process/Event Process\"}",
+        "waitForCompletion": true,
+        "contextMapping": [],
+        "output": "",
         "sourceSchemas": [
-          "EqxpYOWYFwTzgoXtUcPNF",
           "rYfHcYvmmlIBSKzAjlzEX"
         ]
-      }
+      },
+      "activityCluster": null
     },
     {
       "id": "rYfHcYvmmlIBSKzAjlzEX",
@@ -55,38 +60,33 @@
       "activityCluster": null
     },
     {
-      "id": "EqxpYOWYFwTzgoXtUcPNF",
-      "stepName": "EventProcess",
-      "stepType": "SIMPLE",
+      "id": "ynNXphagFQLpBCCRRzPbI",
+      "stepName": "End",
+      "stepType": "END",
       "icon": "",
       "indicator": "",
-      "description": "Subflow to process events.",
+      "description": "",
       "deletable": true,
       "config": {
-        "activityName": "Subflow",
+        "activityType": "END",
+        "activityName": "End",
         "activityGroup": "Common",
-        "activityType": "SIMPLE",
-        "name": "EventProcess",
-        "description": "Subflow to process events.",
-        "subflowPath": "wf:{\"id\":\"ddgKVGKUrmpZrgRWDgXra/XiACbtNBzUXjNAGfReqXi\",\"name\":\"/Workflows/Process/Event Process\"}",
-        "waitForCompletion": true,
-        "contextMapping": [],
-        "output": "",
+        "name": "End",
         "sourceSchemas": [
+          "EqxpYOWYFwTzgoXtUcPNF",
           "rYfHcYvmmlIBSKzAjlzEX"
         ]
-      },
-      "activityCluster": null
+      }
     }
   ],
   "transitions": [
     {
-      "id": "sBjRxgHSPKAUuuwKLjQMH",
-      "from": "EqxpYOWYFwTzgoXtUcPNF",
-      "to": "ynNXphagFQLpBCCRRzPbI",
+      "id": "jNglHIkKNhPrVUgZmrcVh",
+      "from": "rYfHcYvmmlIBSKzAjlzEX",
+      "to": "EqxpYOWYFwTzgoXtUcPNF",
       "handleMap": {
-        "source": "EqxpYOWYFwTzgoXtUcPNF_2",
-        "target": "ynNXphagFQLpBCCRRzPbI_1"
+        "source": "rYfHcYvmmlIBSKzAjlzEX_1",
+        "target": "EqxpYOWYFwTzgoXtUcPNF_1"
       },
       "name": "",
       "description": "",
@@ -95,12 +95,12 @@
       "lineColor": "#8c8c8c"
     },
     {
-      "id": "jNglHIkKNhPrVUgZmrcVh",
-      "from": "rYfHcYvmmlIBSKzAjlzEX",
-      "to": "EqxpYOWYFwTzgoXtUcPNF",
+      "id": "sBjRxgHSPKAUuuwKLjQMH",
+      "from": "EqxpYOWYFwTzgoXtUcPNF",
+      "to": "ynNXphagFQLpBCCRRzPbI",
       "handleMap": {
-        "source": "rYfHcYvmmlIBSKzAjlzEX_1",
-        "target": "EqxpYOWYFwTzgoXtUcPNF_1"
+        "source": "EqxpYOWYFwTzgoXtUcPNF_2",
+        "target": "ynNXphagFQLpBCCRRzPbI_1"
       },
       "name": "",
       "description": "",
@@ -184,18 +184,7 @@
       "attributes": {}
     }
   },
-  "notes": [
-    {
-      "id": "yoAvNqHknQpTJdRdSmenU",
-      "position": {
-        "x": 128,
-        "y": -80
-      },
-      "description": "This workflow is used to receive event details and process it.",
-      "width": 150,
-      "height": 102
-    }
-  ],
+  "notes": [],
   "config": {
     "name": "Event Receiver",
     "description": "Workflow to receive the event and process it.",
