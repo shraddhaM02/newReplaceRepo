@@ -236,5 +236,13 @@
     "variables": [],
     "enabled": true,
     "gitEnabled": true
+  },
+  "HrnUfoXIxVnAVUyIiqmdD": {
+    "id": "HrnUfoXIxVnAVUyIiqmdD",
+    "appId": "zTyvxjhNGqqoZyNvBsJcy",
+    "name": "fixVariable",
+    "variables": [],
+    "enabled": true,
+    "gitEnabled": true
   }
 }
